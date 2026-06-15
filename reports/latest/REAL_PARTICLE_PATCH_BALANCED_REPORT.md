@@ -1,8 +1,8 @@
 # Real Particle Patch Controls v2 balanced
 
-checkpoint=local_checkpoints/part/ParT_full.pt
-mode=full
-n=1280 samples_per_file=128
+checkpoint=local_checkpoints/part/ParT_kinpid.pt
+mode=kinpid
+n=640 samples_per_file=64
 missing=[] unexpected=[]
 
 ## Baseline
@@ -10,31 +10,31 @@ missing=[] unexpected=[]
   "patch": "baseline",
   "layer": "",
   "group": "",
-  "n": 1280,
-  "pred_counts": "[459, 0, 104, 0, 12, 162, 477, 0, 0, 66]",
-  "true_counts": "[128, 128, 128, 128, 128, 128, 128, 128, 128, 128]",
-  "acc": 0.11015625298023224
+  "n": 640,
+  "pred_counts": "[395, 13, 28, 1, 11, 0, 179, 10, 0, 3]",
+  "true_counts": "[64, 64, 64, 64, 64, 64, 64, 64, 64, 64]",
+  "acc": 0.09531249850988388
 }
 
 ## Top patches
 | rank | patch | layer | group | delta_logit | KL | top1 | acc->patch_acc |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | cls_block_zero | 1 | cls_block | 4.6342 | 1.4145 | 0.3586 | 0.1102->0.1000 |
-| 2 | cls_block_zero | 0 | cls_block | 2.1227 | 3.8319 | 0.3586 | 0.1102->0.1008 |
-| 3 | pair_embed_zero |  | pair_bias | 1.3657 | 0.9760 | 0.6164 | 0.1102->0.1078 |
-| 4 | particle_block_skip | 0 | block | 0.7062 | 0.7814 | 0.6570 | 0.1102->0.1055 |
-| 5 | particle_block_skip | 1 | block | 0.4469 | 0.3980 | 0.7125 | 0.1102->0.1125 |
-| 6 | particle_block_skip | 7 | block | 0.4193 | 0.8113 | 0.6289 | 0.1102->0.1094 |
-| 7 | particle_block_skip | 2 | block | 0.1581 | 0.2823 | 0.7656 | 0.1102->0.1148 |
-| 8 | particle_block_skip | 6 | block | 0.1320 | 0.4224 | 0.7031 | 0.1102->0.1187 |
-| 9 | particle_block_skip | 3 | block | 0.0982 | 0.1876 | 0.8313 | 0.1102->0.1125 |
-| 10 | particle_block_skip | 5 | block | -0.0638 | 0.3905 | 0.7078 | 0.1102->0.1266 |
-| 11 | mlp_top_group_zero | 6 | top32 | -0.0608 | 0.0233 | 0.9398 | 0.1102->0.1070 |
-| 12 | mlp_top_group_zero | 7 | top32 | -0.0518 | 0.0854 | 0.8992 | 0.1102->0.1133 |
-| 13 | particle_block_skip | 4 | block | -0.0394 | 0.2519 | 0.7812 | 0.1102->0.1172 |
-| 14 | mlp_top_group_zero | 1 | top32 | 0.0352 | 0.0245 | 0.9438 | 0.1102->0.1109 |
-| 15 | mlp_top_group_zero | 2 | top32 | 0.0184 | 0.0127 | 0.9555 | 0.1102->0.1102 |
-| 16 | mlp_top_group_zero | 3 | top32 | 0.0125 | 0.0073 | 0.9656 | 0.1102->0.1102 |
-| 17 | mlp_top_group_zero | 4 | top32 | 0.0106 | 0.0137 | 0.9492 | 0.1102->0.1133 |
-| 18 | mlp_top_group_zero | 0 | top32 | 0.0099 | 0.0337 | 0.9273 | 0.1102->0.1102 |
-| 19 | mlp_top_group_zero | 5 | top32 | -0.0083 | 0.0195 | 0.9398 | 0.1102->0.1141 |
+| 1 | cls_block_zero | 0 | cls_block | 3.6519 | 2.1040 | 0.2750 | 0.0953->0.1000 |
+| 2 | cls_block_zero | 1 | cls_block | 3.3743 | 1.1414 | 0.6172 | 0.0953->0.1000 |
+| 3 | particle_block_skip | 4 | block | 0.2934 | 0.1594 | 0.8063 | 0.0953->0.1219 |
+| 4 | particle_block_skip | 5 | block | 0.2333 | 0.1326 | 0.8297 | 0.0953->0.1141 |
+| 5 | pair_embed_zero |  | pair_bias | -0.1812 | 1.0154 | 0.6922 | 0.0953->0.0906 |
+| 6 | particle_block_skip | 6 | block | -0.1486 | 0.3244 | 0.7781 | 0.0953->0.0750 |
+| 7 | particle_block_skip | 0 | block | -0.1147 | 0.9860 | 0.6500 | 0.0953->0.0938 |
+| 8 | mlp_top_group_zero | 3 | top32 | -0.1068 | 0.0216 | 0.9438 | 0.0953->0.1047 |
+| 9 | mlp_top_group_zero | 4 | top32 | -0.1013 | 0.0114 | 0.9703 | 0.0953->0.1000 |
+| 10 | mlp_top_group_zero | 0 | top32 | -0.0828 | 0.0229 | 0.9453 | 0.0953->0.1000 |
+| 11 | particle_block_skip | 2 | block | 0.0770 | 0.1507 | 0.8469 | 0.0953->0.0906 |
+| 12 | mlp_top_group_zero | 7 | top32 | 0.0492 | 0.0209 | 0.9281 | 0.0953->0.0969 |
+| 13 | particle_block_skip | 1 | block | 0.0430 | 0.3150 | 0.7641 | 0.0953->0.1172 |
+| 14 | mlp_top_group_zero | 2 | top32 | -0.0337 | 0.0156 | 0.9484 | 0.0953->0.1063 |
+| 15 | mlp_top_group_zero | 1 | top32 | 0.0321 | 0.0344 | 0.9234 | 0.0953->0.1047 |
+| 16 | mlp_top_group_zero | 5 | top32 | -0.0305 | 0.0133 | 0.9656 | 0.0953->0.1063 |
+| 17 | particle_block_skip | 7 | block | 0.0264 | 0.3663 | 0.7547 | 0.0953->0.0875 |
+| 18 | particle_block_skip | 3 | block | -0.0165 | 0.2373 | 0.8094 | 0.0953->0.0906 |
+| 19 | mlp_top_group_zero | 6 | top32 | -0.0019 | 0.0089 | 0.9563 | 0.0953->0.0984 |
