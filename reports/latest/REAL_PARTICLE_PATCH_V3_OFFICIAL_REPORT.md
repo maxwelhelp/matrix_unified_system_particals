@@ -1,9 +1,9 @@
 # Real Particle Patch Controls v3 official preprocess
 
-checkpoint=local_checkpoints/part/ParT_full.pt
-mode=full
+checkpoint=local_checkpoints/part/ParT_kinpid.pt
+mode=kinpid
 preprocess=official_wrap_v3
-n=640 samples_per_file=64
+n=2560 samples_per_file=256
 missing=[] unexpected=[]
 
 ## Baseline
@@ -11,31 +11,31 @@ missing=[] unexpected=[]
   "patch": "baseline",
   "layer": "",
   "group": "",
-  "n": 640,
-  "pred_counts": "[243, 0, 45, 0, 7, 81, 241, 0, 0, 23]",
-  "true_counts": "[64, 64, 64, 64, 64, 64, 64, 64, 64, 64]",
-  "acc": 0.09687500447034836
+  "n": 2560,
+  "pred_counts": "[1534, 45, 106, 3, 41, 7, 771, 34, 1, 18]",
+  "true_counts": "[256, 256, 256, 256, 256, 256, 256, 256, 256, 256]",
+  "acc": 0.10507812350988388
 }
 
 ## Top patches
 | rank | patch | layer | group | delta_logit | KL | top1 | acc->patch_acc |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | cls_block_zero | 1 | cls_block | 4.5347 | 1.3815 | 0.3797 | 0.0969->0.1000 |
-| 2 | cls_block_zero | 0 | cls_block | 1.8604 | 3.7471 | 0.3797 | 0.0969->0.1000 |
-| 3 | pair_embed_zero |  | pair_bias | 1.2996 | 0.9640 | 0.6219 | 0.0969->0.1047 |
-| 4 | particle_block_skip | 0 | block | 0.6158 | 0.7728 | 0.6453 | 0.0969->0.1063 |
-| 5 | particle_block_skip | 1 | block | 0.4209 | 0.4095 | 0.7016 | 0.0969->0.1063 |
-| 6 | particle_block_skip | 7 | block | 0.3846 | 0.8323 | 0.6172 | 0.0969->0.0984 |
-| 7 | particle_block_skip | 2 | block | 0.2019 | 0.2939 | 0.7672 | 0.0969->0.1094 |
-| 8 | particle_block_skip | 3 | block | 0.1081 | 0.1868 | 0.8344 | 0.0969->0.1047 |
-| 9 | particle_block_skip | 5 | block | -0.0789 | 0.4033 | 0.7125 | 0.0969->0.1234 |
-| 10 | particle_block_skip | 6 | block | 0.0715 | 0.4222 | 0.7141 | 0.0969->0.1125 |
-| 11 | mlp_top_group_zero | 6 | top32 | -0.0521 | 0.0228 | 0.9422 | 0.0969->0.0938 |
-| 12 | mlp_top_group_zero | 1 | top32 | 0.0477 | 0.0246 | 0.9406 | 0.0969->0.1031 |
-| 13 | mlp_top_group_zero | 7 | top32 | -0.0328 | 0.0790 | 0.8953 | 0.0969->0.0969 |
-| 14 | mlp_top_group_zero | 4 | top32 | 0.0217 | 0.0141 | 0.9500 | 0.0969->0.0984 |
-| 15 | mlp_top_group_zero | 3 | top32 | 0.0216 | 0.0079 | 0.9609 | 0.0969->0.0984 |
-| 16 | mlp_top_group_zero | 2 | top32 | 0.0198 | 0.0127 | 0.9578 | 0.0969->0.0969 |
-| 17 | mlp_top_group_zero | 5 | top32 | -0.0138 | 0.0194 | 0.9422 | 0.0969->0.1016 |
-| 18 | particle_block_skip | 4 | block | -0.0041 | 0.2546 | 0.7797 | 0.0969->0.1078 |
-| 19 | mlp_top_group_zero | 0 | top32 | -0.0036 | 0.0300 | 0.9313 | 0.0969->0.1000 |
+| 1 | cls_block_zero | 0 | cls_block | 3.6605 | 2.0935 | 0.2883 | 0.1051->0.1012 |
+| 2 | cls_block_zero | 1 | cls_block | 3.4113 | 1.1589 | 0.5992 | 0.1051->0.1000 |
+| 3 | particle_block_skip | 4 | block | 0.3249 | 0.1752 | 0.8063 | 0.1051->0.1184 |
+| 4 | particle_block_skip | 5 | block | 0.2715 | 0.1475 | 0.8266 | 0.1051->0.1156 |
+| 5 | particle_block_skip | 6 | block | -0.1272 | 0.3157 | 0.7871 | 0.1051->0.0855 |
+| 6 | mlp_top_group_zero | 4 | top32 | -0.1155 | 0.0134 | 0.9547 | 0.1051->0.1066 |
+| 7 | mlp_top_group_zero | 3 | top32 | -0.1134 | 0.0249 | 0.9387 | 0.1051->0.1086 |
+| 8 | pair_embed_zero |  | pair_bias | -0.1049 | 0.9267 | 0.6910 | 0.1051->0.0797 |
+| 9 | particle_block_skip | 0 | block | -0.0994 | 0.9152 | 0.6574 | 0.1051->0.0898 |
+| 10 | mlp_top_group_zero | 0 | top32 | -0.0931 | 0.0262 | 0.9359 | 0.1051->0.1023 |
+| 11 | particle_block_skip | 2 | block | 0.0851 | 0.1619 | 0.8348 | 0.1051->0.0918 |
+| 12 | particle_block_skip | 7 | block | 0.0796 | 0.3712 | 0.7461 | 0.1051->0.0852 |
+| 13 | mlp_top_group_zero | 7 | top32 | 0.0749 | 0.0239 | 0.9328 | 0.1051->0.1031 |
+| 14 | mlp_top_group_zero | 2 | top32 | -0.0422 | 0.0190 | 0.9457 | 0.1051->0.1055 |
+| 15 | mlp_top_group_zero | 1 | top32 | 0.0324 | 0.0378 | 0.9176 | 0.1051->0.1066 |
+| 16 | mlp_top_group_zero | 5 | top32 | 0.0117 | 0.0115 | 0.9574 | 0.1051->0.1055 |
+| 17 | particle_block_skip | 1 | block | -0.0025 | 0.3443 | 0.7730 | 0.1051->0.1125 |
+| 18 | mlp_top_group_zero | 6 | top32 | -0.0014 | 0.0100 | 0.9586 | 0.1051->0.1004 |
+| 19 | particle_block_skip | 3 | block | 0.0012 | 0.2513 | 0.7988 | 0.1051->0.0938 |
