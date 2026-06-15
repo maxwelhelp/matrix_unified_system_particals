@@ -1,0 +1,1169 @@
+{
+  "data_dir": "/home/maxwelhelp/Рабочий стол/jetclass_tiny",
+  "n_files": 5,
+  "files": [
+    {
+      "file": "/home/maxwelhelp/Рабочий стол/jetclass_tiny/HToBB_000.root",
+      "tree": "tree;1",
+      "num_entries": 100000,
+      "branches": [
+        "part_px",
+        "part_py",
+        "part_pz",
+        "part_energy",
+        "part_deta",
+        "part_dphi",
+        "part_d0val",
+        "part_d0err",
+        "part_dzval",
+        "part_dzerr",
+        "part_charge",
+        "part_isChargedHadron",
+        "part_isNeutralHadron",
+        "part_isPhoton",
+        "part_isElectron",
+        "part_isMuon",
+        "label_QCD",
+        "label_Hbb",
+        "label_Hcc",
+        "label_Hgg",
+        "label_H4q",
+        "label_Hqql",
+        "label_Zqq",
+        "label_Wqq",
+        "label_Tbqq",
+        "label_Tbl",
+        "jet_pt",
+        "jet_eta",
+        "jet_phi",
+        "jet_energy",
+        "jet_nparticles",
+        "jet_sdmass",
+        "jet_tau1",
+        "jet_tau2",
+        "jet_tau3",
+        "jet_tau4",
+        "aux_genpart_eta",
+        "aux_genpart_phi",
+        "aux_genpart_pid",
+        "aux_genpart_pt",
+        "aux_truth_match"
+      ],
+      "groups": {
+        "part": [
+          "part_px",
+          "part_py",
+          "part_pz",
+          "part_energy",
+          "part_deta",
+          "part_dphi",
+          "part_d0val",
+          "part_d0err",
+          "part_dzval",
+          "part_dzerr",
+          "part_charge",
+          "part_isChargedHadron",
+          "part_isNeutralHadron",
+          "part_isPhoton",
+          "part_isElectron",
+          "part_isMuon"
+        ],
+        "sv": [],
+        "label": [
+          "label_QCD",
+          "label_Hbb",
+          "label_Hcc",
+          "label_Hgg",
+          "label_H4q",
+          "label_Hqql",
+          "label_Zqq",
+          "label_Wqq",
+          "label_Tbqq",
+          "label_Tbl"
+        ],
+        "jet": [
+          "jet_pt",
+          "jet_eta",
+          "jet_phi",
+          "jet_energy",
+          "jet_nparticles",
+          "jet_sdmass",
+          "jet_tau1",
+          "jet_tau2",
+          "jet_tau3",
+          "jet_tau4"
+        ],
+        "weight": []
+      },
+      "sample": {
+        "part_px": {
+          "type": "3 * var * float32",
+          "preview": "[[75, 71.9, 50.2, 44.9, 32.8, 20.3, ..., 1.35, 1.22, 1.18, 0.84, 0.978, 0.758]]"
+        },
+        "part_py": {
+          "type": "3 * var * float32",
+          "preview": "[[-138, -131, -92.8, -82.9, -50.4, -35.9, ..., -1.9, -1.69, -1.6, -1.27, -1.25]]"
+        },
+        "part_pz": {
+          "type": "3 * var * float32",
+          "preview": "[[-80.9, -78.3, -64.5, -56.4, -58.4, ..., -1.88, -1.62, -1.13, -1.26, -1.27]]"
+        },
+        "part_energy": {
+          "type": "3 * var * float32",
+          "preview": "[[177, 169, 124, 110, 83.8, 46.4, ..., 3.31, 2.94, 2.62, 2.13, 2.04, 1.94]]"
+        },
+        "part_deta": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.103, -0.0953, -0.0191, -0.0295, 0.264, ..., 0.124, -0.00583, 0.127, 0.186]]"
+        },
+        "part_dphi": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.0227, -0.0185, -0.0231, -0.0232, ..., 0.0887, -0.0348, 0.137, 0.0248]]"
+        },
+        "part_d0val": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.0951, 0, 0, 0, 0, 0.121, -0.00535, 0.159, ..., 0.112, 0, 0, 0, 0, 0, 0, 0]]"
+        },
+        "part_d0err": {
+          "type": "3 * var * float32",
+          "preview": "[[0.011, 0, 0, 0, 0, 0.0116, 0.013, 0.0116, ..., 0.0452, 0, 0, 0, 0, 0, 0, 0]]"
+        },
+        "part_dzval": {
+          "type": "3 * var * float32",
+          "preview": "[[0.0849, 0, 0, 0, 0, 0.0143, 0.032, 0.0179, ..., 0.00373, 0, 0, 0, 0, 0, 0, 0]]"
+        },
+        "part_dzerr": {
+          "type": "3 * var * float32",
+          "preview": "[[0.0318, 0, 0, 0, 0, 0.0316, 0.0316, 0.0348, ..., 0.0684, 0, 0, 0, 0, 0, 0, 0]]"
+        },
+        "part_charge": {
+          "type": "3 * var * float32",
+          "preview": "[[1, 0, 0, 0, 0, 1, 1, -1, 1, 1, 0, -1, ..., 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, 0]]"
+        },
+        "part_isChargedHadron": {
+          "type": "3 * var * int32",
+          "preview": "[[0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, ..., 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]]"
+        },
+        "label_QCD": {
+          "type": "3 * float32",
+          "preview": "[0]"
+        },
+        "label_Hbb": {
+          "type": "3 * bool",
+          "preview": "[True]"
+        },
+        "label_Hcc": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hgg": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_H4q": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hqql": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Zqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Wqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbl": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "jet_pt": {
+          "type": "3 * float32",
+          "preview": "[856]"
+        },
+        "jet_eta": {
+          "type": "3 * float32",
+          "preview": "[-0.597]"
+        },
+        "jet_phi": {
+          "type": "3 * float32",
+          "preview": "[-1.05]"
+        },
+        "jet_energy": {
+          "type": "3 * float32",
+          "preview": "[1.02e+03]"
+        },
+        "jet_nparticles": {
+          "type": "3 * float32",
+          "preview": "[33]"
+        },
+        "jet_sdmass": {
+          "type": "3 * float32",
+          "preview": "[118]"
+        },
+        "jet_tau1": {
+          "type": "3 * float32",
+          "preview": "[0.12]"
+        },
+        "jet_tau2": {
+          "type": "3 * float32",
+          "preview": "[0.0418]"
+        },
+        "jet_tau3": {
+          "type": "3 * float32",
+          "preview": "[0.019]"
+        },
+        "jet_tau4": {
+          "type": "3 * float32",
+          "preview": "[0.0154]"
+        }
+      }
+    },
+    {
+      "file": "/home/maxwelhelp/Рабочий стол/jetclass_tiny/HToBB_001.root",
+      "tree": "tree;1",
+      "num_entries": 100000,
+      "branches": [
+        "part_px",
+        "part_py",
+        "part_pz",
+        "part_energy",
+        "part_deta",
+        "part_dphi",
+        "part_d0val",
+        "part_d0err",
+        "part_dzval",
+        "part_dzerr",
+        "part_charge",
+        "part_isChargedHadron",
+        "part_isNeutralHadron",
+        "part_isPhoton",
+        "part_isElectron",
+        "part_isMuon",
+        "label_QCD",
+        "label_Hbb",
+        "label_Hcc",
+        "label_Hgg",
+        "label_H4q",
+        "label_Hqql",
+        "label_Zqq",
+        "label_Wqq",
+        "label_Tbqq",
+        "label_Tbl",
+        "jet_pt",
+        "jet_eta",
+        "jet_phi",
+        "jet_energy",
+        "jet_nparticles",
+        "jet_sdmass",
+        "jet_tau1",
+        "jet_tau2",
+        "jet_tau3",
+        "jet_tau4",
+        "aux_genpart_eta",
+        "aux_genpart_phi",
+        "aux_genpart_pid",
+        "aux_genpart_pt",
+        "aux_truth_match"
+      ],
+      "groups": {
+        "part": [
+          "part_px",
+          "part_py",
+          "part_pz",
+          "part_energy",
+          "part_deta",
+          "part_dphi",
+          "part_d0val",
+          "part_d0err",
+          "part_dzval",
+          "part_dzerr",
+          "part_charge",
+          "part_isChargedHadron",
+          "part_isNeutralHadron",
+          "part_isPhoton",
+          "part_isElectron",
+          "part_isMuon"
+        ],
+        "sv": [],
+        "label": [
+          "label_QCD",
+          "label_Hbb",
+          "label_Hcc",
+          "label_Hgg",
+          "label_H4q",
+          "label_Hqql",
+          "label_Zqq",
+          "label_Wqq",
+          "label_Tbqq",
+          "label_Tbl"
+        ],
+        "jet": [
+          "jet_pt",
+          "jet_eta",
+          "jet_phi",
+          "jet_energy",
+          "jet_nparticles",
+          "jet_sdmass",
+          "jet_tau1",
+          "jet_tau2",
+          "jet_tau3",
+          "jet_tau4"
+        ],
+        "weight": []
+      },
+      "sample": {
+        "part_px": {
+          "type": "3 * var * float32",
+          "preview": "[[50.9, 47.9, 26.9, 25.7, 30.8, 20.3, ..., 1.03, 0.571, 0.727, 0.634, 0.619]]"
+        },
+        "part_py": {
+          "type": "3 * var * float32",
+          "preview": "[[-60.7, -60, -34, -25.6, -13.7, ..., -0.466, -0.974, -0.797, -0.827, -0.678]]"
+        },
+        "part_pz": {
+          "type": "3 * var * float32",
+          "preview": "[[-144, -148, -80.4, -61.5, -67.8, ..., -3.28, -1.69, -2.09, -1.6, -3.24]]"
+        },
+        "part_energy": {
+          "type": "3 * var * float32",
+          "preview": "[[164, 166, 91.3, 71.5, 75.7, 71.3, ..., 3.08, 3.48, 2.04, 2.35, 1.91, 3.37]]"
+        },
+        "part_deta": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.0224, 0.0296, -0.00146, -0.0812, ..., -0.183, 0.036, -0.164, 0.595]]"
+        },
+        "part_dphi": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.106, -0.13, -0.134, -0.017, 0.348, ..., -0.274, -0.0652, -0.15, -0.0642]]"
+        },
+        "part_d0val": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0, 0, 0.00368, 0.0385, -0.149, 0.00168, ..., -0.0804, -0.2, 0, 0, 0, 0]]"
+        },
+        "part_d0err": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0, 0, 0.0121, 0.0157, 0.0157, 0.0134, ..., 0.34, 0.101, 0.279, 0, 0, 0, 0]]"
+        },
+        "part_dzval": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0, 0, -0.062, 0.896, 0.317, -0.0343, ..., 3.97, -0.132, 2.64, 0, 0, 0, 0]]"
+        },
+        "part_dzerr": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0, 0, 0.0375, 0.0814, 0.0814, 0.0377, ..., 1.44, 0.437, 1.2, 0, 0, 0, 0]]"
+        },
+        "part_charge": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0, 0, -1, -1, 1, -1, -1, 1, 1, 1, ..., -1, 0, 0, 0, 1, -1, 1, 0, 0, 0, 0]]"
+        },
+        "part_isChargedHadron": {
+          "type": "3 * var * int32",
+          "preview": "[[0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, ..., 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]]"
+        },
+        "label_QCD": {
+          "type": "3 * float32",
+          "preview": "[0]"
+        },
+        "label_Hbb": {
+          "type": "3 * bool",
+          "preview": "[True]"
+        },
+        "label_Hcc": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hgg": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_H4q": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hqql": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Zqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Wqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbl": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "jet_pt": {
+          "type": "3 * float32",
+          "preview": "[630]"
+        },
+        "jet_eta": {
+          "type": "3 * float32",
+          "preview": "[-1.38]"
+        },
+        "jet_phi": {
+          "type": "3 * float32",
+          "preview": "[-0.766]"
+        },
+        "jet_energy": {
+          "type": "3 * float32",
+          "preview": "[1.34e+03]"
+        },
+        "jet_nparticles": {
+          "type": "3 * float32",
+          "preview": "[48]"
+        },
+        "jet_sdmass": {
+          "type": "3 * float32",
+          "preview": "[128]"
+        },
+        "jet_tau1": {
+          "type": "3 * float32",
+          "preview": "[0.193]"
+        },
+        "jet_tau2": {
+          "type": "3 * float32",
+          "preview": "[0.0823]"
+        },
+        "jet_tau3": {
+          "type": "3 * float32",
+          "preview": "[0.0483]"
+        },
+        "jet_tau4": {
+          "type": "3 * float32",
+          "preview": "[0.0382]"
+        }
+      }
+    },
+    {
+      "file": "/home/maxwelhelp/Рабочий стол/jetclass_tiny/HToBB_002.root",
+      "tree": "tree;1",
+      "num_entries": 100000,
+      "branches": [
+        "part_px",
+        "part_py",
+        "part_pz",
+        "part_energy",
+        "part_deta",
+        "part_dphi",
+        "part_d0val",
+        "part_d0err",
+        "part_dzval",
+        "part_dzerr",
+        "part_charge",
+        "part_isChargedHadron",
+        "part_isNeutralHadron",
+        "part_isPhoton",
+        "part_isElectron",
+        "part_isMuon",
+        "label_QCD",
+        "label_Hbb",
+        "label_Hcc",
+        "label_Hgg",
+        "label_H4q",
+        "label_Hqql",
+        "label_Zqq",
+        "label_Wqq",
+        "label_Tbqq",
+        "label_Tbl",
+        "jet_pt",
+        "jet_eta",
+        "jet_phi",
+        "jet_energy",
+        "jet_nparticles",
+        "jet_sdmass",
+        "jet_tau1",
+        "jet_tau2",
+        "jet_tau3",
+        "jet_tau4",
+        "aux_genpart_eta",
+        "aux_genpart_phi",
+        "aux_genpart_pid",
+        "aux_genpart_pt",
+        "aux_truth_match"
+      ],
+      "groups": {
+        "part": [
+          "part_px",
+          "part_py",
+          "part_pz",
+          "part_energy",
+          "part_deta",
+          "part_dphi",
+          "part_d0val",
+          "part_d0err",
+          "part_dzval",
+          "part_dzerr",
+          "part_charge",
+          "part_isChargedHadron",
+          "part_isNeutralHadron",
+          "part_isPhoton",
+          "part_isElectron",
+          "part_isMuon"
+        ],
+        "sv": [],
+        "label": [
+          "label_QCD",
+          "label_Hbb",
+          "label_Hcc",
+          "label_Hgg",
+          "label_H4q",
+          "label_Hqql",
+          "label_Zqq",
+          "label_Wqq",
+          "label_Tbqq",
+          "label_Tbl"
+        ],
+        "jet": [
+          "jet_pt",
+          "jet_eta",
+          "jet_phi",
+          "jet_energy",
+          "jet_nparticles",
+          "jet_sdmass",
+          "jet_tau1",
+          "jet_tau2",
+          "jet_tau3",
+          "jet_tau4"
+        ],
+        "weight": []
+      },
+      "sample": {
+        "part_px": {
+          "type": "3 * var * float32",
+          "preview": "[[-273, -71.5, -55.6, -35.1, -34, -19.6, ..., -1.82, -1.67, -1.4, -1.27, -0.97]]"
+        },
+        "part_py": {
+          "type": "3 * var * float32",
+          "preview": "[[28.9, 1.36, 1.48, 0.627, 5.22, ..., 0.253, -0.12, -0.0546, -0.223, -0.0334]]"
+        },
+        "part_pz": {
+          "type": "3 * var * float32",
+          "preview": "[[136, 58.8, 43.2, 28, 14.9, 16.1, ..., 1.51, 1.04, 1.57, 1.25, 1.5, 0.533]]"
+        },
+        "part_energy": {
+          "type": "3 * var * float32",
+          "preview": "[[306, 92.5, 70.4, 44.9, 37.5, 25.4, ..., 2.4, 2.11, 2.29, 1.88, 1.98, 1.11]]"
+        },
+        "part_deta": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.113, 0.16, 0.126, 0.142, -0.17, ..., -0.0502, 0.251, 0.215, 0.402, -0.065]]"
+        },
+        "part_dphi": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.0338, 0.0527, 0.0452, 0.0539, -0.0806, ..., 0.144, 0.111, 0.246, 0.106]]"
+        },
+        "part_d0val": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0.0303, 0, 0.0346, 0.133, 0, 0, 0.0018, ..., 0, 0, 0, 0, 0, 0.0236, 0]]"
+        },
+        "part_d0err": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0.011, 0, 0.0116, 0.0116, 0, 0, 0.0191, ..., 0, 0, 0, 0, 0, 0.0663, 0]]"
+        },
+        "part_dzval": {
+          "type": "3 * var * float32",
+          "preview": "[[0, -0.0621, 0, 0.00582, 0.189, 0, 0, 0.0594, ..., 0, 0, 0, 0, 0, 0.0383, 0]]"
+        },
+        "part_dzerr": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0.0316, 0, 0.0348, 0.0348, 0, 0, 0.0382, ..., 0, 0, 0, 0, 0, 0.14, 0]]"
+        },
+        "part_charge": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 1, 0, -1, -1, 0, 0, 1, 0, 0, 0, ..., -1, -1, 0, 1, 0, 0, 0, 0, 0, -1, 0]]"
+        },
+        "part_isChargedHadron": {
+          "type": "3 * var * int32",
+          "preview": "[[0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, ..., 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0]]"
+        },
+        "label_QCD": {
+          "type": "3 * float32",
+          "preview": "[0]"
+        },
+        "label_Hbb": {
+          "type": "3 * bool",
+          "preview": "[True]"
+        },
+        "label_Hcc": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hgg": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_H4q": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hqql": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Zqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Wqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbl": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "jet_pt": {
+          "type": "3 * float32",
+          "preview": "[643]"
+        },
+        "jet_eta": {
+          "type": "3 * float32",
+          "preview": "[0.589]"
+        },
+        "jet_phi": {
+          "type": "3 * float32",
+          "preview": "[3.07]"
+        },
+        "jet_energy": {
+          "type": "3 * float32",
+          "preview": "[766]"
+        },
+        "jet_nparticles": {
+          "type": "3 * float32",
+          "preview": "[35]"
+        },
+        "jet_sdmass": {
+          "type": "3 * float32",
+          "preview": "[105]"
+        },
+        "jet_tau1": {
+          "type": "3 * float32",
+          "preview": "[0.179]"
+        },
+        "jet_tau2": {
+          "type": "3 * float32",
+          "preview": "[0.05]"
+        },
+        "jet_tau3": {
+          "type": "3 * float32",
+          "preview": "[0.0402]"
+        },
+        "jet_tau4": {
+          "type": "3 * float32",
+          "preview": "[0.0314]"
+        }
+      }
+    },
+    {
+      "file": "/home/maxwelhelp/Рабочий стол/jetclass_tiny/HToBB_003.root",
+      "tree": "tree;1",
+      "num_entries": 100000,
+      "branches": [
+        "part_px",
+        "part_py",
+        "part_pz",
+        "part_energy",
+        "part_deta",
+        "part_dphi",
+        "part_d0val",
+        "part_d0err",
+        "part_dzval",
+        "part_dzerr",
+        "part_charge",
+        "part_isChargedHadron",
+        "part_isNeutralHadron",
+        "part_isPhoton",
+        "part_isElectron",
+        "part_isMuon",
+        "label_QCD",
+        "label_Hbb",
+        "label_Hcc",
+        "label_Hgg",
+        "label_H4q",
+        "label_Hqql",
+        "label_Zqq",
+        "label_Wqq",
+        "label_Tbqq",
+        "label_Tbl",
+        "jet_pt",
+        "jet_eta",
+        "jet_phi",
+        "jet_energy",
+        "jet_nparticles",
+        "jet_sdmass",
+        "jet_tau1",
+        "jet_tau2",
+        "jet_tau3",
+        "jet_tau4",
+        "aux_genpart_eta",
+        "aux_genpart_phi",
+        "aux_genpart_pid",
+        "aux_genpart_pt",
+        "aux_truth_match"
+      ],
+      "groups": {
+        "part": [
+          "part_px",
+          "part_py",
+          "part_pz",
+          "part_energy",
+          "part_deta",
+          "part_dphi",
+          "part_d0val",
+          "part_d0err",
+          "part_dzval",
+          "part_dzerr",
+          "part_charge",
+          "part_isChargedHadron",
+          "part_isNeutralHadron",
+          "part_isPhoton",
+          "part_isElectron",
+          "part_isMuon"
+        ],
+        "sv": [],
+        "label": [
+          "label_QCD",
+          "label_Hbb",
+          "label_Hcc",
+          "label_Hgg",
+          "label_H4q",
+          "label_Hqql",
+          "label_Zqq",
+          "label_Wqq",
+          "label_Tbqq",
+          "label_Tbl"
+        ],
+        "jet": [
+          "jet_pt",
+          "jet_eta",
+          "jet_phi",
+          "jet_energy",
+          "jet_nparticles",
+          "jet_sdmass",
+          "jet_tau1",
+          "jet_tau2",
+          "jet_tau3",
+          "jet_tau4"
+        ],
+        "weight": []
+      },
+      "sample": {
+        "part_px": {
+          "type": "3 * var * float32",
+          "preview": "[[81.6, 61.3, 54.8, 33.1, 32.8, 37.5, ..., 2.71, 2.46, 1.85, 1.89, 1.6, 1.37]]"
+        },
+        "part_py": {
+          "type": "3 * var * float32",
+          "preview": "[[-38.7, -33.9, -26.5, -34, -34, -18.7, ..., -1.17, -1.8, -1.3, -0.568, -0.772]]"
+        },
+        "part_pz": {
+          "type": "3 * var * float32",
+          "preview": "[[120, 92.5, 81.3, 93.3, 84.3, 55.5, ..., 4.08, 4.27, 5.51, 2.96, 2.7, 4.99]]"
+        },
+        "part_energy": {
+          "type": "3 * var * float32",
+          "preview": "[[150, 116, 102, 105, 96.6, 69.6, ..., 5.04, 5.07, 6.09, 3.74, 3.19, 5.23]]"
+        },
+        "part_deta": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.108, -0.112, -0.105, 0.225, 0.139, ..., 0.297, -0.13, 0.0375, 0.671]]"
+        },
+        "part_dphi": {
+          "type": "3 * var * float32",
+          "preview": "[[0.12, 0.0577, 0.112, -0.236, -0.241, ..., -0.208, -0.0385, 0.223, 0.0489]]"
+        },
+        "part_d0val": {
+          "type": "3 * var * float32",
+          "preview": "[[0.165, 0, -0.0399, 0, 0, 0.00484, ..., -0.00332, 0, 0, -0.0136, -0.0447, 0]]"
+        },
+        "part_d0err": {
+          "type": "3 * var * float32",
+          "preview": "[[0.0088, 0, 0.0101, 0, 0, 0.0121, 0, ..., 0.0357, 0, 0, 0.0553, 0.0553, 0]]"
+        },
+        "part_dzval": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.178, 0, -0.385, 0, 0, 0.0596, 0, ..., 0.134, 0, 0, -0.00142, 0.0865, 0]]"
+        },
+        "part_dzerr": {
+          "type": "3 * var * float32",
+          "preview": "[[0.0309, 0, 0.0342, 0, 0, 0.0375, 0, ..., 0.208, 0.0736, 0, 0, 0.12, 0.12, 0]]"
+        },
+        "part_charge": {
+          "type": "3 * var * float32",
+          "preview": "[[1, 0, -1, 0, 0, 1, 0, -1, -1, 1, 0, 0, ..., 0, 0, 0, 0, 1, -1, 0, 0, 1, 1, 0]]"
+        },
+        "part_isChargedHadron": {
+          "type": "3 * var * int32",
+          "preview": "[[1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, ..., 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0]]"
+        },
+        "label_QCD": {
+          "type": "3 * float32",
+          "preview": "[0]"
+        },
+        "label_Hbb": {
+          "type": "3 * bool",
+          "preview": "[True]"
+        },
+        "label_Hcc": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hgg": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_H4q": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hqql": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Zqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Wqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbl": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "jet_pt": {
+          "type": "3 * float32",
+          "preview": "[586]"
+        },
+        "jet_eta": {
+          "type": "3 * float32",
+          "preview": "[1.2]"
+        },
+        "jet_phi": {
+          "type": "3 * float32",
+          "preview": "[-0.563]"
+        },
+        "jet_energy": {
+          "type": "3 * float32",
+          "preview": "[1.07e+03]"
+        },
+        "jet_nparticles": {
+          "type": "3 * float32",
+          "preview": "[33]"
+        },
+        "jet_sdmass": {
+          "type": "3 * float32",
+          "preview": "[127]"
+        },
+        "jet_tau1": {
+          "type": "3 * float32",
+          "preview": "[0.195]"
+        },
+        "jet_tau2": {
+          "type": "3 * float32",
+          "preview": "[0.0453]"
+        },
+        "jet_tau3": {
+          "type": "3 * float32",
+          "preview": "[0.0347]"
+        },
+        "jet_tau4": {
+          "type": "3 * float32",
+          "preview": "[0.0275]"
+        }
+      }
+    },
+    {
+      "file": "/home/maxwelhelp/Рабочий стол/jetclass_tiny/HToBB_004.root",
+      "tree": "tree;1",
+      "num_entries": 100000,
+      "branches": [
+        "part_px",
+        "part_py",
+        "part_pz",
+        "part_energy",
+        "part_deta",
+        "part_dphi",
+        "part_d0val",
+        "part_d0err",
+        "part_dzval",
+        "part_dzerr",
+        "part_charge",
+        "part_isChargedHadron",
+        "part_isNeutralHadron",
+        "part_isPhoton",
+        "part_isElectron",
+        "part_isMuon",
+        "label_QCD",
+        "label_Hbb",
+        "label_Hcc",
+        "label_Hgg",
+        "label_H4q",
+        "label_Hqql",
+        "label_Zqq",
+        "label_Wqq",
+        "label_Tbqq",
+        "label_Tbl",
+        "jet_pt",
+        "jet_eta",
+        "jet_phi",
+        "jet_energy",
+        "jet_nparticles",
+        "jet_sdmass",
+        "jet_tau1",
+        "jet_tau2",
+        "jet_tau3",
+        "jet_tau4",
+        "aux_genpart_eta",
+        "aux_genpart_phi",
+        "aux_genpart_pid",
+        "aux_genpart_pt",
+        "aux_truth_match"
+      ],
+      "groups": {
+        "part": [
+          "part_px",
+          "part_py",
+          "part_pz",
+          "part_energy",
+          "part_deta",
+          "part_dphi",
+          "part_d0val",
+          "part_d0err",
+          "part_dzval",
+          "part_dzerr",
+          "part_charge",
+          "part_isChargedHadron",
+          "part_isNeutralHadron",
+          "part_isPhoton",
+          "part_isElectron",
+          "part_isMuon"
+        ],
+        "sv": [],
+        "label": [
+          "label_QCD",
+          "label_Hbb",
+          "label_Hcc",
+          "label_Hgg",
+          "label_H4q",
+          "label_Hqql",
+          "label_Zqq",
+          "label_Wqq",
+          "label_Tbqq",
+          "label_Tbl"
+        ],
+        "jet": [
+          "jet_pt",
+          "jet_eta",
+          "jet_phi",
+          "jet_energy",
+          "jet_nparticles",
+          "jet_sdmass",
+          "jet_tau1",
+          "jet_tau2",
+          "jet_tau3",
+          "jet_tau4"
+        ],
+        "weight": []
+      },
+      "sample": {
+        "part_px": {
+          "type": "3 * var * float32",
+          "preview": "[[56, 25.9, 25.9, 33.1, 30.8, 27.2, ..., 1.71, 1.63, 2.02, 1.85, 1.72, 0.898]]"
+        },
+        "part_py": {
+          "type": "3 * var * float32",
+          "preview": "[[25.5, 30.5, 30, 14.9, 14.3, 12.2, ..., 1.93, 1.99, 1.37, 1.34, 0.778, 0.553]]"
+        },
+        "part_pz": {
+          "type": "3 * var * float32",
+          "preview": "[[13.4, 0.232, -1.23, 8.09, 8.81, 6.77, ..., 0.0274, 0.761, 0.43, 0.441, 0.26]]"
+        },
+        "part_energy": {
+          "type": "3 * var * float32",
+          "preview": "[[63, 40, 39.7, 37.2, 35.1, 30.6, 27.1, ..., 2.58, 2.57, 2.56, 2.38, 1.94, 1.1]]"
+        },
+        "part_deta": {
+          "type": "3 * var * float32",
+          "preview": "[[0.103, -0.108, -0.144, 0.108, 0.143, ..., 0.193, 0.0732, 0.119, 0.131]]"
+        },
+        "part_dphi": {
+          "type": "3 * var * float32",
+          "preview": "[[-0.239, 0.2, 0.191, -0.243, -0.231, ..., -0.0717, -0.0394, -0.241, -0.114]]"
+        },
+        "part_d0val": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0.0401, 0, -0.000842, 0.0573, ..., 0, 0, -0.0334, -0.0251, 0.00474]]"
+        },
+        "part_d0err": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0.0116, 0, 0.0116, 0.013, 0.013, ..., 0, 0, 0, 0.0376, 0.0324, 0.0452]]"
+        },
+        "part_dzval": {
+          "type": "3 * var * float32",
+          "preview": "[[0, -0.0664, 0, -0.013, -0.116, -0.0354, ..., 0, 0, -0.0158, -0.0967, -0.0378]]"
+        },
+        "part_dzerr": {
+          "type": "3 * var * float32",
+          "preview": "[[0, 0.0316, 0, 0.0348, 0.0316, 0.0316, ..., 0, 0, 0, 0.0615, 0.0516, 0.0684]]"
+        },
+        "part_charge": {
+          "type": "3 * var * float32",
+          "preview": "[[0, -1, 0, -1, -1, 1, 1, -1, -1, -1, -1, ..., 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]]"
+        },
+        "part_isChargedHadron": {
+          "type": "3 * var * int32",
+          "preview": "[[0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, ..., 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]]"
+        },
+        "label_QCD": {
+          "type": "3 * float32",
+          "preview": "[0]"
+        },
+        "label_Hbb": {
+          "type": "3 * bool",
+          "preview": "[True]"
+        },
+        "label_Hcc": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hgg": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_H4q": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Hqql": {
+          "type": "3 * bool",
+          "preview": "[False]"
+        },
+        "label_Zqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Wqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbqq": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "label_Tbl": {
+          "type": "3 * int32",
+          "preview": "[0]"
+        },
+        "jet_pt": {
+          "type": "3 * float32",
+          "preview": "[501]"
+        },
+        "jet_eta": {
+          "type": "3 * float32",
+          "preview": "[0.113]"
+        },
+        "jet_phi": {
+          "type": "3 * float32",
+          "preview": "[0.666]"
+        },
+        "jet_energy": {
+          "type": "3 * float32",
+          "preview": "[527]"
+        },
+        "jet_nparticles": {
+          "type": "3 * float32",
+          "preview": "[40]"
+        },
+        "jet_sdmass": {
+          "type": "3 * float32",
+          "preview": "[123]"
+        },
+        "jet_tau1": {
+          "type": "3 * float32",
+          "preview": "[0.287]"
+        },
+        "jet_tau2": {
+          "type": "3 * float32",
+          "preview": "[0.0381]"
+        },
+        "jet_tau3": {
+          "type": "3 * float32",
+          "preview": "[0.0324]"
+        },
+        "jet_tau4": {
+          "type": "3 * float32",
+          "preview": "[0.0286]"
+        }
+      }
+    }
+  ],
+  "global_branch_counts": {
+    "part_px": 5,
+    "part_py": 5,
+    "part_pz": 5,
+    "part_energy": 5,
+    "part_deta": 5,
+    "part_dphi": 5,
+    "part_d0val": 5,
+    "part_d0err": 5,
+    "part_dzval": 5,
+    "part_dzerr": 5,
+    "part_charge": 5,
+    "part_isChargedHadron": 5,
+    "part_isNeutralHadron": 5,
+    "part_isPhoton": 5,
+    "part_isElectron": 5,
+    "part_isMuon": 5,
+    "label_QCD": 5,
+    "label_Hbb": 5,
+    "label_Hcc": 5,
+    "label_Hgg": 5,
+    "label_H4q": 5,
+    "label_Hqql": 5,
+    "label_Zqq": 5,
+    "label_Wqq": 5,
+    "label_Tbqq": 5,
+    "label_Tbl": 5,
+    "jet_pt": 5,
+    "jet_eta": 5,
+    "jet_phi": 5,
+    "jet_energy": 5,
+    "jet_nparticles": 5,
+    "jet_sdmass": 5,
+    "jet_tau1": 5,
+    "jet_tau2": 5,
+    "jet_tau3": 5,
+    "jet_tau4": 5,
+    "aux_genpart_eta": 5,
+    "aux_genpart_phi": 5,
+    "aux_genpart_pid": 5,
+    "aux_genpart_pt": 5,
+    "aux_truth_match": 5
+  }
+}
