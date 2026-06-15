@@ -1,0 +1,84 @@
+{
+  "ok": true,
+  "base_logits_shape": [
+    8,
+    10
+  ],
+  "top1": [
+    7,
+    2,
+    1,
+    9,
+    9,
+    6,
+    0,
+    2
+  ],
+  "adapter": {
+    "n_blocks": 2,
+    "n_cls_blocks": 1,
+    "has_pair_embed": true,
+    "has_classifier": true,
+    "has_cls_token": true
+  },
+  "patch_rows": [
+    {
+      "patch": "cls_block_zero",
+      "layer": 0,
+      "group": "cls_block",
+      "delta_top_logit": 1.946976900100708,
+      "logit_rel": 1.0,
+      "kl": 0.44914087653160095,
+      "top1_match": 0.125
+    },
+    {
+      "patch": "particle_block_skip",
+      "layer": 0,
+      "group": "block",
+      "delta_top_logit": 1.5605274438858032,
+      "logit_rel": 1.3354898691177368,
+      "kl": 0.9388766288757324,
+      "top1_match": 0.125
+    },
+    {
+      "patch": "particle_block_skip",
+      "layer": 1,
+      "group": "block",
+      "delta_top_logit": 0.8208507299423218,
+      "logit_rel": 1.0645020008087158,
+      "kl": 0.610656201839447,
+      "top1_match": 0.125
+    },
+    {
+      "patch": "mlp_top_group_zero",
+      "layer": 1,
+      "group": "top16",
+      "neurons": "[2, 155, 111, 6, 69, 185, 233, 117, 140, 252, 202, 161, 119, 90, 146, 203]",
+      "score_sum": 6.672449111938477,
+      "delta_top_logit": -0.10213398933410645,
+      "logit_rel": 0.19182425737380981,
+      "kl": 0.0210235808044672,
+      "top1_match": 1.0
+    },
+    {
+      "patch": "mlp_top_group_zero",
+      "layer": 0,
+      "group": "top16",
+      "neurons": "[9, 44, 182, 12, 215, 249, 239, 162, 84, 34, 135, 200, 146, 103, 14, 96]",
+      "score_sum": 8.737736701965332,
+      "delta_top_logit": 0.022303462028503418,
+      "logit_rel": 0.2876519560813904,
+      "kl": 0.05363626778125763,
+      "top1_match": 0.75
+    },
+    {
+      "patch": "pair_embed_zero",
+      "layer": "",
+      "group": "pair_bias",
+      "delta_top_logit": -0.0064237117767333984,
+      "logit_rel": 0.01766846887767315,
+      "kl": 0.00015736790373921394,
+      "top1_match": 1.0
+    }
+  ]
+}
