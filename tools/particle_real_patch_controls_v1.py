@@ -29,7 +29,7 @@ def mode_from_ckpt(p):
     if 'kin' in n: return 'kin'
     return 'full'
 def cfg_for(mode):
-    return dict(input_dim={'kin':7,'kinpid':13,'full':17}[mode],num_classes=10,pair_input_dim=4,use_pre_activation_pair=False,embed_dims=[128,512,128],pair_embed_dims=[64,64,64],num_heads=8,num_layers=8,num_cls_layers=2,block_params=None,cls_block_params={'dropout':0,'attn_dropout':0,'activation_dropout':0},fc_params=[],activation='gelu',trim=False,for_inference=False,use_amp=False)
+    return dict(input_dim={'kin':7,'kinpid':13,'full':17}[mode],num_classes=10,pair_input_dim=4,use_pre_activation_pair=False,embed_dims=[128,512,128],pair_embed_dims=[64,64,64],num_heads=8,num_layers=8,num_cls_layers=2,block_params=None,cls_block_params={'dropout':0,'attn_dropout':0,'activation_dropout':0},fc_params=[],activation='gelu',trim=True,for_inference=False,use_amp=False)
 def clean(sd):
     out={}
     for k,v in sd.items():
