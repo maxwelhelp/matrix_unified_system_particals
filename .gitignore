@@ -1,0 +1,12 @@
+runs/
+results_zips/
+final_product/*/_staged_inputs/
+*.zip
+*.pt
+*.pth
+*.safetensors
+__pycache__/
+*.pyc
+.env
+.cache/
+qwen_program_cache*/
