@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "load": {
+    "checkpoint": "",
+    "loaded": false,
+    "missing": null,
+    "unexpected": null,
+    "error": null
+  },
+  "logits_shape": [
+    4,
+    10
+  ],
+  "top1": [
+    6,
+    0,
+    6,
+    6
+  ],
+  "adapter": {
+    "n_blocks": 2,
+    "n_cls_blocks": 1,
+    "has_pair_embed": true,
+    "has_classifier": true,
+    "has_cls_token": true
+  },
+  "config": {
+    "checkpoint": "",
+    "device": "cuda",
+    "input_dim": 16,
+    "classes": 10,
+    "particles": 32,
+    "batch": 4,
+    "embed_dim": 64,
+    "heads": 4,
+    "layers": 2,
+    "cls_layers": 1,
+    "out_dir": "runs/particle_load_part_model_v1"
+  }
+}
