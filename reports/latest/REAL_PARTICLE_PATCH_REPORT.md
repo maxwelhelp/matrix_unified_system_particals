@@ -1,8 +1,8 @@
 # Real Particle Patch Controls v1
 
-checkpoint=local_checkpoints/part/ParT_kinpid.pt
-mode=kinpid
-n=512
+checkpoint=local_checkpoints/part/ParT_full.pt
+mode=full
+n=128
 missing=[] unexpected=[]
 
 ## Baseline
@@ -10,29 +10,29 @@ missing=[] unexpected=[]
   "patch": "baseline",
   "layer": "",
   "group": "",
-  "pred_counts": "[406, 1, 7, 1, 6, 0, 72, 15, 0, 4]",
-  "acc": 0.001953125
+  "pred_counts": "[53, 0, 10, 0, 0, 4, 56, 0, 0, 5]",
+  "acc": 0.0
 }
 
 ## Top patches
 | rank | patch | layer | group | delta_logit | KL | top1 | acc->patch_acc |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | cls_block_zero | 0 | cls_block | 4.8264 | 2.5694 | 0.1367 | 0.0020->0.0059 |
-| 2 | cls_block_zero | 1 | cls_block | 4.0527 | 1.2444 | 0.7930 | 0.0020->0.0000 |
-| 3 | particle_block_skip | 4 | block | 0.4491 | 0.1457 | 0.8594 | 0.0020->0.0039 |
-| 4 | particle_block_skip | 5 | block | 0.4002 | 0.1276 | 0.8867 | 0.0020->0.0039 |
-| 5 | pair_embed_zero |  | pair_bias | -0.3910 | 0.6360 | 0.8105 | 0.0020->0.0020 |
-| 6 | particle_block_skip | 3 | block | -0.3557 | 0.1543 | 0.8730 | 0.0020->0.0059 |
-| 7 | mlp_top_group_zero | 7 | top32 | 0.2854 | 0.0194 | 0.9531 | 0.0020->0.0020 |
-| 8 | particle_block_skip | 0 | block | -0.2769 | 0.7180 | 0.7559 | 0.0020->0.0059 |
-| 9 | mlp_top_group_zero | 4 | top32 | -0.1740 | 0.0083 | 0.9766 | 0.0020->0.0020 |
-| 10 | particle_block_skip | 6 | block | -0.1487 | 0.2223 | 0.8594 | 0.0020->0.0020 |
-| 11 | mlp_top_group_zero | 0 | top32 | -0.1323 | 0.0217 | 0.9570 | 0.0020->0.0039 |
-| 12 | particle_block_skip | 7 | block | 0.1111 | 0.2686 | 0.8281 | 0.0020->0.0000 |
-| 13 | mlp_top_group_zero | 2 | top32 | -0.1072 | 0.0136 | 0.9609 | 0.0020->0.0020 |
-| 14 | mlp_top_group_zero | 3 | top32 | -0.0632 | 0.0112 | 0.9766 | 0.0020->0.0020 |
-| 15 | mlp_top_group_zero | 5 | top32 | 0.0624 | 0.0085 | 0.9727 | 0.0020->0.0020 |
-| 16 | particle_block_skip | 2 | block | -0.0623 | 0.1179 | 0.8887 | 0.0020->0.0000 |
-| 17 | mlp_top_group_zero | 6 | top32 | 0.0513 | 0.0083 | 0.9727 | 0.0020->0.0020 |
-| 18 | mlp_top_group_zero | 1 | top32 | 0.0481 | 0.0347 | 0.9355 | 0.0020->0.0020 |
-| 19 | particle_block_skip | 1 | block | -0.0257 | 0.2684 | 0.8086 | 0.0020->0.0039 |
+| 1 | cls_block_zero | 1 | cls_block | 4.2553 | 1.2167 | 0.4141 | 0.0000->0.0000 |
+| 2 | cls_block_zero | 0 | cls_block | 1.6956 | 4.1235 | 0.4141 | 0.0000->0.0000 |
+| 3 | pair_embed_zero |  | pair_bias | 0.7856 | 0.8361 | 0.5938 | 0.0000->0.0000 |
+| 4 | particle_block_skip | 0 | block | 0.7510 | 0.7726 | 0.6328 | 0.0000->0.0000 |
+| 5 | particle_block_skip | 3 | block | 0.3986 | 0.2415 | 0.7500 | 0.0000->0.0078 |
+| 6 | particle_block_skip | 2 | block | 0.3725 | 0.3523 | 0.7500 | 0.0000->0.0000 |
+| 7 | particle_block_skip | 7 | block | 0.3362 | 0.5162 | 0.7266 | 0.0000->0.0000 |
+| 8 | particle_block_skip | 4 | block | 0.2860 | 0.2909 | 0.7266 | 0.0000->0.0000 |
+| 9 | particle_block_skip | 1 | block | 0.2178 | 0.4030 | 0.7188 | 0.0000->0.0000 |
+| 10 | particle_block_skip | 5 | block | 0.1369 | 0.5209 | 0.6719 | 0.0000->0.0000 |
+| 11 | particle_block_skip | 6 | block | 0.1356 | 0.5998 | 0.6484 | 0.0000->0.0000 |
+| 12 | mlp_top_group_zero | 3 | top32 | 0.1022 | 0.0108 | 0.9219 | 0.0000->0.0000 |
+| 13 | mlp_top_group_zero | 1 | top32 | 0.0560 | 0.0619 | 0.8984 | 0.0000->0.0000 |
+| 14 | mlp_top_group_zero | 6 | top32 | -0.0345 | 0.0368 | 0.9062 | 0.0000->0.0000 |
+| 15 | mlp_top_group_zero | 5 | top32 | -0.0280 | 0.0146 | 0.9375 | 0.0000->0.0000 |
+| 16 | mlp_top_group_zero | 2 | top32 | 0.0271 | 0.0192 | 0.9219 | 0.0000->0.0000 |
+| 17 | mlp_top_group_zero | 7 | top32 | 0.0249 | 0.0574 | 0.8984 | 0.0000->0.0000 |
+| 18 | mlp_top_group_zero | 4 | top32 | 0.0173 | 0.0186 | 0.9453 | 0.0000->0.0000 |
+| 19 | mlp_top_group_zero | 0 | top32 | -0.0115 | 0.0684 | 0.8828 | 0.0000->0.0000 |
