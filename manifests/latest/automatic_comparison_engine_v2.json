@@ -1,6 +1,6 @@
 {
   "schema": "automatic_comparison_engine.v2",
-  "generated_at_utc": "2026-06-16T06:43:09.448745+00:00",
+  "generated_at_utc": "2026-06-16T06:45:19.379701+00:00",
   "comparisons": [
     {
       "comparison_id": "C10_KNOWN_OBSERVABLE_RESIDUAL",
