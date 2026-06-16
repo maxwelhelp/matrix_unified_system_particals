@@ -2,7 +2,7 @@
 
 This report compares evidence graph snapshots across runs.
 
-- Graph snapshots: **10**
+- Graph snapshots: **11**
 - Real dynamics available: **True**
 
 ## Runs
@@ -18,29 +18,31 @@ This report compares evidence graph snapshots across runs.
 | 7 | 2026-06-16T04:29:01.473693+00:00 | 0.7574 | 2560 | 1080 | 1255 | 24 | 959 |
 | 8 | 2026-06-16T04:30:31.493657+00:00 | 0.7574 | 2560 | 1080 | 1255 | 24 | 959 |
 | 9 | 2026-06-16T05:06:52.665592+00:00 | 0.7574 | 2560 | 2027 | 2241 | 24 | 1865 |
+| 10 | 2026-06-16T05:11:25.686042+00:00 | 0.7602 | 5120 | 2056 | 2269 | 24 | 1893 |
 
 ## Latest top heads
 | rank | head | gate_abs | delta_gate | delta_rank | patch_drop | role |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | L1_ch112:128 | 0.8006 | 0.0000 | 0 | 0.0000 | middle learned-neighborhood / route-composition head |
-| 2 | L0_ch40:48 | 0.6735 | 0.0000 | 0 | 0.0000 | early feature/geometry/PID reader |
-| 3 | L2_ch224:256 | 0.6716 | 0.0000 | 0 | 0.0000 | late aggregation / class-evidence head |
-| 4 | L1_ch16:32 | 0.6645 | 0.0000 | 0 | 0.0000 | middle learned-neighborhood / route-composition head |
-| 5 | L0_ch48:56 | 0.3620 | 0.0000 | 0 | 0.0000 | early feature/geometry/PID reader |
-| 6 | L2_ch128:160 | 0.3511 | 0.0000 | 0 | 0.0000 | late aggregation / class-evidence head |
-| 7 | L0_ch8:16 | 0.3350 | 0.0000 | 0 | 0.0000 | early feature/geometry/PID reader |
-| 8 | L2_ch64:96 | 0.2970 | 0.0000 | 0 | 0.0000 | late aggregation / class-evidence head |
-| 9 | L2_ch0:32 | 0.2642 | 0.0000 | 0 | 0.0000 | late aggregation / class-evidence head |
-| 10 | L0_ch0:8 | 0.2327 | 0.0000 | 0 | 0.0000 | early feature/geometry/PID reader |
+| 1 | L1_ch112:128 | 0.8424 | 0.0418 | 0 | 0.0000 | middle learned-neighborhood / route-composition head |
+| 2 | L1_ch16:32 | 0.7223 | 0.0578 | -2 | 0.0000 | middle learned-neighborhood / route-composition head |
+| 3 | L0_ch40:48 | 0.7015 | 0.0281 | 1 | 0.0000 | early feature/geometry/PID reader |
+| 4 | L2_ch224:256 | 0.7009 | 0.0293 | 1 | 0.0000 | late aggregation / class-evidence head |
+| 5 | L0_ch48:56 | 0.3678 | 0.0058 | 0 | 0.0000 | early feature/geometry/PID reader |
+| 6 | L0_ch8:16 | 0.3511 | 0.0161 | -1 | 0.0000 | early feature/geometry/PID reader |
+| 7 | L2_ch128:160 | 0.3357 | -0.0154 | 1 | 0.0000 | late aggregation / class-evidence head |
+| 8 | L2_ch64:96 | 0.3033 | 0.0063 | 0 | 0.0000 | late aggregation / class-evidence head |
+| 9 | L2_ch0:32 | 0.2646 | 3.847e-04 | 0 | 0.0000 | late aggregation / class-evidence head |
+| 10 | L0_ch0:8 | 0.2323 | -3.275e-04 | 0 | 0.0000 | early feature/geometry/PID reader |
 
 ## Latest class particle patterns
 | class | n | mean_score | mean_pt | mean_deltaR | particle0_fraction | charged_fraction |
 | --- | --- | --- | --- | --- | --- | --- |
-| label_Zqq | 29 | 2.5199 | 34.9848 | 0.2194 | 0.0690 | 0.5172 |
-| label_Tbl | 765 | 2.4363 | 34.6515 | 0.3272 | 0.0641 | 0.4026 |
-| label_Hqql | 972 | 2.3994 | 36.4722 | 0.1991 | 0.0638 | 0.4465 |
-| label_QCD | 19 | 2.3756 | 70.2321 | 0.1566 | 0.1053 | 0.3684 |
-| label_Wqq | 80 | 2.3566 | 37.5050 | 0.1724 | 0.0625 | 0.4875 |
+| label_Hgg | 16 | 3.0404 | 23.5073 | 0.1336 | 0.0625 | 0.5000 |
+| label_QCD | 16 | 2.9434 | 21.2429 | 0.0465 | 0.0625 | 0.3750 |
+| label_Zqq | 32 | 2.6212 | 24.4876 | 0.1733 | 0.0625 | 0.3438 |
+| label_Tbl | 489 | 2.5385 | 36.9509 | 0.3147 | 0.0634 | 0.3926 |
+| label_Hqql | 1324 | 2.5213 | 36.7218 | 0.2071 | 0.0634 | 0.4569 |
+| label_Wqq | 16 | 2.2540 | 44.4436 | 0.2169 | 0.0625 | 0.2500 |
 
 ## Output files
 
