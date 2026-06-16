@@ -2,16 +2,16 @@
 
 This is the first thing to read before deep logs. It converts evidence graphs into queryable stream events.
 
-- Snapshots: **6**
-- Stream events: **2586**
-- Latest run index: **5**
+- Snapshots: **7**
+- Stream events: **3027**
+- Latest run index: **6**
 
 ## Main cards
 | priority | title | value | drilldown |
 | --- | --- | --- | --- |
-| P0 | Stream state | 6 snapshots, 2586 events | manifests/latest/research_stream_index_v1.json |
-| P0 | Top current all-head gate | L1_ch112:128 rank 1 gate_abs=0.8644 | python tools/query_research_stream_v1.py --event-type HEAD_GATE --top 10 |
-| P0 | Top current particle evidence | event 321 particle 0 label_Tbl score=5.0656 | python tools/query_research_stream_v1.py --event-type PARTICLE_TOP --top 20 |
+| P0 | Stream state | 7 snapshots, 3027 events | manifests/latest/research_stream_index_v1.json |
+| P0 | Top current all-head gate | L1_ch112:128 rank 1 gate_abs=0.8006 | python tools/query_research_stream_v1.py --event-type HEAD_GATE --top 10 |
+| P0 | Top current particle evidence | event 978 particle 0 label_Hqql score=4.7626 | python tools/query_research_stream_v1.py --event-type PARTICLE_TOP --top 20 |
 | P0 | particle0/core dominance in top particle stream | run particle0 removal / top-k controls | reports/latest/tables/research_stream_alerts.csv |
 | P1 | negative/suppressive head gates exist | compare positive vs negative gates; add suppressive-head analysis | reports/latest/tables/research_stream_alerts.csv |
 
@@ -24,35 +24,35 @@ This is the first thing to read before deep logs. It converts evidence graphs in
 ## Top current heads
 | rank | title | score | summary |
 | --- | --- | --- | --- |
-| 1 | L1_ch112:128 rank 1 gate_abs=0.8644 | 0.8644 | Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer? |
-| 2 | L2_ch224:256 rank 2 gate_abs=0.7841 | 0.7841 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
-| 3 | L1_ch16:32 rank 3 gate_abs=0.7805 | 0.7805 | Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer? |
-| 4 | L0_ch40:48 rank 4 gate_abs=0.7150 | 0.7150 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
-| 5 | L0_ch8:16 rank 5 gate_abs=0.4293 | 0.4293 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
-| 6 | L0_ch48:56 rank 6 gate_abs=0.3819 | 0.3819 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
-| 7 | L2_ch64:96 rank 7 gate_abs=0.3301 | 0.3301 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
-| 8 | L2_ch128:160 rank 8 gate_abs=0.3290 | 0.3290 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
-| 9 | L2_ch0:32 rank 9 gate_abs=0.2666 | 0.2666 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
-| 10 | L0_ch0:8 rank 10 gate_abs=0.2581 | 0.2581 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
+| 1 | L1_ch112:128 rank 1 gate_abs=0.8006 | 0.8006 | Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer? |
+| 2 | L0_ch40:48 rank 2 gate_abs=0.6735 | 0.6735 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
+| 3 | L2_ch224:256 rank 3 gate_abs=0.6716 | 0.6716 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
+| 4 | L1_ch16:32 rank 4 gate_abs=0.6645 | 0.6645 | Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer? |
+| 5 | L0_ch48:56 rank 5 gate_abs=0.3620 | 0.3620 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
+| 6 | L2_ch128:160 rank 6 gate_abs=0.3511 | 0.3511 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
+| 7 | L0_ch8:16 rank 7 gate_abs=0.3350 | 0.3350 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
+| 8 | L2_ch64:96 rank 8 gate_abs=0.2970 | 0.2970 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
+| 9 | L2_ch0:32 rank 9 gate_abs=0.2642 | 0.2642 | Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier? |
+| 10 | L0_ch0:8 rank 10 gate_abs=0.2327 | 0.2327 | Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence? |
 
 ## Top current particles
 | rank | title | score | summary | tags |
 | --- | --- | --- | --- | --- |
-| 1 | event 321 particle 0 label_Tbl score=5.0656 | 5.0656 | pt=498.7116 dR=0.1038 charge=1.0000 | particle,label_Tbl,particle_0,particle0,core_high_pt,charged |
-| 2 | event 221 particle 0 label_Hqql score=4.9950 | 4.9950 | pt=423.7215 dR=0.0287 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 3 | event 217 particle 0 label_Hqql score=4.9811 | 4.9811 | pt=372.7248 dR=0.0116 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 4 | event 219 particle 0 label_Hqql score=4.9777 | 4.9777 | pt=378.6483 dR=0.0171 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 5 | event 208 particle 0 label_Hqql score=4.9504 | 4.9504 | pt=526.1700 dR=0.0220 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 6 | event 198 particle 0 label_Hqql score=4.9108 | 4.9108 | pt=445.1894 dR=0.0349 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 7 | event 331 particle 0 label_Tbl score=4.9094 | 4.9094 | pt=564.8672 dR=0.1102 charge=-1.0000 | particle,label_Tbl,particle_0,particle0,core_high_pt,charged |
-| 8 | event 364 particle 0 label_Tbl score=4.8889 | 4.8889 | pt=422.0057 dR=0.1213 charge=-1.0000 | particle,label_Tbl,particle_0,particle0,core_high_pt,charged |
-| 9 | event 242 particle 0 label_Hqql score=4.8622 | 4.8622 | pt=468.0427 dR=0.0323 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 10 | event 233 particle 0 label_Hqql score=4.8617 | 4.8617 | pt=345.6596 dR=0.0425 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 11 | event 214 particle 0 label_Hqql score=4.8590 | 4.8590 | pt=524.3685 dR=0.0461 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 12 | event 234 particle 0 label_Hqql score=4.8586 | 4.8586 | pt=382.8791 dR=0.0572 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 13 | event 213 particle 0 label_Hqql score=4.8546 | 4.8546 | pt=326.9661 dR=0.0638 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
-| 14 | event 334 particle 0 label_Tbl score=4.7818 | 4.7818 | pt=482.8271 dR=0.1353 charge=1.0000 | particle,label_Tbl,particle_0,particle0,core_high_pt,charged |
-| 15 | event 244 particle 0 label_Hqql score=4.7671 | 4.7671 | pt=467.6960 dR=0.0313 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 1 | event 978 particle 0 label_Hqql score=4.7626 | 4.7626 | pt=379.5849 dR=0.0690 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 2 | event 888 particle 0 label_Hqql score=4.6690 | 4.6690 | pt=427.5177 dR=0.0538 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 3 | event 885 particle 0 label_Hqql score=4.6264 | 4.6264 | pt=426.3585 dR=0.0282 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 4 | event 1281 particle 0 label_Tbl score=4.5839 | 4.5839 | pt=498.7116 dR=0.1038 charge=1.0000 | particle,label_Tbl,particle_0,particle0,core_high_pt,charged |
+| 5 | event 1455 particle 0 label_Tbl score=4.5528 | 4.5528 | pt=348.6307 dR=0.1924 charge=-1.0000 | particle,label_Tbl,particle_0,particle0,core_high_pt,charged |
+| 6 | event 863 particle 0 label_Hqql score=4.5438 | 4.5438 | pt=380.1771 dR=0.0604 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 7 | event 953 particle 0 label_Hqql score=4.5358 | 4.5358 | pt=513.1412 dR=0.0628 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 8 | event 909 particle 0 label_Hqql score=4.5189 | 4.5189 | pt=776.4829 dR=0.0371 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 9 | event 797 particle 0 label_Hqql score=4.5062 | 4.5062 | pt=423.7215 dR=0.0287 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 10 | event 937 particle 0 label_Hqql score=4.5032 | 4.5032 | pt=471.4841 dR=0.0337 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 11 | event 921 particle 0 label_Hqql score=4.5005 | 4.5005 | pt=394.9027 dR=0.0040 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 12 | event 954 particle 0 label_Hqql score=4.4891 | 4.4891 | pt=435.9897 dR=0.0599 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 13 | event 905 particle 0 label_Hqql score=4.4872 | 4.4872 | pt=309.6795 dR=0.0841 charge=-1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 14 | event 793 particle 0 label_Hqql score=4.4812 | 4.4812 | pt=372.7248 dR=0.0116 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
+| 15 | event 892 particle 0 label_Hqql score=4.4811 | 4.4811 | pt=351.2416 dR=0.0689 charge=1.0000 | particle,label_Hqql,particle_0,particle0,core_high_pt,charged |
 
 ## Next actions
 - Run particle0/top-k controls and rebuild stream index.
