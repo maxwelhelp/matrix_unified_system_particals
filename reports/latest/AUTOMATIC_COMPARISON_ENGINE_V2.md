@@ -1,6 +1,6 @@
 # Automatic Comparison Engine v2
 
-v2 adds big-stream and discovery-readiness comparisons on top of v1.
+v2 adds big-stream and discovery-readiness comparisons on top of v1. This report was postprocessed after particle0/top-k controls v2.
 
 ## P0 comparisons
 | status | comparison | claim | missing | next |
@@ -8,9 +8,9 @@ v2 adds big-stream and discovery-readiness comparisons on top of v1.
 | MISSING_RESIDUAL_TEST | C10_KNOWN_OBSERVABLE_RESIDUAL | discovery-relevant signals must survive known-observable baselines | known-observable residual analysis | fit known observables then test whether head/particle signals explain residual errors or logits |
 | NEEDS_HELDOUT | C13_PER_FILE_HELDOUT_STABILITY | relations should survive different ROOT files and tar parts | per-file/per-tar-part stability report | run stream over more ROOT files and compare head/rule signals per file and per class |
 | NEEDS_ORDER_CONTROL | C14_ORDERING_VS_PHYSICAL_COORDINATE | particle0 dominance must be separated from particle ordering/sorting | particle-order shuffle / coordinate-only comparison | run particle order shuffle and compare index-based vs pt/deltaR-based signals |
-| METHOD_DEBUG_NOT_DISCOVERY_READY | C15_DISCOVERY_READINESS_SCORE | a hypothesis is discovery-relevant only after controls, heldout, residual, and cross-model tests | C1_STREAM_RELATION_VS_MISSING_CONTROL, C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT, C2_WIDE_PATTERN_VS_ROUTE_TRACE, C8_CLASS_CONCENTRATION_VS_IMBALANCE, C10_KNOWN_OBSERVABLE_RESIDUAL, C13_PER_FILE_HELDOUT_STABILITY, C14_ORDERING_VS_PHYSICAL_COORDINATE | complete P0 controls before claiming physics/discovery relevance |
+| METHOD_DEBUG_NOT_DISCOVERY_READY | C15_DISCOVERY_READINESS_SCORE | a hypothesis is discovery-relevant only after controls, heldout, residual, and cross-model tests | C10_KNOWN_OBSERVABLE_RESIDUAL, C13_PER_FILE_HELDOUT_STABILITY, C14_ORDERING_VS_PHYSICAL_COORDINATE, C2_WIDE_PATTERN_VS_ROUTE_TRACE, C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT, C8_CLASS_CONCENTRATION_VS_IMBALANCE | complete P0 controls before claiming physics/discovery relevance |
 | RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS | C16_BIG_STREAM_READINESS | large stream should run with summaries and known P0 controls tracked | run sampled large stream plus immediately run controls | run staged large stream: 64 smoke -> 256 -> 512/1024, then particle0/top-k controls |
-| CANDIDATE_STRONG_MISSING_CONTROL | C1_STREAM_RELATION_VS_MISSING_CONTROL | particle0/core_high_pt relation supports AH1 core-anchor hypothesis | particle0/top-k/random controls | run particle0 removal / keep-only particle0 / top-k removal / same-count random controls |
+| SUPPORTED_BY_TARGETED_CONTROL_BUT_NEEDS_ORDER_RESIDUAL_TEST | C1_STREAM_RELATION_VS_MISSING_CONTROL | particle0/core_high_pt relation supports AH1 core-anchor hypothesis | order/residual/class-specific controls | run particle order shuffle, known-observable residual, and class-specific all-head gradients |
 | NEEDS_ROUTE_TRACE | C2_WIDE_PATTERN_VS_ROUTE_TRACE | wide particle pattern may be secondary context rather than noise | route-neighbor trace / causal route controls | run route-neighbor trace for top all-head particles and wide non-particle0 particles |
 | NEEDS_CLASS_SPECIFIC_TEST | C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT | Hqql/Tbl signature is strong in stream but global gradients are not class-specific | class-specific all-head gradients | run class-specific all-head gradients for Hqql/Tbl/Tbqq/Wqq/Zqq |
 | SCALING_PARTIAL | C7_SAMPLE_SIZE_SCALING | signals must scale from small snapshots to larger streams |  | run stream cycles at SAMPLES_PER_FILE=64,256,512,1024 with HISTORY_COPY=1 and compare ranks/signals |
@@ -22,9 +22,9 @@ v2 adds big-stream and discovery-readiness comparisons on top of v1.
 | P0 | MISSING_RESIDUAL_TEST | C10_KNOWN_OBSERVABLE_RESIDUAL | current signals use particles/heads but not residual after mass/tau/nparticles/pt | particle0/core may be explained by pt/mass/nparticles/tau variables |
 | P0 | NEEDS_HELDOUT | C13_PER_FILE_HELDOUT_STABILITY | snapshots=15 but no per-file heldout breakdown | same extracted tiny files can fake stable patterns |
 | P0 | NEEDS_ORDER_CONTROL | C14_ORDERING_VS_PHYSICAL_COORDINATE | particle0_edge_signal=0.9288178736074759 support=120 | particle index can encode sorting by pt, not a physical interaction |
-| P0 | METHOD_DEBUG_NOT_DISCOVERY_READY | C15_DISCOVERY_READINESS_SCORE | p0_missing_count=7 readiness=method_debug | correlation-only relation is not a discovery claim |
+| P0 | METHOD_DEBUG_NOT_DISCOVERY_READY | C15_DISCOVERY_READINESS_SCORE | p0_missing_count=6 readiness=method_debug | correlation-only relation is not a discovery claim |
 | P0 | RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS | C16_BIG_STREAM_READINESS | current_snapshots=15 stream_events=6795 | big data can make wrong shortcut look very confident |
-| P0 | CANDIDATE_STRONG_MISSING_CONTROL | C1_STREAM_RELATION_VS_MISSING_CONTROL | relation_signal=0.9474324892454034 support=151 | could be sorting shortcut or normal leading-particle bias |
+| P0 | SUPPORTED_BY_TARGETED_CONTROL_BUT_NEEDS_ORDER_RESIDUAL_TEST | C1_STREAM_RELATION_VS_MISSING_CONTROL | particle0 control available: remove_particle0_acc_drop=0.1941, random_remove1_acc_drop_mean=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027 | particle0 is causally important, but may still be sorting/leading-pT or known-observable proxy |
 | P0 | NEEDS_ROUTE_TRACE | C2_WIDE_PATTERN_VS_ROUTE_TRACE | relation_signal=0.7525254963492034 support=20 dst=hypothesis:T6_WIDE_SECONDARY_CONTEXT | wide relation can be class imbalance, loose fragments, or sorting artifact |
 | P0 | NEEDS_CLASS_SPECIFIC_TEST | C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT | watcher_score=0.9625 state=HIGH | global all-head gradient can hide class-specific roles |
 | P0 | SCALING_PARTIAL | C7_SAMPLE_SIZE_SCALING | distinct_n_events=[640, 2560, 5120, 10240] snapshots=15 | large stream can amplify shortcuts if controls are missing |
@@ -36,15 +36,18 @@ v2 adds big-stream and discovery-readiness comparisons on top of v1.
 | P1 | NEEDS_CLASS_SPECIFIC_TEST | C6_NEGATIVE_GATES_VS_SUPPRESSIVE_ROLE | watcher_score=1.0 state=HIGH | not causal until class-specific and patch tests agree |
 | P1 | NEEDS_ERROR_ATLAS | C9_CORRECT_VS_WRONG_SPLIT | current stream stores pred/true but no dedicated error-head atlas | heads on wrong examples may support predicted class rather than true class |
 
+## Particle0 control update
+
+- remove_particle0 acc_drop: **0.1941**
+- random_remove1 acc_drop mean: **0.0146**
+- targeted/random drop ratio: **13.3125**
+- keep_only_particle0 acc: **0.2027**
+
+Interpretation: particle0/core is targeted-causal, but not sufficient alone globally. Remaining P0: order control, residual, class-specific gradients, heldout.
+
 ## Big-stream policy
 
-Run a staged large stream, not the whole downloaded dataset blindly:
-
-1. smoke: SAMPLES_PER_FILE=64;
-2. medium: SAMPLES_PER_FILE=256;
-3. large sampled: SAMPLES_PER_FILE=512 or 1024 with MICRO_BATCH=16;
-4. immediately run particle0/top-k controls and class-specific gradients;
-5. only then expand to more ROOT files / tar parts.
+Run staged large streams, but do not claim discovery until order/residual/heldout/cross-model tests pass.
 
 ## Files
 

@@ -1,6 +1,7 @@
 {
   "schema": "automatic_comparison_engine.v2",
-  "generated_at_utc": "2026-06-16T06:45:19.379701+00:00",
+  "generated_at_utc": "2026-06-16T06:50:30.509407+00:00",
+  "postprocess": "particle0_controls_fix_v1",
   "comparisons": [
     {
       "comparison_id": "C10_KNOWN_OBSERVABLE_RESIDUAL",
@@ -13,7 +14,8 @@
       "status": "MISSING_RESIDUAL_TEST",
       "priority": "P0",
       "training_label": "known_observable_residual_required",
-      "evidence_json": "{}"
+      "evidence_json": "{}",
+      "source": ""
     },
     {
       "comparison_id": "C13_PER_FILE_HELDOUT_STABILITY",
@@ -26,7 +28,8 @@
       "status": "NEEDS_HELDOUT",
       "priority": "P0",
       "training_label": "per_file_heldout_required",
-      "evidence_json": "{}"
+      "evidence_json": "{}",
+      "source": ""
     },
     {
       "comparison_id": "C14_ORDERING_VS_PHYSICAL_COORDINATE",
@@ -39,20 +42,22 @@
       "status": "NEEDS_ORDER_CONTROL",
       "priority": "P0",
       "training_label": "particle_order_control_required",
-      "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}"
+      "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}",
+      "source": ""
     },
     {
       "comparison_id": "C15_DISCOVERY_READINESS_SCORE",
       "claim": "a hypothesis is discovery-relevant only after controls, heldout, residual, and cross-model tests",
-      "support_signal": "p0_missing_count=7 readiness=method_debug",
+      "support_signal": "p0_missing_count=6 readiness=method_debug",
       "contradiction_signal": "many P0 controls missing",
-      "missing_control": "C1_STREAM_RELATION_VS_MISSING_CONTROL, C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT, C2_WIDE_PATTERN_VS_ROUTE_TRACE, C8_CLASS_CONCENTRATION_VS_IMBALANCE, C10_KNOWN_OBSERVABLE_RESIDUAL, C13_PER_FILE_HELDOUT_STABILITY, C14_ORDERING_VS_PHYSICAL_COORDINATE",
+      "missing_control": "C10_KNOWN_OBSERVABLE_RESIDUAL, C13_PER_FILE_HELDOUT_STABILITY, C14_ORDERING_VS_PHYSICAL_COORDINATE, C2_WIDE_PATTERN_VS_ROUTE_TRACE, C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT, C8_CLASS_CONCENTRATION_VS_IMBALANCE",
       "risk": "correlation-only relation is not a discovery claim",
       "recommended_next_experiment": "complete P0 controls before claiming physics/discovery relevance",
       "status": "METHOD_DEBUG_NOT_DISCOVERY_READY",
       "priority": "P0",
       "training_label": "discovery_readiness_gate",
-      "evidence_json": "{\"missing_p0\": [\"C1_STREAM_RELATION_VS_MISSING_CONTROL\", \"C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT\", \"C2_WIDE_PATTERN_VS_ROUTE_TRACE\", \"C8_CLASS_CONCENTRATION_VS_IMBALANCE\", \"C10_KNOWN_OBSERVABLE_RESIDUAL\", \"C13_PER_FILE_HELDOUT_STABILITY\", \"C14_ORDERING_VS_PHYSICAL_COORDINATE\"]}"
+      "evidence_json": "{\"missing_p0\": [\"C10_KNOWN_OBSERVABLE_RESIDUAL\", \"C13_PER_FILE_HELDOUT_STABILITY\", \"C14_ORDERING_VS_PHYSICAL_COORDINATE\", \"C2_WIDE_PATTERN_VS_ROUTE_TRACE\", \"C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT\", \"C8_CLASS_CONCENTRATION_VS_IMBALANCE\"]}",
+      "source": ""
     },
     {
       "comparison_id": "C16_BIG_STREAM_READINESS",
@@ -65,20 +70,21 @@
       "status": "RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS",
       "priority": "P0",
       "training_label": "big_stream_staged_run",
-      "evidence_json": "{\"snapshots\": 15, \"events\": 6795}"
+      "evidence_json": "{\"snapshots\": 15, \"events\": 6795}",
+      "source": ""
     },
     {
       "comparison_id": "C1_STREAM_RELATION_VS_MISSING_CONTROL",
       "claim": "particle0/core_high_pt relation supports AH1 core-anchor hypothesis",
-      "support_signal": "relation_signal=0.9474324892454034 support=151",
-      "contradiction_signal": "none yet; controls not run",
-      "missing_control": "particle0/top-k/random controls",
-      "risk": "could be sorting shortcut or normal leading-particle bias",
-      "recommended_next_experiment": "run particle0 removal / keep-only particle0 / top-k removal / same-count random controls",
-      "status": "CANDIDATE_STRONG_MISSING_CONTROL",
+      "support_signal": "particle0 control available: remove_particle0_acc_drop=0.1941, random_remove1_acc_drop_mean=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027",
+      "contradiction_signal": "keep_only_particle0 is weak globally, so this is not a pure particle0-only shortcut",
+      "missing_control": "order/residual/class-specific controls",
+      "risk": "particle0 is causally important, but may still be sorting/leading-pT or known-observable proxy",
+      "recommended_next_experiment": "run particle order shuffle, known-observable residual, and class-specific all-head gradients",
+      "status": "SUPPORTED_BY_TARGETED_CONTROL_BUT_NEEDS_ORDER_RESIDUAL_TEST",
       "priority": "P0",
-      "training_label": "particle0_topk_controls_required",
-      "evidence_json": "{\"src\": \"pattern:core_high_pt\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"151\", \"strength_sum\": \"23.325594885197894\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1643308178037886\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:core_high_pt dominates top particle stream\", \"mean_strength\": \"0.15447413831256884\", \"relation_signal\": \"0.9474324892454034\"}",
+      "training_label": "particle0_targeted_control_supported_order_residual_required",
+      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409}",
       "source": "v1"
     },
     {
@@ -120,7 +126,8 @@
       "status": "SCALING_PARTIAL",
       "priority": "P0",
       "training_label": "sample_size_scaling_required",
-      "evidence_json": "{\"n_events\": [640, 2560, 5120, 10240], \"dynamics\": [{\"run_index\": 0, \"source_path\": \"manifests/history/research_evidence_graph_20260616_040530.json\", \"generated_at_utc\": \"2026-06-16T04:05:30.121747+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 1, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041017.json\", \"generated_at_utc\": \"2026-06-16T04:10:17.558878+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 2, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041240.json\", \"generated_at_utc\": \"2026-06-16T04:12:40.863052+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 3, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042436.json\", \"generated_at_utc\": \"2026-06-16T04:24:36.833330+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 4, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042447.json\", \"generated_at_utc\": \"2026-06-16T04:24:47.422420+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 5, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042512.json\", \"generated_at_utc\": \"2026-06-16T04:25:12.140529+00:00\", \"n_nodes\": 1076, \"n_edges\": 1246, \"n_head_vectors\": 24, \"n_particle_vectors\": 950, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 6, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042601.json\", \"generated_at_utc\": \"2026-06-16T04:26:01.675182+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 7, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042901.json\", \"generated_at_utc\": \"2026-06-16T04:29:01.473693+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 8, \"source_path\": \"manifests/history/research_evidence_graph_20260616_043031.json\", \"generated_at_utc\": \"2026-06-16T04:30:31.493657+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 9, \"source_path\": \"manifests/history/research_evidence_graph_20260616_050652.json\", \"generated_at_utc\": \"2026-06-16T05:06:52.665592+00:00\", \"n_nodes\": 2027, \"n_edges\": 2241, \"n_head_vectors\": 24, \"n_particle_vectors\": 1865, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}]}"
+      "evidence_json": "{\"n_events\": [640, 2560, 5120, 10240], \"dynamics\": [{\"run_index\": 0, \"source_path\": \"manifests/history/research_evidence_graph_20260616_040530.json\", \"generated_at_utc\": \"2026-06-16T04:05:30.121747+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 1, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041017.json\", \"generated_at_utc\": \"2026-06-16T04:10:17.558878+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 2, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041240.json\", \"generated_at_utc\": \"2026-06-16T04:12:40.863052+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 3, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042436.json\", \"generated_at_utc\": \"2026-06-16T04:24:36.833330+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 4, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042447.json\", \"generated_at_utc\": \"2026-06-16T04:24:47.422420+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 5, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042512.json\", \"generated_at_utc\": \"2026-06-16T04:25:12.140529+00:00\", \"n_nodes\": 1076, \"n_edges\": 1246, \"n_head_vectors\": 24, \"n_particle_vectors\": 950, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 6, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042601.json\", \"generated_at_utc\": \"2026-06-16T04:26:01.675182+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 7, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042901.json\", \"generated_at_utc\": \"2026-06-16T04:29:01.473693+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 8, \"source_path\": \"manifests/history/research_evidence_graph_20260616_043031.json\", \"generated_at_utc\": \"2026-06-16T04:30:31.493657+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 9, \"source_path\": \"manifests/history/research_evidence_graph_20260616_050652.json\", \"generated_at_utc\": \"2026-06-16T05:06:52.665592+00:00\", \"n_nodes\": 2027, \"n_edges\": 2241, \"n_head_vectors\": 24, \"n_particle_vectors\": 1865, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}]}",
+      "source": ""
     },
     {
       "comparison_id": "C8_CLASS_CONCENTRATION_VS_IMBALANCE",
@@ -133,7 +140,8 @@
       "status": "NEEDS_CLASS_DISTRIBUTION_CHECK",
       "priority": "P0",
       "training_label": "class_distribution_check_required",
-      "evidence_json": "{\"task_id\": \"T4_HQQL_TBL_SIGNATURE\", \"priority\": \"P0\", \"state\": \"HIGH\", \"score\": 0.9625, \"question\": \"Is the current stream dominated by Hqql/Tbl high-confidence events?\", \"next_action\": \"Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.\", \"features_json\": \"{\\\"top_particles\\\": 80, \\\"hqql_fraction\\\": 0.875, \\\"tbl_fraction\\\": 0.0875, \\\"hqql_tbl_fraction\\\": 0.9625}\"}"
+      "evidence_json": "{\"task_id\": \"T4_HQQL_TBL_SIGNATURE\", \"priority\": \"P0\", \"state\": \"HIGH\", \"score\": 0.9625, \"question\": \"Is the current stream dominated by Hqql/Tbl high-confidence events?\", \"next_action\": \"Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.\", \"features_json\": \"{\\\"top_particles\\\": 80, \\\"hqql_fraction\\\": 0.875, \\\"tbl_fraction\\\": 0.0875, \\\"hqql_tbl_fraction\\\": 0.9625}\"}",
+      "source": ""
     },
     {
       "comparison_id": "C11_HEAD_PAIR_SYNERGY",
@@ -146,7 +154,8 @@
       "status": "NEEDS_HEAD_PAIR_SYNERGY",
       "priority": "P1",
       "training_label": "head_pair_synergy_required",
-      "evidence_json": "{\"divergent_heads\": [\"L1_ch112:128\", \"L1_ch16:32\", \"L0_ch40:48\", \"L2_ch224:256\", \"L0_ch48:56\", \"L0_ch8:16\", \"L2_ch128:160\", \"L2_ch64:96\", \"L2_ch0:32\", \"L0_ch24:32\", \"L1_ch32:48\", \"L0_ch0:8\"]}"
+      "evidence_json": "{\"divergent_heads\": [\"L1_ch112:128\", \"L1_ch16:32\", \"L0_ch40:48\", \"L2_ch224:256\", \"L0_ch48:56\", \"L0_ch8:16\", \"L2_ch128:160\", \"L2_ch64:96\", \"L2_ch0:32\", \"L0_ch24:32\", \"L1_ch32:48\", \"L0_ch0:8\"]}",
+      "source": ""
     },
     {
       "comparison_id": "C12_CROSS_MODEL_CHECKPOINT_AGREEMENT",
@@ -159,7 +168,8 @@
       "status": "NEEDS_CROSS_MODEL_TEST",
       "priority": "P1",
       "training_label": "cross_model_agreement_required",
-      "evidence_json": "{}"
+      "evidence_json": "{}",
+      "source": ""
     },
     {
       "comparison_id": "C3_PATCH_VS_GRADIENT_DIVERGENCE",
@@ -214,7 +224,8 @@
       "status": "NEEDS_ERROR_ATLAS",
       "priority": "P1",
       "training_label": "error_atlas_required",
-      "evidence_json": "{}"
+      "evidence_json": "{}",
+      "source": ""
     }
   ],
   "p0": [
@@ -229,7 +240,8 @@
       "status": "MISSING_RESIDUAL_TEST",
       "priority": "P0",
       "training_label": "known_observable_residual_required",
-      "evidence_json": "{}"
+      "evidence_json": "{}",
+      "source": ""
     },
     {
       "comparison_id": "C13_PER_FILE_HELDOUT_STABILITY",
@@ -242,7 +254,8 @@
       "status": "NEEDS_HELDOUT",
       "priority": "P0",
       "training_label": "per_file_heldout_required",
-      "evidence_json": "{}"
+      "evidence_json": "{}",
+      "source": ""
     },
     {
       "comparison_id": "C14_ORDERING_VS_PHYSICAL_COORDINATE",
@@ -255,20 +268,22 @@
       "status": "NEEDS_ORDER_CONTROL",
       "priority": "P0",
       "training_label": "particle_order_control_required",
-      "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}"
+      "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}",
+      "source": ""
     },
     {
       "comparison_id": "C15_DISCOVERY_READINESS_SCORE",
       "claim": "a hypothesis is discovery-relevant only after controls, heldout, residual, and cross-model tests",
-      "support_signal": "p0_missing_count=7 readiness=method_debug",
+      "support_signal": "p0_missing_count=6 readiness=method_debug",
       "contradiction_signal": "many P0 controls missing",
-      "missing_control": "C1_STREAM_RELATION_VS_MISSING_CONTROL, C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT, C2_WIDE_PATTERN_VS_ROUTE_TRACE, C8_CLASS_CONCENTRATION_VS_IMBALANCE, C10_KNOWN_OBSERVABLE_RESIDUAL, C13_PER_FILE_HELDOUT_STABILITY, C14_ORDERING_VS_PHYSICAL_COORDINATE",
+      "missing_control": "C10_KNOWN_OBSERVABLE_RESIDUAL, C13_PER_FILE_HELDOUT_STABILITY, C14_ORDERING_VS_PHYSICAL_COORDINATE, C2_WIDE_PATTERN_VS_ROUTE_TRACE, C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT, C8_CLASS_CONCENTRATION_VS_IMBALANCE",
       "risk": "correlation-only relation is not a discovery claim",
       "recommended_next_experiment": "complete P0 controls before claiming physics/discovery relevance",
       "status": "METHOD_DEBUG_NOT_DISCOVERY_READY",
       "priority": "P0",
       "training_label": "discovery_readiness_gate",
-      "evidence_json": "{\"missing_p0\": [\"C1_STREAM_RELATION_VS_MISSING_CONTROL\", \"C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT\", \"C2_WIDE_PATTERN_VS_ROUTE_TRACE\", \"C8_CLASS_CONCENTRATION_VS_IMBALANCE\", \"C10_KNOWN_OBSERVABLE_RESIDUAL\", \"C13_PER_FILE_HELDOUT_STABILITY\", \"C14_ORDERING_VS_PHYSICAL_COORDINATE\"]}"
+      "evidence_json": "{\"missing_p0\": [\"C10_KNOWN_OBSERVABLE_RESIDUAL\", \"C13_PER_FILE_HELDOUT_STABILITY\", \"C14_ORDERING_VS_PHYSICAL_COORDINATE\", \"C2_WIDE_PATTERN_VS_ROUTE_TRACE\", \"C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT\", \"C8_CLASS_CONCENTRATION_VS_IMBALANCE\"]}",
+      "source": ""
     },
     {
       "comparison_id": "C16_BIG_STREAM_READINESS",
@@ -281,20 +296,21 @@
       "status": "RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS",
       "priority": "P0",
       "training_label": "big_stream_staged_run",
-      "evidence_json": "{\"snapshots\": 15, \"events\": 6795}"
+      "evidence_json": "{\"snapshots\": 15, \"events\": 6795}",
+      "source": ""
     },
     {
       "comparison_id": "C1_STREAM_RELATION_VS_MISSING_CONTROL",
       "claim": "particle0/core_high_pt relation supports AH1 core-anchor hypothesis",
-      "support_signal": "relation_signal=0.9474324892454034 support=151",
-      "contradiction_signal": "none yet; controls not run",
-      "missing_control": "particle0/top-k/random controls",
-      "risk": "could be sorting shortcut or normal leading-particle bias",
-      "recommended_next_experiment": "run particle0 removal / keep-only particle0 / top-k removal / same-count random controls",
-      "status": "CANDIDATE_STRONG_MISSING_CONTROL",
+      "support_signal": "particle0 control available: remove_particle0_acc_drop=0.1941, random_remove1_acc_drop_mean=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027",
+      "contradiction_signal": "keep_only_particle0 is weak globally, so this is not a pure particle0-only shortcut",
+      "missing_control": "order/residual/class-specific controls",
+      "risk": "particle0 is causally important, but may still be sorting/leading-pT or known-observable proxy",
+      "recommended_next_experiment": "run particle order shuffle, known-observable residual, and class-specific all-head gradients",
+      "status": "SUPPORTED_BY_TARGETED_CONTROL_BUT_NEEDS_ORDER_RESIDUAL_TEST",
       "priority": "P0",
-      "training_label": "particle0_topk_controls_required",
-      "evidence_json": "{\"src\": \"pattern:core_high_pt\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"151\", \"strength_sum\": \"23.325594885197894\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1643308178037886\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:core_high_pt dominates top particle stream\", \"mean_strength\": \"0.15447413831256884\", \"relation_signal\": \"0.9474324892454034\"}",
+      "training_label": "particle0_targeted_control_supported_order_residual_required",
+      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409}",
       "source": "v1"
     },
     {
@@ -336,7 +352,8 @@
       "status": "SCALING_PARTIAL",
       "priority": "P0",
       "training_label": "sample_size_scaling_required",
-      "evidence_json": "{\"n_events\": [640, 2560, 5120, 10240], \"dynamics\": [{\"run_index\": 0, \"source_path\": \"manifests/history/research_evidence_graph_20260616_040530.json\", \"generated_at_utc\": \"2026-06-16T04:05:30.121747+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 1, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041017.json\", \"generated_at_utc\": \"2026-06-16T04:10:17.558878+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 2, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041240.json\", \"generated_at_utc\": \"2026-06-16T04:12:40.863052+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 3, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042436.json\", \"generated_at_utc\": \"2026-06-16T04:24:36.833330+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 4, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042447.json\", \"generated_at_utc\": \"2026-06-16T04:24:47.422420+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 5, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042512.json\", \"generated_at_utc\": \"2026-06-16T04:25:12.140529+00:00\", \"n_nodes\": 1076, \"n_edges\": 1246, \"n_head_vectors\": 24, \"n_particle_vectors\": 950, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 6, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042601.json\", \"generated_at_utc\": \"2026-06-16T04:26:01.675182+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 7, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042901.json\", \"generated_at_utc\": \"2026-06-16T04:29:01.473693+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 8, \"source_path\": \"manifests/history/research_evidence_graph_20260616_043031.json\", \"generated_at_utc\": \"2026-06-16T04:30:31.493657+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 9, \"source_path\": \"manifests/history/research_evidence_graph_20260616_050652.json\", \"generated_at_utc\": \"2026-06-16T05:06:52.665592+00:00\", \"n_nodes\": 2027, \"n_edges\": 2241, \"n_head_vectors\": 24, \"n_particle_vectors\": 1865, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}]}"
+      "evidence_json": "{\"n_events\": [640, 2560, 5120, 10240], \"dynamics\": [{\"run_index\": 0, \"source_path\": \"manifests/history/research_evidence_graph_20260616_040530.json\", \"generated_at_utc\": \"2026-06-16T04:05:30.121747+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 1, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041017.json\", \"generated_at_utc\": \"2026-06-16T04:10:17.558878+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 2, \"source_path\": \"manifests/history/research_evidence_graph_20260616_041240.json\", \"generated_at_utc\": \"2026-06-16T04:12:40.863052+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 3, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042436.json\", \"generated_at_utc\": \"2026-06-16T04:24:36.833330+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 4, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042447.json\", \"generated_at_utc\": \"2026-06-16T04:24:47.422420+00:00\", \"n_nodes\": 814, \"n_edges\": 966, \"n_head_vectors\": 24, \"n_particle_vectors\": 710, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 5, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042512.json\", \"generated_at_utc\": \"2026-06-16T04:25:12.140529+00:00\", \"n_nodes\": 1076, \"n_edges\": 1246, \"n_head_vectors\": 24, \"n_particle_vectors\": 950, \"baseline_acc\": 0.7718750238418579, \"n_events\": 640}, {\"run_index\": 6, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042601.json\", \"generated_at_utc\": \"2026-06-16T04:26:01.675182+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 7, \"source_path\": \"manifests/history/research_evidence_graph_20260616_042901.json\", \"generated_at_utc\": \"2026-06-16T04:29:01.473693+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 8, \"source_path\": \"manifests/history/research_evidence_graph_20260616_043031.json\", \"generated_at_utc\": \"2026-06-16T04:30:31.493657+00:00\", \"n_nodes\": 1080, \"n_edges\": 1255, \"n_head_vectors\": 24, \"n_particle_vectors\": 959, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}, {\"run_index\": 9, \"source_path\": \"manifests/history/research_evidence_graph_20260616_050652.json\", \"generated_at_utc\": \"2026-06-16T05:06:52.665592+00:00\", \"n_nodes\": 2027, \"n_edges\": 2241, \"n_head_vectors\": 24, \"n_particle_vectors\": 1865, \"baseline_acc\": 0.7574218511581421, \"n_events\": 2560}]}",
+      "source": ""
     },
     {
       "comparison_id": "C8_CLASS_CONCENTRATION_VS_IMBALANCE",
@@ -349,7 +366,8 @@
       "status": "NEEDS_CLASS_DISTRIBUTION_CHECK",
       "priority": "P0",
       "training_label": "class_distribution_check_required",
-      "evidence_json": "{\"task_id\": \"T4_HQQL_TBL_SIGNATURE\", \"priority\": \"P0\", \"state\": \"HIGH\", \"score\": 0.9625, \"question\": \"Is the current stream dominated by Hqql/Tbl high-confidence events?\", \"next_action\": \"Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.\", \"features_json\": \"{\\\"top_particles\\\": 80, \\\"hqql_fraction\\\": 0.875, \\\"tbl_fraction\\\": 0.0875, \\\"hqql_tbl_fraction\\\": 0.9625}\"}"
+      "evidence_json": "{\"task_id\": \"T4_HQQL_TBL_SIGNATURE\", \"priority\": \"P0\", \"state\": \"HIGH\", \"score\": 0.9625, \"question\": \"Is the current stream dominated by Hqql/Tbl high-confidence events?\", \"next_action\": \"Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.\", \"features_json\": \"{\\\"top_particles\\\": 80, \\\"hqql_fraction\\\": 0.875, \\\"tbl_fraction\\\": 0.0875, \\\"hqql_tbl_fraction\\\": 0.9625}\"}",
+      "source": ""
     }
   ],
   "next_big_stream_policy": "staged_sampled_large_stream_with_controls"
