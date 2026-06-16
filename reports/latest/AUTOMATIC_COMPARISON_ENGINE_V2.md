@@ -20,19 +20,19 @@ v2 adds big-stream and discovery-readiness comparisons on top of v1.
 | priority | status | comparison | support | risk |
 | --- | --- | --- | --- | --- |
 | P0 | MISSING_RESIDUAL_TEST | C10_KNOWN_OBSERVABLE_RESIDUAL | current signals use particles/heads but not residual after mass/tau/nparticles/pt | particle0/core may be explained by pt/mass/nparticles/tau variables |
-| P0 | NEEDS_HELDOUT | C13_PER_FILE_HELDOUT_STABILITY | snapshots=9 but no per-file heldout breakdown | same extracted tiny files can fake stable patterns |
-| P0 | NEEDS_ORDER_CONTROL | C14_ORDERING_VS_PHYSICAL_COORDINATE | particle0_edge_signal=0.9281572399371416 support=80 | particle index can encode sorting by pt, not a physical interaction |
+| P0 | NEEDS_HELDOUT | C13_PER_FILE_HELDOUT_STABILITY | snapshots=10 but no per-file heldout breakdown | same extracted tiny files can fake stable patterns |
+| P0 | NEEDS_ORDER_CONTROL | C14_ORDERING_VS_PHYSICAL_COORDINATE | particle0_edge_signal=0.8789335434363931 support=120 | particle index can encode sorting by pt, not a physical interaction |
 | P0 | METHOD_DEBUG_NOT_DISCOVERY_READY | C15_DISCOVERY_READINESS_SCORE | p0_missing_count=8 readiness=method_debug | correlation-only relation is not a discovery claim |
-| P0 | RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS | C16_BIG_STREAM_READINESS | current_snapshots=9 stream_events=3909 | big data can make wrong shortcut look very confident |
-| P0 | CANDIDATE_STRONG_MISSING_CONTROL | C1_STREAM_RELATION_VS_MISSING_CONTROL | relation_signal=0.9493572807480766 support=115 | could be sorting shortcut or normal leading-particle bias |
-| P0 | NEEDS_ROUTE_TRACE | C2_WIDE_PATTERN_VS_ROUTE_TRACE | relation_signal=0.6967013601350704 support=46 dst=hypothesis:T6_WIDE_SECONDARY_CONTEXT | wide relation can be class imbalance, loose fragments, or sorting artifact |
+| P0 | RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS | C16_BIG_STREAM_READINESS | current_snapshots=10 stream_events=4390 | big data can make wrong shortcut look very confident |
+| P0 | CANDIDATE_STRONG_MISSING_CONTROL | C1_STREAM_RELATION_VS_MISSING_CONTROL | relation_signal=0.9337754683098479 support=161 | could be sorting shortcut or normal leading-particle bias |
+| P0 | NEEDS_ROUTE_TRACE | C2_WIDE_PATTERN_VS_ROUTE_TRACE | relation_signal=0.6788334175765307 support=42 dst=hypothesis:T6_WIDE_SECONDARY_CONTEXT | wide relation can be class imbalance, loose fragments, or sorting artifact |
 | P0 | NEEDS_CLASS_SPECIFIC_TEST | C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT | watcher_score=0.975 state=HIGH | global all-head gradient can hide class-specific roles |
-| P0 | NEEDS_MORE_LARGE_RUNS | C7_SAMPLE_SIZE_SCALING | distinct_n_events=[640, 2560] snapshots=9 | large stream can amplify shortcuts if controls are missing |
+| P0 | NEEDS_MORE_LARGE_RUNS | C7_SAMPLE_SIZE_SCALING | distinct_n_events=[640, 2560] snapshots=10 | large stream can amplify shortcuts if controls are missing |
 | P0 | NEEDS_CLASS_DISTRIBUTION_CHECK | C8_CLASS_CONCENTRATION_VS_IMBALANCE | watcher_score=0.975 state=HIGH | balanced tiny subset can overstate class signatures; natural distribution can hide rare patterns |
 | P1 | NEEDS_HEAD_PAIR_SYNERGY | C11_HEAD_PAIR_SYNERGY | divergent_gate_strong_patch_weak_heads=['L1_ch112:128', 'L0_ch40:48', 'L2_ch224:256', 'L1_ch16:32', 'L0_ch48:56', 'L2_ch128:160', 'L0_ch8:16', 'L2_ch64:96'] count=10 | single-head tests can miss redundancy, compensation, and synergy |
 | P1 | NEEDS_CROSS_MODEL_TEST | C12_CROSS_MODEL_CHECKPOINT_AGREEMENT | current main stream is ParticleNet_kinpid-focused | architecture-specific artifact can look like physics in one model |
 | P1 | NEEDS_CLASS_SPECIFIC_TEST | C3_PATCH_VS_GRADIENT_DIVERGENCE | divergent_heads=10 top=[{'head_id': 'L1_ch112:128', 'gate_abs_grad': 0.8005718103609979, 'patch_acc_drop': 0.0, 'role': 'middle learned-neighborhood / route-composition head'}, {'head_id': 'L0_ch40:48', 'gate_abs_grad': 0.6734583724290131, 'patch_acc_drop': 0.0, 'role': 'early feature/geometry/PID reader'}, {'head_id': 'L2_ch224:256', 'gate_abs_grad': 0.6716344718355686, 'patch_acc_drop': 0.0, 'role': 'late aggregation / class-evidence head'}] | gradient support is local; patch may reveal redundancy or compensation |
-| P1 | NEEDS_HELDOUT | C4_HEAD_RANK_STABILITY_VS_RUN_CHANGES | stability_score=0.9450 top_heads=['L1_ch112:128', 'L0_ch40:48', 'L2_ch224:256', 'L1_ch16:32', 'L0_ch48:56'] | repeated same data can fake stability |
+| P1 | NEEDS_HELDOUT | C4_HEAD_RANK_STABILITY_VS_RUN_CHANGES | stability_score=0.9511 top_heads=['L1_ch112:128', 'L0_ch40:48', 'L2_ch224:256', 'L1_ch16:32', 'L0_ch48:56'] | repeated same data can fake stability |
 | P1 | NEEDS_CLASS_SPECIFIC_TEST | C6_NEGATIVE_GATES_VS_SUPPRESSIVE_ROLE | watcher_score=1.0 state=HIGH | not causal until class-specific and patch tests agree |
 | P1 | NEEDS_ERROR_ATLAS | C9_CORRECT_VS_WRONG_SPLIT | current stream stores pred/true but no dedicated error-head atlas | heads on wrong examples may support predicted class rather than true class |
 
