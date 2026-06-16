@@ -1,0 +1,11 @@
+true_label,total,label_QCD,label_Hbb,label_Hcc,label_Hgg,label_H4q,label_Hqql,label_Zqq,label_Wqq,label_Tbqq,label_Tbl
+label_QCD,1024,731,16,36,68,29,5,50,52,36,1
+label_Hbb,1024,15,692,127,88,30,3,45,3,19,2
+label_Hcc,1024,17,119,630,83,79,1,49,12,33,1
+label_Hgg,1024,32,60,66,703,110,1,25,10,17,0
+label_H4q,1024,19,11,36,98,802,2,15,14,27,0
+label_Hqql,1024,0,7,1,0,2,968,4,6,1,35
+label_Zqq,1024,50,27,31,10,19,0,638,229,20,0
+label_Wqq,1024,62,3,8,4,21,2,150,755,19,0
+label_Tbqq,1024,13,17,11,5,26,0,1,1,949,1
+label_Tbl,1024,0,2,1,0,0,43,0,0,0,978
