@@ -1,6 +1,6 @@
 {
   "schema": "automatic_comparison_engine.v2",
-  "generated_at_utc": "2026-06-16T08:21:01.003891+00:00",
+  "generated_at_utc": "2026-06-16T08:38:18.598668+00:00",
   "postprocess": "particle0_order_confusion_residual_fix_v1",
   "comparisons": [
     {
