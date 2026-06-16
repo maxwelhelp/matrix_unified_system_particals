@@ -1,13 +1,15 @@
 {
   "ok": true,
-  "events": 504,
+  "events": 2024,
   "groups": {
-    "Hqql_correct": 245,
-    "Hqql_to_Tbl": 4,
-    "Tbl_correct": 248,
-    "Tbl_to_Hqql": 7
+    "Hqql_correct": 968,
+    "Hqql_to_Tbl": 35,
+    "Tbl_correct": 978,
+    "Tbl_to_Hqql": 43
   },
   "k": 16,
+  "micro_batch": 64,
+  "knn_micro_batch": 128,
   "missing": [],
   "unexpected": []
 }

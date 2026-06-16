@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "status": "NEEDS_MORE_STATS",
+  "min_confused": 100,
+  "Hqql_to_Tbl": 35,
+  "Tbl_to_Hqql": 43,
+  "groups": {
+    "Hqql_correct": 968,
+    "Hqql_to_Tbl": 35,
+    "Tbl_correct": 978,
+    "Tbl_to_Hqql": 43
+  },
+  "recommendations": [
+    "increase samples/files for Hqql_to_Tbl",
+    "increase samples/files for Tbl_to_Hqql"
+  ]
+}
