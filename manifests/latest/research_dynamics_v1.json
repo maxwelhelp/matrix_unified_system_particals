@@ -1,7 +1,7 @@
 {
   "schema": "research_dynamics.v1",
-  "generated_at_utc": "2026-06-16T05:28:45.549933+00:00",
-  "n_graph_snapshots": 13,
+  "generated_at_utc": "2026-06-16T06:43:02.800358+00:00",
+  "n_graph_snapshots": 15,
   "run_rows": [
     {
       "run_index": 0,
@@ -145,13 +145,35 @@
       "n_particle_vectors": 1894,
       "baseline_acc": 0.7662109136581421,
       "n_events": 10240
+    },
+    {
+      "run_index": 13,
+      "source_path": "manifests/history/research_evidence_graph_20260616_053103.json",
+      "generated_at_utc": "2026-06-16T05:31:03.047143+00:00",
+      "n_nodes": 2056,
+      "n_edges": 2270,
+      "n_head_vectors": 24,
+      "n_particle_vectors": 1894,
+      "baseline_acc": 0.7662109136581421,
+      "n_events": 10240
+    },
+    {
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
+      "n_nodes": 2056,
+      "n_edges": 2270,
+      "n_head_vectors": 24,
+      "n_particle_vectors": 1894,
+      "baseline_acc": 0.7662109136581421,
+      "n_events": 10240
     }
   ],
   "latest_top_heads": [
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 1,
       "head_id": "L1_ch112:128",
@@ -166,9 +188,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 2,
       "head_id": "L1_ch16:32",
@@ -183,9 +205,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 3,
       "head_id": "L0_ch40:48",
@@ -200,9 +222,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 4,
       "head_id": "L2_ch224:256",
@@ -217,9 +239,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 5,
       "head_id": "L0_ch48:56",
@@ -234,9 +256,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 6,
       "head_id": "L0_ch8:16",
@@ -251,9 +273,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 7,
       "head_id": "L2_ch128:160",
@@ -268,9 +290,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 8,
       "head_id": "L2_ch64:96",
@@ -285,9 +307,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 9,
       "head_id": "L2_ch0:32",
@@ -302,9 +324,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 10,
       "head_id": "L0_ch24:32",
@@ -321,9 +343,9 @@
   ],
   "latest_class_particle_patterns": [
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "pred_label": "label_Zqq",
       "n_particles": 32,
       "mean_super_score": 3.2202731296420097,
@@ -334,9 +356,9 @@
       "charged_fraction": 0.53125
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "pred_label": "label_QCD",
       "n_particles": 16,
       "mean_super_score": 3.039346292614937,
@@ -347,9 +369,9 @@
       "charged_fraction": 0.375
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "pred_label": "label_Wqq",
       "n_particles": 16,
       "mean_super_score": 2.746244564652443,
@@ -360,9 +382,9 @@
       "charged_fraction": 0.625
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "pred_label": "label_Tbl",
       "n_particles": 264,
       "mean_super_score": 2.6393169534928873,
@@ -373,9 +395,9 @@
       "charged_fraction": 0.4166666666666667
     },
     {
-      "run_index": 12,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
-      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "run_index": 14,
+      "source_path": "manifests/history/research_evidence_graph_20260616_064300.json",
+      "generated_at_utc": "2026-06-16T06:43:00.041263+00:00",
       "pred_label": "label_Hqql",
       "n_particles": 1566,
       "mean_super_score": 2.58155300181792,
@@ -401,6 +423,8 @@
     "manifests/history/research_evidence_graph_20260616_050652.json",
     "manifests/history/research_evidence_graph_20260616_051125.json",
     "manifests/history/research_evidence_graph_20260616_052457.json",
-    "manifests/history/research_evidence_graph_20260616_052843.json"
+    "manifests/history/research_evidence_graph_20260616_052843.json",
+    "manifests/history/research_evidence_graph_20260616_053103.json",
+    "manifests/history/research_evidence_graph_20260616_064300.json"
   ]
 }
