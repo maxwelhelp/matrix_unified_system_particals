@@ -20,14 +20,14 @@ v2 adds big-stream and discovery-readiness comparisons on top of v1.
 | priority | status | comparison | support | risk |
 | --- | --- | --- | --- | --- |
 | P0 | MISSING_RESIDUAL_TEST | C10_KNOWN_OBSERVABLE_RESIDUAL | current signals use particles/heads but not residual after mass/tau/nparticles/pt | particle0/core may be explained by pt/mass/nparticles/tau variables |
-| P0 | NEEDS_HELDOUT | C13_PER_FILE_HELDOUT_STABILITY | snapshots=12 but no per-file heldout breakdown | same extracted tiny files can fake stable patterns |
+| P0 | NEEDS_HELDOUT | C13_PER_FILE_HELDOUT_STABILITY | snapshots=13 but no per-file heldout breakdown | same extracted tiny files can fake stable patterns |
 | P0 | NEEDS_ORDER_CONTROL | C14_ORDERING_VS_PHYSICAL_COORDINATE | particle0_edge_signal=0.9288178736074759 support=120 | particle index can encode sorting by pt, not a physical interaction |
 | P0 | METHOD_DEBUG_NOT_DISCOVERY_READY | C15_DISCOVERY_READINESS_SCORE | p0_missing_count=7 readiness=method_debug | correlation-only relation is not a discovery claim |
-| P0 | RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS | C16_BIG_STREAM_READINESS | current_snapshots=12 stream_events=5352 | big data can make wrong shortcut look very confident |
+| P0 | RUN_SAMPLED_LARGE_STREAM_BUT_PRIORITIZE_CONTROLS | C16_BIG_STREAM_READINESS | current_snapshots=13 stream_events=5833 | big data can make wrong shortcut look very confident |
 | P0 | CANDIDATE_STRONG_MISSING_CONTROL | C1_STREAM_RELATION_VS_MISSING_CONTROL | relation_signal=0.9474324892454034 support=151 | could be sorting shortcut or normal leading-particle bias |
 | P0 | NEEDS_ROUTE_TRACE | C2_WIDE_PATTERN_VS_ROUTE_TRACE | relation_signal=0.7525254963492034 support=20 dst=hypothesis:T6_WIDE_SECONDARY_CONTEXT | wide relation can be class imbalance, loose fragments, or sorting artifact |
 | P0 | NEEDS_CLASS_SPECIFIC_TEST | C5_CLASS_SIGNATURE_VS_CLASS_SPECIFIC_GRADIENT | watcher_score=0.9625 state=HIGH | global all-head gradient can hide class-specific roles |
-| P0 | SCALING_PARTIAL | C7_SAMPLE_SIZE_SCALING | distinct_n_events=[640, 2560, 5120, 10240] snapshots=12 | large stream can amplify shortcuts if controls are missing |
+| P0 | SCALING_PARTIAL | C7_SAMPLE_SIZE_SCALING | distinct_n_events=[640, 2560, 5120, 10240] snapshots=13 | large stream can amplify shortcuts if controls are missing |
 | P0 | NEEDS_CLASS_DISTRIBUTION_CHECK | C8_CLASS_CONCENTRATION_VS_IMBALANCE | watcher_score=0.9625 state=HIGH | balanced tiny subset can overstate class signatures; natural distribution can hide rare patterns |
 | P1 | NEEDS_HEAD_PAIR_SYNERGY | C11_HEAD_PAIR_SYNERGY | divergent_gate_strong_patch_weak_heads=['L1_ch112:128', 'L1_ch16:32', 'L0_ch40:48', 'L2_ch224:256', 'L0_ch48:56', 'L0_ch8:16', 'L2_ch128:160', 'L2_ch64:96'] count=12 | single-head tests can miss redundancy, compensation, and synergy |
 | P1 | NEEDS_CROSS_MODEL_TEST | C12_CROSS_MODEL_CHECKPOINT_AGREEMENT | current main stream is ParticleNet_kinpid-focused | architecture-specific artifact can look like physics in one model |
