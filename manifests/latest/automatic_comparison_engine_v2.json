@@ -1,7 +1,7 @@
 {
   "schema": "automatic_comparison_engine.v2",
-  "generated_at_utc": "2026-06-16T07:10:36.572790+00:00",
-  "postprocess": "particle0_controls_fix_v1",
+  "generated_at_utc": "2026-06-16T07:21:30.690128+00:00",
+  "postprocess": "particle0_order_confusion_fix_v1",
   "comparisons": [
     {
       "comparison_id": "C10_KNOWN_OBSERVABLE_RESIDUAL",
@@ -34,14 +34,14 @@
     {
       "comparison_id": "C14_ORDERING_VS_PHYSICAL_COORDINATE",
       "claim": "particle0 dominance must be separated from particle ordering/sorting",
-      "support_signal": "particle0_edge_signal=0.9288178736074759 support=120",
-      "contradiction_signal": "order control available",
-      "missing_control": "",
-      "risk": "particle index can encode sorting by pt, not a physical interaction",
-      "recommended_next_experiment": "run particle order shuffle and compare index-based vs pt/deltaR-based signals",
-      "status": "ORDER_CONTROL_PARTIAL",
+      "support_signal": "order control available: random/reverse/move controls preserve predictions; max_random_shuffle_flip=0.0000",
+      "contradiction_signal": "none at prediction level; small logit differences may still have outliers",
+      "missing_control": "known-observable residual / heldout",
+      "risk": "array-index shortcut risk is strongly reduced, but leading-pT/known-observable proxy remains possible",
+      "recommended_next_experiment": "run known-observable residual and per-file heldout; optionally inspect max-logit-diff outliers",
+      "status": "ORDER_INDEX_ARTIFACT_REDUCED_NEEDS_RESIDUAL_HELDOUT",
       "priority": "P0",
-      "training_label": "particle_order_control_required",
+      "training_label": "order_artifact_reduced_residual_heldout_required",
       "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}",
       "source": ""
     },
@@ -76,15 +76,15 @@
     {
       "comparison_id": "C1_STREAM_RELATION_VS_MISSING_CONTROL",
       "claim": "particle0/core_high_pt relation supports AH1 core-anchor hypothesis",
-      "support_signal": "particle0 control available: remove_particle0_acc_drop=0.1941, random_remove1_acc_drop_mean=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027",
+      "support_signal": "particle0 control: remove_particle0_drop=0.1941, random_remove1_drop=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027; order_max_random_flip=0.0000",
       "contradiction_signal": "keep_only_particle0 is weak globally, so this is not a pure particle0-only shortcut",
-      "missing_control": "order/residual/class-specific controls",
-      "risk": "particle0 is causally important, but may still be sorting/leading-pT or known-observable proxy",
-      "recommended_next_experiment": "run particle order shuffle, known-observable residual, and class-specific all-head gradients",
-      "status": "SUPPORTED_BY_TARGETED_CONTROL_BUT_NEEDS_ORDER_RESIDUAL_TEST",
+      "missing_control": "residual/class-specific/heldout controls",
+      "risk": "particle0 is causally important; order-index artifact is reduced; known-observable proxy and class-specific bias remain",
+      "recommended_next_experiment": "run known-observable residual, class-specific all-head gradients, and per-file heldout stability",
+      "status": "SUPPORTED_BY_TARGETED_CONTROL_AND_ORDER_CONTROL_NEEDS_RESIDUAL",
       "priority": "P0",
-      "training_label": "particle0_targeted_control_supported_order_residual_required",
-      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409}",
+      "training_label": "particle0_control_and_order_supported_residual_required",
+      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409, \"order_max_random_flip\": 0.0, \"confusion_atlas_available\": true}",
       "source": "v1"
     },
     {
@@ -260,14 +260,14 @@
     {
       "comparison_id": "C14_ORDERING_VS_PHYSICAL_COORDINATE",
       "claim": "particle0 dominance must be separated from particle ordering/sorting",
-      "support_signal": "particle0_edge_signal=0.9288178736074759 support=120",
-      "contradiction_signal": "order control available",
-      "missing_control": "",
-      "risk": "particle index can encode sorting by pt, not a physical interaction",
-      "recommended_next_experiment": "run particle order shuffle and compare index-based vs pt/deltaR-based signals",
-      "status": "ORDER_CONTROL_PARTIAL",
+      "support_signal": "order control available: random/reverse/move controls preserve predictions; max_random_shuffle_flip=0.0000",
+      "contradiction_signal": "none at prediction level; small logit differences may still have outliers",
+      "missing_control": "known-observable residual / heldout",
+      "risk": "array-index shortcut risk is strongly reduced, but leading-pT/known-observable proxy remains possible",
+      "recommended_next_experiment": "run known-observable residual and per-file heldout; optionally inspect max-logit-diff outliers",
+      "status": "ORDER_INDEX_ARTIFACT_REDUCED_NEEDS_RESIDUAL_HELDOUT",
       "priority": "P0",
-      "training_label": "particle_order_control_required",
+      "training_label": "order_artifact_reduced_residual_heldout_required",
       "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}",
       "source": ""
     },
@@ -302,15 +302,15 @@
     {
       "comparison_id": "C1_STREAM_RELATION_VS_MISSING_CONTROL",
       "claim": "particle0/core_high_pt relation supports AH1 core-anchor hypothesis",
-      "support_signal": "particle0 control available: remove_particle0_acc_drop=0.1941, random_remove1_acc_drop_mean=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027",
+      "support_signal": "particle0 control: remove_particle0_drop=0.1941, random_remove1_drop=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027; order_max_random_flip=0.0000",
       "contradiction_signal": "keep_only_particle0 is weak globally, so this is not a pure particle0-only shortcut",
-      "missing_control": "order/residual/class-specific controls",
-      "risk": "particle0 is causally important, but may still be sorting/leading-pT or known-observable proxy",
-      "recommended_next_experiment": "run particle order shuffle, known-observable residual, and class-specific all-head gradients",
-      "status": "SUPPORTED_BY_TARGETED_CONTROL_BUT_NEEDS_ORDER_RESIDUAL_TEST",
+      "missing_control": "residual/class-specific/heldout controls",
+      "risk": "particle0 is causally important; order-index artifact is reduced; known-observable proxy and class-specific bias remain",
+      "recommended_next_experiment": "run known-observable residual, class-specific all-head gradients, and per-file heldout stability",
+      "status": "SUPPORTED_BY_TARGETED_CONTROL_AND_ORDER_CONTROL_NEEDS_RESIDUAL",
       "priority": "P0",
-      "training_label": "particle0_targeted_control_supported_order_residual_required",
-      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409}",
+      "training_label": "particle0_control_and_order_supported_residual_required",
+      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409, \"order_max_random_flip\": 0.0, \"confusion_atlas_available\": true}",
       "source": "v1"
     },
     {
@@ -370,5 +370,5 @@
       "source": ""
     }
   ],
-  "next_big_stream_policy": "staged_sampled_large_stream_with_controls"
+  "next_big_stream_policy": "controls_then_staged_large_stream"
 }
