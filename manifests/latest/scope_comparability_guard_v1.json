@@ -1,6 +1,6 @@
 {
   "schema": "scope_comparability_guard.v1",
-  "generated_at_utc": "2026-06-16T07:30:46.008702+00:00",
+  "generated_at_utc": "2026-06-16T07:39:21.499258+00:00",
   "status": "PASS_WITH_WARNINGS",
   "checks": [
     {
@@ -21,7 +21,7 @@
     },
     {
       "check": "comparison_bridge_status",
-      "status": "PASS",
+      "status": "WARN",
       "severity": "HIGH",
       "meaning": "comparison engine should bridge stream relation + local control with explicit remaining risks",
       "allowed_comparison": "stream suggested particle0; local control supports causality; still needs order/residual",

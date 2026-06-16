@@ -13,7 +13,7 @@ This report prevents a methodology bug: comparing a one-batch/local control delt
 | --- | --- | --- | --- | --- |
 | PASS | HIGH | control_is_local_not_global_stream_delta | remove_particle0 vs baseline/random_remove1 inside same control run | treat remove_particle0 acc_drop as a stream-history delta |
 | PASS | MEDIUM | stream_history_available | head rank stability / stream signal stability | causal claim from stream relation alone |
-| PASS | HIGH | comparison_bridge_status | stream suggested particle0; local control supports causality; still needs order/residual | claim discovery or global stream-wide causality without remaining controls |
+| WARN | HIGH | comparison_bridge_status | stream suggested particle0; local control supports causality; still needs order/residual | claim discovery or global stream-wide causality without remaining controls |
 | WARN | HIGH | embedding_pool_is_mixed | train with source/scope splits and flags | train one model treating all embedding rows as homogeneous facts |
 | WARN | HIGH | remaining_required_controls | next tests: order control, residual, class gradients, heldout | physics discovery claim |
 
