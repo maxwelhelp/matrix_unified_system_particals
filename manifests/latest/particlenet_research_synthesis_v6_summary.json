@@ -1,31 +1,31 @@
 {
   "ok": true,
   "baseline": {
-    "n": 1280,
-    "acc": 0.768750011920929,
+    "n": 2560,
+    "acc": 0.7574219107627869,
     "pred_counts": [
-      123,
-      127,
-      103,
-      147,
-      131,
-      127,
-      126,
-      129,
-      138,
-      129
+      241,
+      243,
+      220,
+      280,
+      274,
+      255,
+      251,
+      270,
+      273,
+      253
     ],
     "true_counts": [
-      128,
-      128,
-      128,
-      128,
-      128,
-      128,
-      128,
-      128,
-      128,
-      128
+      256,
+      256,
+      256,
+      256,
+      256,
+      256,
+      256,
+      256,
+      256,
+      256
     ]
   },
   "n_edge_heads": 24,
@@ -50,7 +50,7 @@
       "status": "CAUSAL_PATCHED",
       "priority": "P0",
       "score": 72,
-      "core_evidence": "top_pt ablation acc=0.4617 vs random=0.7398; gap=0.2781.",
+      "core_evidence": "top_pt ablation acc=0.4488 vs random=0.7250; gap=0.2762.",
       "risk": "top_pt and top_energy highly overlap; need top-k sweep.",
       "next_test": "Run k sweep k=1,2,4,8,16 and per-class particle ablation."
     },
@@ -60,7 +60,7 @@
       "status": "CAUSAL_PATCHED",
       "priority": "P0",
       "score": 34,
-      "core_evidence": "Best EdgeConv pseudo-head 1:ch16:32 drops acc 0.7688->0.5016; full EdgeConv layers also previously dropped accuracy near random.",
+      "core_evidence": "Best EdgeConv pseudo-head 1:ch16:32 drops acc 0.7574->0.4934; full EdgeConv layers also previously dropped accuracy near random.",
       "risk": "Channel-head groups are fixed slices, not learned clusters yet.",
       "next_test": "Cluster EdgeConv activations and patch learned clusters; run heldout stability."
     },
@@ -70,7 +70,7 @@
       "status": "CAUSAL_PATCHED",
       "priority": "P1",
       "score": 74,
-      "core_evidence": "label_H4q->part_pt_log, label_Hbb->part_deta, label_Hcc->part_logerel, label_Hgg->part_deta, label_Hqql->part_pt_log, label_QCD->part_deta, label_Tbl->part_deta, label_Tbqq->part_deltaR",
+      "core_evidence": "label_H4q->part_pt_log, label_Hbb->part_logerel, label_Hcc->part_logerel, label_Hgg->part_deta, label_Hqql->part_pt_log, label_QCD->part_deta, label_Tbl->part_deta, label_Tbqq->part_deltaR",
       "risk": "Zeroing feature channels may be out-of-distribution.",
       "next_test": "Permutation/noise controls and class contrast reports."
     },
@@ -80,7 +80,7 @@
       "status": "OBSERVED",
       "priority": "P1",
       "score": 66,
-      "core_evidence": "Tbqq-vs-Tbl: route ΔR gap L1=0.0418, sdmass gap=46.8804, nparticles gap=22.3047.",
+      "core_evidence": "Tbqq-vs-Tbl: route ΔR gap L1=0.0539, sdmass gap=54.6329, nparticles gap=22.1602.",
       "risk": "May be explained by known mass/multiplicity only.",
       "next_test": "Residual analysis after controlling for sdmass/nparticles/tau variables."
     },
@@ -90,7 +90,7 @@
       "status": "OBSERVED",
       "priority": "P1",
       "score": 63,
-      "core_evidence": "Mean neighbor ΔR gap Tbqq-Wqq ≈ 0.1209 across route layers.",
+      "core_evidence": "Mean neighbor ΔR gap Tbqq-Wqq ≈ 0.1242 across route layers.",
       "risk": "Route stats are descriptive; may be explained by mass/multiplicity.",
       "next_test": "Causal route-group patch: compact vs wide edges; regress against jet mass and nparticles."
     },
