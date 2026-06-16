@@ -1,20 +1,20 @@
 {
   "schema": "automatic_comparison_engine.v2",
-  "generated_at_utc": "2026-06-16T07:30:41.061506+00:00",
-  "postprocess": "particle0_order_confusion_fix_v1",
+  "generated_at_utc": "2026-06-16T07:39:16.291504+00:00",
+  "postprocess": "particle0_order_confusion_residual_fix_v1",
   "comparisons": [
     {
       "comparison_id": "C10_KNOWN_OBSERVABLE_RESIDUAL",
       "claim": "discovery-relevant signals must survive known-observable baselines",
-      "support_signal": "current signals use particles/heads but not residual after mass/tau/nparticles/pt",
-      "contradiction_signal": "residual baseline available",
-      "missing_control": "",
-      "risk": "particle0/core may be explained by pt/mass/nparticles/tau variables",
-      "recommended_next_experiment": "fit known observables then test whether head/particle signals explain residual errors or logits",
-      "status": "RESIDUAL_PARTIAL",
+      "support_signal": "residual_status=RESIDUAL_SIGNAL_REMAINS, agreement=0.4102, surrogate_acc=0.3815, logit_r2_mean=0.5676, residual_rel=0.3845",
+      "contradiction_signal": "simple surrogate explains some logit variance but low model agreement means decision structure is not reproduced",
+      "missing_control": "richer residual v2 / heldout / cross-model",
+      "risk": "v1 uses simple linear/ridge known observables; richer ECF/EFP/tau features may explain more",
+      "recommended_next_experiment": "add richer pair/ECF-like observables and run class-specific head gradients",
+      "status": "RESIDUAL_SIGNAL_REMAINS_NEEDS_RICHER_V2_HELDOUT",
       "priority": "P0",
-      "training_label": "known_observable_residual_required",
-      "evidence_json": "{}",
+      "training_label": "residual_signal_remains_v1_richer_v2_required",
+      "evidence_json": "{\"ok\": true, \"checkpoint\": \"local_checkpoints/part/ParticleNet_kinpid.pt\", \"mode\": \"kinpid\", \"n_events\": 2560, \"train_n\": 1792, \"test_n\": 768, \"model_acc_test\": 0.7708333333333334, \"model_acc_all\": 0.757421875, \"known_observable_surrogate_acc\": 0.3815104166666667, \"known_observable_agreement_with_model\": 0.41015625, \"observable_label_acc\": 0.4127604166666667, \"logit_r2_mean\": 0.5675867575303339, \"logit_r2_min\": 0.3018847239922827, \"logit_r2_max\": 0.6940282366829218, \"residual_rel_mean\": 0.3845167049044765, \"logit_mse\": 11.0909102946264, \"status\": \"RESIDUAL_SIGNAL_REMAINS\", \"n_features\": 57, \"top_features\": [{\"feature\": \"feat4_ptw\", \"coef_norm\": 123.33468656935807}, {\"feature\": \"pt_weighted_deltaR\", \"coef_norm\": 62.01087989862158}, {\"feature\": \"pt_weighted_dR1\", \"coef_norm\": 62.01087989782794}, {\"feature\": \"log_jet_energy\", \"coef_norm\": 28.520366774896367}, {\"feature\": \"feat1_ptw\", \"coef_norm\": 27.410968060469592}, {\"feature\": \"feat3_ptw\", \"coef_norm\": 26.167130376444245}, {\"feature\": \"feat2_ptw\", \"coef_norm\": 22.445257832407822}, {\"feature\": \"feat1_mean\", \"coef_norm\": 22.351716996037315}, {\"feature\": \"feat0_ptw\", \"coef_norm\": 18.932066666336258}, {\"feature\": \"feat3_mean\", \"coef_norm\": 17.2607352002511}, {\"feature\": \"mean_deltaR\", \"coef_norm\": 13.087419237026149}, {\"feature\": \"feat4_mean\", \"coef_norm\": 12.94487865206014}, {\"feature\": \"pt_weighted_dR2\", \"coef_norm\": 12.078204515695552}, {\"feature\": \"lead_pt_frac\", \"coef_norm\": 9.380312608515837}, {\"feature\": \"lead_e_frac\", \"coef_norm\": 8.22120903291797}, {\"feature\": \"log_jet_mass\", \"coef_norm\": 7.212143885782393}, {\"feature\": \"pt2_concentration\", \"coef_norm\": 6.215506643030422}, {\"feature\": \"log_nparticles\", \"coef_norm\": 5.795547396269179}, {\"feature\": \"pt_weighted_dR3\", \"coef_norm\": 5.182740337519544}, {\"feature\": \"log_jet_pt\", \"coef_norm\": 4.9099663434557375}, {\"feature\": \"feat0_mean\", \"coef_norm\": 4.629973006069533}, {\"feature\": \"feat2_mean\", \"coef_norm\": 4.494028965931633}, {\"feature\": \"top16_pt_frac\", \"coef_norm\": 3.071761799000944}, {\"feature\": \"top8_pt_frac\", \"coef_norm\": 2.8837321471903907}, {\"feature\": \"charge_abs_sum\", \"coef_norm\": 2.628709602203044}], \"missing\": [], \"unexpected\": [], \"files\": [\"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToBB_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToCC_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToGG_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW2Q1L_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW4Q_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBarLep_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBar_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/WToQQ_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZJetsToNuNu_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZToQQ_000.root\"]}",
       "source": ""
     },
     {
@@ -36,12 +36,12 @@
       "claim": "particle0 dominance must be separated from particle ordering/sorting",
       "support_signal": "order control available: random/reverse/move controls preserve predictions; max_random_shuffle_flip=0.0000",
       "contradiction_signal": "none at prediction level; small logit differences may still have outliers",
-      "missing_control": "known-observable residual / heldout",
-      "risk": "array-index shortcut risk is strongly reduced, but leading-pT/known-observable proxy remains possible",
-      "recommended_next_experiment": "run known-observable residual and per-file heldout; optionally inspect max-logit-diff outliers",
-      "status": "ORDER_INDEX_ARTIFACT_REDUCED_NEEDS_RESIDUAL_HELDOUT",
+      "missing_control": "heldout / richer residual v2",
+      "risk": "array-index shortcut risk is strongly reduced; leading-core residual remains after simple surrogate",
+      "recommended_next_experiment": "run per-file heldout and richer residual v2; optionally inspect max-logit-diff outliers",
+      "status": "ORDER_INDEX_ARTIFACT_REDUCED_RESIDUAL_REMAINS_NEEDS_HELDOUT",
       "priority": "P0",
-      "training_label": "order_artifact_reduced_residual_heldout_required",
+      "training_label": "order_artifact_reduced_residual_remains_heldout_required",
       "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}",
       "source": ""
     },
@@ -76,15 +76,15 @@
     {
       "comparison_id": "C1_STREAM_RELATION_VS_MISSING_CONTROL",
       "claim": "particle0/core_high_pt relation supports AH1 core-anchor hypothesis",
-      "support_signal": "particle0 control: remove_particle0_drop=0.1941, random_remove1_drop=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027; order_max_random_flip=0.0000",
+      "support_signal": "particle0 control: remove_particle0_drop=0.1941, random_remove1_drop=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027; order_max_random_flip=0.0000; residual_status=RESIDUAL_SIGNAL_REMAINS, agreement=0.4102, surrogate_acc=0.3815, logit_r2_mean=0.5676, residual_rel=0.3845",
       "contradiction_signal": "keep_only_particle0 is weak globally, so this is not a pure particle0-only shortcut",
-      "missing_control": "residual/class-specific/heldout controls",
-      "risk": "particle0 is causally important; order-index artifact is reduced; known-observable proxy and class-specific bias remain",
-      "recommended_next_experiment": "run known-observable residual, class-specific all-head gradients, and per-file heldout stability",
-      "status": "SUPPORTED_BY_TARGETED_CONTROL_AND_ORDER_CONTROL_NEEDS_RESIDUAL",
+      "missing_control": "class-specific gradients / heldout / richer residual v2",
+      "risk": "simple known-observable-only explanation is weakened, but richer ECF/EFP features and heldout are still needed",
+      "recommended_next_experiment": "run class-specific all-head gradients, richer residual v2, and per-file heldout stability",
+      "status": "SUPPORTED_BY_CONTROL_ORDER_AND_RESIDUAL_V1_NEEDS_CLASS_HEADS",
       "priority": "P0",
-      "training_label": "particle0_control_and_order_supported_residual_required",
-      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409, \"order_max_random_flip\": 0.0, \"confusion_atlas_available\": true}",
+      "training_label": "control_order_residual_supported_class_heads_required",
+      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409, \"order_max_random_flip\": 0.0, \"confusion_atlas_available\": true, \"residual\": {\"ok\": true, \"checkpoint\": \"local_checkpoints/part/ParticleNet_kinpid.pt\", \"mode\": \"kinpid\", \"n_events\": 2560, \"train_n\": 1792, \"test_n\": 768, \"model_acc_test\": 0.7708333333333334, \"model_acc_all\": 0.757421875, \"known_observable_surrogate_acc\": 0.3815104166666667, \"known_observable_agreement_with_model\": 0.41015625, \"observable_label_acc\": 0.4127604166666667, \"logit_r2_mean\": 0.5675867575303339, \"logit_r2_min\": 0.3018847239922827, \"logit_r2_max\": 0.6940282366829218, \"residual_rel_mean\": 0.3845167049044765, \"logit_mse\": 11.0909102946264, \"status\": \"RESIDUAL_SIGNAL_REMAINS\", \"n_features\": 57, \"top_features\": [{\"feature\": \"feat4_ptw\", \"coef_norm\": 123.33468656935807}, {\"feature\": \"pt_weighted_deltaR\", \"coef_norm\": 62.01087989862158}, {\"feature\": \"pt_weighted_dR1\", \"coef_norm\": 62.01087989782794}, {\"feature\": \"log_jet_energy\", \"coef_norm\": 28.520366774896367}, {\"feature\": \"feat1_ptw\", \"coef_norm\": 27.410968060469592}, {\"feature\": \"feat3_ptw\", \"coef_norm\": 26.167130376444245}, {\"feature\": \"feat2_ptw\", \"coef_norm\": 22.445257832407822}, {\"feature\": \"feat1_mean\", \"coef_norm\": 22.351716996037315}, {\"feature\": \"feat0_ptw\", \"coef_norm\": 18.932066666336258}, {\"feature\": \"feat3_mean\", \"coef_norm\": 17.2607352002511}, {\"feature\": \"mean_deltaR\", \"coef_norm\": 13.087419237026149}, {\"feature\": \"feat4_mean\", \"coef_norm\": 12.94487865206014}, {\"feature\": \"pt_weighted_dR2\", \"coef_norm\": 12.078204515695552}, {\"feature\": \"lead_pt_frac\", \"coef_norm\": 9.380312608515837}, {\"feature\": \"lead_e_frac\", \"coef_norm\": 8.22120903291797}, {\"feature\": \"log_jet_mass\", \"coef_norm\": 7.212143885782393}, {\"feature\": \"pt2_concentration\", \"coef_norm\": 6.215506643030422}, {\"feature\": \"log_nparticles\", \"coef_norm\": 5.795547396269179}, {\"feature\": \"pt_weighted_dR3\", \"coef_norm\": 5.182740337519544}, {\"feature\": \"log_jet_pt\", \"coef_norm\": 4.9099663434557375}, {\"feature\": \"feat0_mean\", \"coef_norm\": 4.629973006069533}, {\"feature\": \"feat2_mean\", \"coef_norm\": 4.494028965931633}, {\"feature\": \"top16_pt_frac\", \"coef_norm\": 3.071761799000944}, {\"feature\": \"top8_pt_frac\", \"coef_norm\": 2.8837321471903907}, {\"feature\": \"charge_abs_sum\", \"coef_norm\": 2.628709602203044}], \"missing\": [], \"unexpected\": [], \"files\": [\"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToBB_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToCC_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToGG_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW2Q1L_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW4Q_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBarLep_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBar_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/WToQQ_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZJetsToNuNu_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZToQQ_000.root\"]}}",
       "source": "v1"
     },
     {
@@ -232,15 +232,15 @@
     {
       "comparison_id": "C10_KNOWN_OBSERVABLE_RESIDUAL",
       "claim": "discovery-relevant signals must survive known-observable baselines",
-      "support_signal": "current signals use particles/heads but not residual after mass/tau/nparticles/pt",
-      "contradiction_signal": "residual baseline available",
-      "missing_control": "",
-      "risk": "particle0/core may be explained by pt/mass/nparticles/tau variables",
-      "recommended_next_experiment": "fit known observables then test whether head/particle signals explain residual errors or logits",
-      "status": "RESIDUAL_PARTIAL",
+      "support_signal": "residual_status=RESIDUAL_SIGNAL_REMAINS, agreement=0.4102, surrogate_acc=0.3815, logit_r2_mean=0.5676, residual_rel=0.3845",
+      "contradiction_signal": "simple surrogate explains some logit variance but low model agreement means decision structure is not reproduced",
+      "missing_control": "richer residual v2 / heldout / cross-model",
+      "risk": "v1 uses simple linear/ridge known observables; richer ECF/EFP/tau features may explain more",
+      "recommended_next_experiment": "add richer pair/ECF-like observables and run class-specific head gradients",
+      "status": "RESIDUAL_SIGNAL_REMAINS_NEEDS_RICHER_V2_HELDOUT",
       "priority": "P0",
-      "training_label": "known_observable_residual_required",
-      "evidence_json": "{}",
+      "training_label": "residual_signal_remains_v1_richer_v2_required",
+      "evidence_json": "{\"ok\": true, \"checkpoint\": \"local_checkpoints/part/ParticleNet_kinpid.pt\", \"mode\": \"kinpid\", \"n_events\": 2560, \"train_n\": 1792, \"test_n\": 768, \"model_acc_test\": 0.7708333333333334, \"model_acc_all\": 0.757421875, \"known_observable_surrogate_acc\": 0.3815104166666667, \"known_observable_agreement_with_model\": 0.41015625, \"observable_label_acc\": 0.4127604166666667, \"logit_r2_mean\": 0.5675867575303339, \"logit_r2_min\": 0.3018847239922827, \"logit_r2_max\": 0.6940282366829218, \"residual_rel_mean\": 0.3845167049044765, \"logit_mse\": 11.0909102946264, \"status\": \"RESIDUAL_SIGNAL_REMAINS\", \"n_features\": 57, \"top_features\": [{\"feature\": \"feat4_ptw\", \"coef_norm\": 123.33468656935807}, {\"feature\": \"pt_weighted_deltaR\", \"coef_norm\": 62.01087989862158}, {\"feature\": \"pt_weighted_dR1\", \"coef_norm\": 62.01087989782794}, {\"feature\": \"log_jet_energy\", \"coef_norm\": 28.520366774896367}, {\"feature\": \"feat1_ptw\", \"coef_norm\": 27.410968060469592}, {\"feature\": \"feat3_ptw\", \"coef_norm\": 26.167130376444245}, {\"feature\": \"feat2_ptw\", \"coef_norm\": 22.445257832407822}, {\"feature\": \"feat1_mean\", \"coef_norm\": 22.351716996037315}, {\"feature\": \"feat0_ptw\", \"coef_norm\": 18.932066666336258}, {\"feature\": \"feat3_mean\", \"coef_norm\": 17.2607352002511}, {\"feature\": \"mean_deltaR\", \"coef_norm\": 13.087419237026149}, {\"feature\": \"feat4_mean\", \"coef_norm\": 12.94487865206014}, {\"feature\": \"pt_weighted_dR2\", \"coef_norm\": 12.078204515695552}, {\"feature\": \"lead_pt_frac\", \"coef_norm\": 9.380312608515837}, {\"feature\": \"lead_e_frac\", \"coef_norm\": 8.22120903291797}, {\"feature\": \"log_jet_mass\", \"coef_norm\": 7.212143885782393}, {\"feature\": \"pt2_concentration\", \"coef_norm\": 6.215506643030422}, {\"feature\": \"log_nparticles\", \"coef_norm\": 5.795547396269179}, {\"feature\": \"pt_weighted_dR3\", \"coef_norm\": 5.182740337519544}, {\"feature\": \"log_jet_pt\", \"coef_norm\": 4.9099663434557375}, {\"feature\": \"feat0_mean\", \"coef_norm\": 4.629973006069533}, {\"feature\": \"feat2_mean\", \"coef_norm\": 4.494028965931633}, {\"feature\": \"top16_pt_frac\", \"coef_norm\": 3.071761799000944}, {\"feature\": \"top8_pt_frac\", \"coef_norm\": 2.8837321471903907}, {\"feature\": \"charge_abs_sum\", \"coef_norm\": 2.628709602203044}], \"missing\": [], \"unexpected\": [], \"files\": [\"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToBB_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToCC_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToGG_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW2Q1L_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW4Q_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBarLep_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBar_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/WToQQ_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZJetsToNuNu_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZToQQ_000.root\"]}",
       "source": ""
     },
     {
@@ -262,12 +262,12 @@
       "claim": "particle0 dominance must be separated from particle ordering/sorting",
       "support_signal": "order control available: random/reverse/move controls preserve predictions; max_random_shuffle_flip=0.0000",
       "contradiction_signal": "none at prediction level; small logit differences may still have outliers",
-      "missing_control": "known-observable residual / heldout",
-      "risk": "array-index shortcut risk is strongly reduced, but leading-pT/known-observable proxy remains possible",
-      "recommended_next_experiment": "run known-observable residual and per-file heldout; optionally inspect max-logit-diff outliers",
-      "status": "ORDER_INDEX_ARTIFACT_REDUCED_NEEDS_RESIDUAL_HELDOUT",
+      "missing_control": "heldout / richer residual v2",
+      "risk": "array-index shortcut risk is strongly reduced; leading-core residual remains after simple surrogate",
+      "recommended_next_experiment": "run per-file heldout and richer residual v2; optionally inspect max-logit-diff outliers",
+      "status": "ORDER_INDEX_ARTIFACT_REDUCED_RESIDUAL_REMAINS_NEEDS_HELDOUT",
       "priority": "P0",
-      "training_label": "order_artifact_reduced_residual_heldout_required",
+      "training_label": "order_artifact_reduced_residual_remains_heldout_required",
       "evidence_json": "{\"src\": \"pattern:particle0\", \"dst\": \"hypothesis:AH1\", \"relation_type\": \"pattern_supports_hypothesis\", \"support\": \"120\", \"strength_sum\": \"24.388283495101206\", \"max_strength\": \"5.027756214141846\", \"lift_like\": \"1.1511627906976745\", \"confidence\": \"MEDIUM\", \"risk\": \"may be leading-particle shortcut\", \"next_control\": \"remove particle0 / keep only particle0 / top-k controls\", \"evidence\": \"pattern:particle0 dominates top particle stream\", \"mean_strength\": \"0.20323569579251005\", \"relation_signal\": \"0.9288178736074759\"}",
       "source": ""
     },
@@ -302,15 +302,15 @@
     {
       "comparison_id": "C1_STREAM_RELATION_VS_MISSING_CONTROL",
       "claim": "particle0/core_high_pt relation supports AH1 core-anchor hypothesis",
-      "support_signal": "particle0 control: remove_particle0_drop=0.1941, random_remove1_drop=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027; order_max_random_flip=0.0000",
+      "support_signal": "particle0 control: remove_particle0_drop=0.1941, random_remove1_drop=0.0146, ratio=13.3125, keep_only_particle0_acc=0.2027; order_max_random_flip=0.0000; residual_status=RESIDUAL_SIGNAL_REMAINS, agreement=0.4102, surrogate_acc=0.3815, logit_r2_mean=0.5676, residual_rel=0.3845",
       "contradiction_signal": "keep_only_particle0 is weak globally, so this is not a pure particle0-only shortcut",
-      "missing_control": "residual/class-specific/heldout controls",
-      "risk": "particle0 is causally important; order-index artifact is reduced; known-observable proxy and class-specific bias remain",
-      "recommended_next_experiment": "run known-observable residual, class-specific all-head gradients, and per-file heldout stability",
-      "status": "SUPPORTED_BY_TARGETED_CONTROL_AND_ORDER_CONTROL_NEEDS_RESIDUAL",
+      "missing_control": "class-specific gradients / heldout / richer residual v2",
+      "risk": "simple known-observable-only explanation is weakened, but richer ECF/EFP features and heldout are still needed",
+      "recommended_next_experiment": "run class-specific all-head gradients, richer residual v2, and per-file heldout stability",
+      "status": "SUPPORTED_BY_CONTROL_ORDER_AND_RESIDUAL_V1_NEEDS_CLASS_HEADS",
       "priority": "P0",
-      "training_label": "particle0_control_and_order_supported_residual_required",
-      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409, \"order_max_random_flip\": 0.0, \"confusion_atlas_available\": true}",
+      "training_label": "control_order_residual_supported_class_heads_required",
+      "evidence_json": "{\"remove_particle0\": {\"control\": \"remove_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"38.39883041381836\", \"acc\": \"0.563281238079071\", \"mean_conf\": \"0.708976149559021\", \"pred_flip_rate\": \"0.3160156309604645\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-2.6891095638275146\", \"delta_base_pred_logit_mean\": \"-3.5644980669021606\", \"acc_drop_from_baseline\": \"0.19414061307907104\"}, \"keep_only_particle0\": {\"control\": \"keep_only_particle0\", \"n_events\": \"2560\", \"valid_particles_mean_after\": \"1.0\", \"acc\": \"0.20273438096046448\", \"mean_conf\": \"0.8144317865371704\", \"pred_flip_rate\": \"0.794140636920929\", \"base_pred_logit_mean\": \"0.875388503074646\", \"ctrl_base_pred_logit_mean\": \"-25.6352481842041\", \"delta_base_pred_logit_mean\": \"-26.510636687278748\", \"acc_drop_from_baseline\": \"0.5546874701976776\"}, \"random_remove1_acc_drop_mean\": 0.014583309491475424, \"random_remove1_flip_mean\": 0.062369791169961296, \"target_vs_random_drop_ratio\": 13.312520946809409, \"order_max_random_flip\": 0.0, \"confusion_atlas_available\": true, \"residual\": {\"ok\": true, \"checkpoint\": \"local_checkpoints/part/ParticleNet_kinpid.pt\", \"mode\": \"kinpid\", \"n_events\": 2560, \"train_n\": 1792, \"test_n\": 768, \"model_acc_test\": 0.7708333333333334, \"model_acc_all\": 0.757421875, \"known_observable_surrogate_acc\": 0.3815104166666667, \"known_observable_agreement_with_model\": 0.41015625, \"observable_label_acc\": 0.4127604166666667, \"logit_r2_mean\": 0.5675867575303339, \"logit_r2_min\": 0.3018847239922827, \"logit_r2_max\": 0.6940282366829218, \"residual_rel_mean\": 0.3845167049044765, \"logit_mse\": 11.0909102946264, \"status\": \"RESIDUAL_SIGNAL_REMAINS\", \"n_features\": 57, \"top_features\": [{\"feature\": \"feat4_ptw\", \"coef_norm\": 123.33468656935807}, {\"feature\": \"pt_weighted_deltaR\", \"coef_norm\": 62.01087989862158}, {\"feature\": \"pt_weighted_dR1\", \"coef_norm\": 62.01087989782794}, {\"feature\": \"log_jet_energy\", \"coef_norm\": 28.520366774896367}, {\"feature\": \"feat1_ptw\", \"coef_norm\": 27.410968060469592}, {\"feature\": \"feat3_ptw\", \"coef_norm\": 26.167130376444245}, {\"feature\": \"feat2_ptw\", \"coef_norm\": 22.445257832407822}, {\"feature\": \"feat1_mean\", \"coef_norm\": 22.351716996037315}, {\"feature\": \"feat0_ptw\", \"coef_norm\": 18.932066666336258}, {\"feature\": \"feat3_mean\", \"coef_norm\": 17.2607352002511}, {\"feature\": \"mean_deltaR\", \"coef_norm\": 13.087419237026149}, {\"feature\": \"feat4_mean\", \"coef_norm\": 12.94487865206014}, {\"feature\": \"pt_weighted_dR2\", \"coef_norm\": 12.078204515695552}, {\"feature\": \"lead_pt_frac\", \"coef_norm\": 9.380312608515837}, {\"feature\": \"lead_e_frac\", \"coef_norm\": 8.22120903291797}, {\"feature\": \"log_jet_mass\", \"coef_norm\": 7.212143885782393}, {\"feature\": \"pt2_concentration\", \"coef_norm\": 6.215506643030422}, {\"feature\": \"log_nparticles\", \"coef_norm\": 5.795547396269179}, {\"feature\": \"pt_weighted_dR3\", \"coef_norm\": 5.182740337519544}, {\"feature\": \"log_jet_pt\", \"coef_norm\": 4.9099663434557375}, {\"feature\": \"feat0_mean\", \"coef_norm\": 4.629973006069533}, {\"feature\": \"feat2_mean\", \"coef_norm\": 4.494028965931633}, {\"feature\": \"top16_pt_frac\", \"coef_norm\": 3.071761799000944}, {\"feature\": \"top8_pt_frac\", \"coef_norm\": 2.8837321471903907}, {\"feature\": \"charge_abs_sum\", \"coef_norm\": 2.628709602203044}], \"missing\": [], \"unexpected\": [], \"files\": [\"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToBB_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToCC_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToGG_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW2Q1L_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/HToWW4Q_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBarLep_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/TTBar_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/WToQQ_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZJetsToNuNu_000.root\", \"/home/maxwelhelp/Рабочий стол/jetclass_tiny_balanced/ZToQQ_000.root\"]}}",
       "source": "v1"
     },
     {
@@ -370,5 +370,5 @@
       "source": ""
     }
   ],
-  "next_big_stream_policy": "controls_then_staged_large_stream"
+  "next_big_stream_policy": "class_heads_residual_v2_heldout_then_scale"
 }
