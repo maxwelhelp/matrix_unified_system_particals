@@ -1,6 +1,6 @@
 {
   "schema": "stream_task_watcher.v1",
-  "generated_at_utc": "2026-06-16T05:28:49.179896+00:00",
+  "generated_at_utc": "2026-06-16T05:31:04.365891+00:00",
   "latest_run_index": 12,
   "n_stream_events": 5833,
   "n_latest_events": 481,
