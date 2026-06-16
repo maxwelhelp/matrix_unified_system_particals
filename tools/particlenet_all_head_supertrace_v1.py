@@ -65,35 +65,58 @@ def baseline_logits(model,batch):
         return model(batch['points'],batch['features'],batch['mask']).detach()
 
 def gated_forward(model,batch,groups):
-    gates=[]; meta=[]; captures=[]; hooks=[]
-    # First dry shape info from known architecture via hook output at runtime.
+    """Forward with differentiable scalar gates per EdgeConv pseudo-head group.
+
+    Important: this function must not modify the module output in-place. The old
+    version used slice assignment into `out`, which breaks autograd because the
+    original output is still needed for gradients. We now build the gated tensor
+    with `torch.cat` from non-inplace slices.
+    """
+    gate_tensors=[]
+    meta_by_layer=[]
+    captures=[]
+    hooks=[]
+
     def make_hook(layer_id):
-        def hook(m,inp,out):
+        def hook(m, inp, out):
             C=out.shape[1]
-            if len(gates)<=layer_id:
+            if len(gate_tensors)<=layer_id:
                 ranges=split_ranges(C,groups)
-                g=torch.ones(len(ranges),device=out.device,requires_grad=True)
-                gates.append(g)
-                meta.append([(layer_id,gi,a,b) for gi,a,b in ranges])
-            z=out
+                gate=torch.ones(len(ranges),device=out.device,requires_grad=True)
+                gate_tensors.append(gate)
+                meta_by_layer.append([(layer_id,gi,a,b) for gi,a,b in ranges])
+            parts=[]
             energies=[]
-            for idx,(ly,gi,a,b) in enumerate(meta[layer_id]):
-                z_slice=z[:,a:b,:]*gates[layer_id][idx]
-                z=z.clone() if idx==0 else z
-                z[:,a:b,:]=z_slice
+            last=0
+            for idx,(ly,gi,a,b) in enumerate(meta_by_layer[layer_id]):
+                if a>last:
+                    parts.append(out[:,last:a,:])
+                part=out[:,a:b,:] * gate_tensors[layer_id][idx]
+                parts.append(part)
                 energies.append(torch.sqrt((out[:,a:b,:].detach().float()**2).sum(dim=1)+1e-12))
+                last=b
+            if last<C:
+                parts.append(out[:,last:C,:])
+            gated=torch.cat(parts,dim=1)
             captures.append({'layer':layer_id,'energies':energies,'shape':tuple(out.shape)})
-            return z
+            return gated
         return hook
+
     for i,conv in enumerate(model.edge_convs):
         hooks.append(conv.register_forward_hook(make_hook(i)))
     logits=model(batch['points'],batch['features'],batch['mask'])
-    for h in hooks: h.remove()
-    flat_meta=[]; flat_gates=[]
-    for li,m in enumerate(meta):
-        for idx,item in enumerate(m):
-            flat_meta.append(item); flat_gates.append(gates[li][idx])
-    return logits,flat_gates,flat_meta,captures
+    for h in hooks:
+        h.remove()
+    return logits,gate_tensors,meta_by_layer,captures
+
+def collect_gate_grads(gate_tensors,meta_by_layer):
+    grads=[]
+    for layer_id,gate in enumerate(gate_tensors):
+        gate_grad=gate.grad.detach().cpu() if gate.grad is not None else torch.zeros_like(gate.detach().cpu())
+        for idx,(ly,gi,a,b) in enumerate(meta_by_layer[layer_id]):
+            grad=float(gate_grad[idx])
+            grads.append({'layer':ly,'group_id':gi,'channels':f'ch{a}:{b}','grad':grad,'abs_grad':abs(grad),'positive_grad':max(0.0,grad),'head_id':f'L{ly}_ch{a}:{b}'})
+    return grads
 
 def main():
     ap=argparse.ArgumentParser()
@@ -112,14 +135,10 @@ def main():
     batch=load_balanced(args.data_dir,mode=args.mode,samples_per_file=args.samples_per_file,max_files=args.max_files,device=args.device)
     base=baseline_logits(model,batch); pred=base.argmax(-1); y=batch['y']; prob=F.softmax(base.float(),-1)
     model.zero_grad(set_to_none=True)
-    logits,gates,meta,captures=gated_forward(model,batch,args.head_groups)
+    logits,gate_tensors,meta_by_layer,captures=gated_forward(model,batch,args.head_groups)
     obj=logits.gather(1,pred[:,None]).mean()
     obj.backward()
-    grads=[]
-    for i,g in enumerate(gates):
-        grad=float(g.grad.detach().cpu()) if g.grad is not None else 0.0
-        ly,gi,a,b=meta[i]
-        grads.append({'layer':ly,'group_id':gi,'channels':f'ch{a}:{b}','grad':grad,'abs_grad':abs(grad),'positive_grad':max(0.0,grad),'head_id':f'L{ly}_ch{a}:{b}'})
+    grads=collect_gate_grads(gate_tensors,meta_by_layer)
     grads_sorted=sorted(grads,key=lambda r:r['abs_grad'],reverse=True)
     # build all-head particle score from positive gradients; if all nonpositive, use abs gradients
     weight_by=(lambda r:r['positive_grad'])
@@ -127,8 +146,6 @@ def main():
         weight_by=lambda r:r['abs_grad']
     B,N=batch['mask'].shape[0],batch['mask'].shape[-1]
     super_score=torch.zeros(B,N,device=args.device)
-    head_event_rows=[]
-    # captures order can contain one per layer
     grad_lookup={(r['layer'],r['group_id']):weight_by(r) for r in grads}
     for cap in captures:
         ly=cap['layer']
