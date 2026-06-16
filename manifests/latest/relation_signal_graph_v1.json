@@ -1,7 +1,7 @@
 {
   "schema": "relation_signal_graph.v1",
-  "generated_at_utc": "2026-06-16T05:31:05.128138+00:00",
-  "latest_run_index": 12,
+  "generated_at_utc": "2026-06-16T06:43:08.263802+00:00",
+  "latest_run_index": 14,
   "n_nodes": 47,
   "n_edges": 89,
   "top_edges": [
@@ -475,15 +475,15 @@
       "dst": "hypothesis:AH4",
       "relation_type": "task_monitors_hypothesis",
       "support": 1,
-      "strength_sum": 0.95,
-      "max_strength": 0.95,
+      "strength_sum": 0.9571428571428572,
+      "max_strength": 0.9571428571428572,
       "lift_like": 1.0,
       "confidence": "HIGH",
       "risk": "task score is deterministic weak signal",
       "next_control": "Keep tracking; if unstable, split by class/sample size and run heldout stability.",
       "evidence": "Do the same heads stay important across snapshots?",
-      "mean_strength": 0.95,
-      "relation_signal": 0.2380666691282908
+      "mean_strength": 0.9571428571428572,
+      "relation_signal": 0.23870952627114794
     },
     {
       "src": "run:latest",
@@ -788,7 +788,7 @@
     {
       "severity": "HIGH",
       "relation": "task:T2_HEAD_RANK_STABILITY->hypothesis:AH4",
-      "score": 0.95,
+      "score": 0.9571428571428572,
       "next_control": "Keep tracking; if unstable, split by class/sample size and run heldout stability.",
       "reason": "Do the same heads stay important across snapshots?"
     },

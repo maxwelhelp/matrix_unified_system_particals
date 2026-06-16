@@ -2,7 +2,7 @@
 
 Automatic relationship mining over the stream/evidence graph. Signals are prioritization, not causal proof.
 
-- Latest run index: **12**
+- Latest run index: **14**
 - Nodes: **47**
 - Edges: **89**
 
@@ -42,7 +42,7 @@ Automatic relationship mining over the stream/evidence graph. Signals are priori
 | MEDIUM | task:T3_NEGATIVE_SUPPRESSIVE_GATES->hypothesis:NEGATIVE_GATES | 1.0000 | Add suppressive-head analysis and class-specific negative gate gradients. | Are there heads that suppress the current class logit? |
 | MEDIUM | task:T5_PATCH_VS_GRADIENT_DIVERGENCE->hypothesis:AH3 | 1.0000 | Build patch-rank vs gate-rank report and run multi-head patch combinations. | Which heads are patch-important but not gradient-important, or gradient-important but not patch-important? |
 | HIGH | task:T4_HQQL_TBL_SIGNATURE->hypothesis:AH2 | 0.9625 | Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq. | Is the current stream dominated by Hqql/Tbl high-confidence events? |
-| HIGH | task:T2_HEAD_RANK_STABILITY->hypothesis:AH4 | 0.9500 | Keep tracking; if unstable, split by class/sample size and run heldout stability. | Do the same heads stay important across snapshots? |
+| HIGH | task:T2_HEAD_RANK_STABILITY->hypothesis:AH4 | 0.9571 | Keep tracking; if unstable, split by class/sample size and run heldout stability. | Do the same heads stay important across snapshots? |
 | HIGH | task:T1_PARTICLE0_SHORTCUT_OR_CORE_ANCHOR->hypothesis:AH1 | 0.2426 | Run particle0 removal / keep-only particle0 / top-k removal / same-count random controls. | task score is deterministic weak signal |
 | HIGH | task:T3_NEGATIVE_SUPPRESSIVE_GATES->hypothesis:NEGATIVE_GATES | 0.2426 | Add suppressive-head analysis and class-specific negative gate gradients. | task score is deterministic weak signal |
 | HIGH | task:T5_PATCH_VS_GRADIENT_DIVERGENCE->hypothesis:AH3 | 0.2426 | Build patch-rank vs gate-rank report and run multi-head patch combinations. | task score is deterministic weak signal |
