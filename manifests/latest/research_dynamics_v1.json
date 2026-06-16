@@ -1,7 +1,7 @@
 {
   "schema": "research_dynamics.v1",
-  "generated_at_utc": "2026-06-16T05:25:00.324367+00:00",
-  "n_graph_snapshots": 12,
+  "generated_at_utc": "2026-06-16T05:28:45.549933+00:00",
+  "n_graph_snapshots": 13,
   "run_rows": [
     {
       "run_index": 0,
@@ -134,13 +134,24 @@
       "n_particle_vectors": 1894,
       "baseline_acc": 0.7662109136581421,
       "n_events": 10240
+    },
+    {
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
+      "n_nodes": 2056,
+      "n_edges": 2270,
+      "n_head_vectors": 24,
+      "n_particle_vectors": 1894,
+      "baseline_acc": 0.7662109136581421,
+      "n_events": 10240
     }
   ],
   "latest_top_heads": [
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 1,
       "head_id": "L1_ch112:128",
@@ -151,13 +162,13 @@
       "patch_acc_drop": 0.0,
       "role": "middle learned-neighborhood / route-composition head",
       "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_H4q, label_Hgg",
-      "delta_gate_abs_grad": 0.026566363466553833,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 2,
       "head_id": "L1_ch16:32",
@@ -168,13 +179,13 @@
       "patch_acc_drop": 0.0,
       "role": "middle learned-neighborhood / route-composition head",
       "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_Hcc, label_Zqq",
-      "delta_gate_abs_grad": 0.02574005292990522,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 3,
       "head_id": "L0_ch40:48",
@@ -185,13 +196,13 @@
       "patch_acc_drop": 0.0,
       "role": "early feature/geometry/PID reader",
       "semantic_hint": "kinematic/energy, class-specific: label_Hqql, label_Zqq, label_Wqq",
-      "delta_gate_abs_grad": 0.014056575510767222,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 4,
       "head_id": "L2_ch224:256",
@@ -202,13 +213,13 @@
       "patch_acc_drop": 0.0,
       "role": "late aggregation / class-evidence head",
       "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_Wqq, label_Zqq",
-      "delta_gate_abs_grad": 0.007424483972864548,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 5,
       "head_id": "L0_ch48:56",
@@ -219,13 +230,13 @@
       "patch_acc_drop": 0.0,
       "role": "early feature/geometry/PID reader",
       "semantic_hint": "kinematic/energy, class-specific: label_H4q, label_Hcc, label_Hbb",
-      "delta_gate_abs_grad": 0.009019912164512867,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 6,
       "head_id": "L0_ch8:16",
@@ -236,13 +247,13 @@
       "patch_acc_drop": 0.0,
       "role": "early feature/geometry/PID reader",
       "semantic_hint": "kinematic/energy, class-specific: label_Wqq, label_Hcc, label_Hbb",
-      "delta_gate_abs_grad": 0.006565904218588325,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 7,
       "head_id": "L2_ch128:160",
@@ -253,13 +264,13 @@
       "patch_acc_drop": 0.0,
       "role": "late aggregation / class-evidence head",
       "semantic_hint": "kinematic/energy, class-specific: label_Hqql, label_Tbl, label_Tbqq",
-      "delta_gate_abs_grad": 0.006381431532281934,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 8,
       "head_id": "L2_ch64:96",
@@ -270,13 +281,13 @@
       "patch_acc_drop": 0.0,
       "role": "late aggregation / class-evidence head",
       "semantic_hint": "kinematic/energy, class-specific: label_QCD, label_Hbb, label_Hcc",
-      "delta_gate_abs_grad": 0.002372439517057623,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 9,
       "head_id": "L2_ch0:32",
@@ -287,13 +298,13 @@
       "patch_acc_drop": 0.0,
       "role": "late aggregation / class-evidence head",
       "semantic_hint": "kinematic/energy, class-specific: label_H4q, label_Hgg, label_Tbl",
-      "delta_gate_abs_grad": -0.0035189111902579895,
+      "delta_gate_abs_grad": 0.0,
       "delta_rank": 0
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 10,
       "head_id": "L0_ch24:32",
@@ -304,15 +315,15 @@
       "patch_acc_drop": 0.0,
       "role": "early feature/geometry/PID reader",
       "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_Hcc, label_Hgg",
-      "delta_gate_abs_grad": 0.01970103797211742,
-      "delta_rank": -1
+      "delta_gate_abs_grad": 0.0,
+      "delta_rank": 0
     }
   ],
   "latest_class_particle_patterns": [
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "pred_label": "label_Zqq",
       "n_particles": 32,
       "mean_super_score": 3.2202731296420097,
@@ -323,9 +334,9 @@
       "charged_fraction": 0.53125
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "pred_label": "label_QCD",
       "n_particles": 16,
       "mean_super_score": 3.039346292614937,
@@ -336,9 +347,9 @@
       "charged_fraction": 0.375
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "pred_label": "label_Wqq",
       "n_particles": 16,
       "mean_super_score": 2.746244564652443,
@@ -349,9 +360,9 @@
       "charged_fraction": 0.625
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "pred_label": "label_Tbl",
       "n_particles": 264,
       "mean_super_score": 2.6393169534928873,
@@ -362,9 +373,9 @@
       "charged_fraction": 0.4166666666666667
     },
     {
-      "run_index": 11,
-      "source_path": "manifests/history/research_evidence_graph_20260616_052457.json",
-      "generated_at_utc": "2026-06-16T05:24:57.640226+00:00",
+      "run_index": 12,
+      "source_path": "manifests/history/research_evidence_graph_20260616_052843.json",
+      "generated_at_utc": "2026-06-16T05:28:42.780658+00:00",
       "pred_label": "label_Hqql",
       "n_particles": 1566,
       "mean_super_score": 2.58155300181792,
@@ -389,6 +400,7 @@
     "manifests/history/research_evidence_graph_20260616_043031.json",
     "manifests/history/research_evidence_graph_20260616_050652.json",
     "manifests/history/research_evidence_graph_20260616_051125.json",
-    "manifests/history/research_evidence_graph_20260616_052457.json"
+    "manifests/history/research_evidence_graph_20260616_052457.json",
+    "manifests/history/research_evidence_graph_20260616_052843.json"
   ]
 }
