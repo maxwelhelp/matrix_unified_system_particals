@@ -12,7 +12,7 @@ from data.jetclass_tiny_loader_v3_official import LABELS
 FEATURE_NAMES={
  'kin':['part_pt_log','part_e_log','part_logptrel','part_logerel','part_deltaR','part_deta','part_dphi'],
  'kinpid':['part_pt_log','part_e_log','part_logptrel','part_logerel','part_deltaR','part_charge','part_isChargedHadron','part_isNeutralHadron','part_isPhoton','part_isElectron','part_isMuon','part_deta','part_dphi'],
- 'full':['part_pt_log','part_e_log','part_logptrel','part_logerel','part_deltaR','part_charge','part_isChargedHadron','part_isNeutralHadron','part_isPhoton','part_d0','part_d0err','part_dz','part_dzerr','part_deta','part_dphi'],
+ 'full':['part_pt_log','part_e_log','part_logptrel','part_logerel','part_deltaR','part_charge','part_isChargedHadron','part_isNeutralHadron','part_isPhoton','part_isElectron','part_isMuon','part_d0','part_d0err','part_dz','part_dzerr','part_deta','part_dphi'],
 }
 
 def mkdir(p): Path(p).mkdir(parents=True,exist_ok=True)
@@ -151,6 +151,24 @@ def grad_rows_from_accum(accum):
         rows.append({'layer':ly,'group_id':gi,'channels':ch,'grad':grad,'abs_grad':abs(grad),'positive_grad':max(0.0,grad),'head_id':hid})
     return sorted(rows,key=lambda r:r['abs_grad'],reverse=True)
 
+def effective_n_from_captures(captures):
+    ns=[]
+    for cap in captures:
+        for energy in cap.get('energies',[]):
+            if energy.ndim==2:
+                ns.append(int(energy.shape[1]))
+    if not ns:
+        return 0
+    return max(ns)
+
+def pad_or_crop_energy(en, n_eff):
+    if en.shape[1] == n_eff:
+        return en
+    if en.shape[1] > n_eff:
+        return en[:, :n_eff]
+    pad = torch.zeros(en.shape[0], n_eff - en.shape[1], device=en.device, dtype=en.dtype)
+    return torch.cat([en, pad], dim=1)
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--checkpoint',default='local_checkpoints/part/ParticleNet_kinpid.pt')
@@ -217,8 +235,12 @@ def main():
         e=min(B,s+mb)
         b=slice_batch(batch,s,e)
         captures=capture_energies(model,b,args.head_groups)
-        N=b['mask'].shape[-1]
-        super_score=torch.zeros(e-s,N,device=args.device)
+        n_eff=effective_n_from_captures(captures)
+        if n_eff <= 0:
+            continue
+        # ParticleNet's SequenceTrimmer can shorten N inside EdgeConv. Use the actual
+        # effective length from EdgeConv outputs, not the padded input length.
+        super_score=torch.zeros(e-s,n_eff,device=args.device)
         for cap in captures:
             ly=cap['layer']
             for gi,energy in enumerate(cap['energies']):
@@ -226,8 +248,12 @@ def main():
                 if w==0: continue
                 en=energy.detach().float()
                 en=en/(en.amax(dim=1,keepdim=True)+1e-9)
+                en=pad_or_crop_energy(en,n_eff)
                 super_score += w*en
-        real_mask=b['mask'][:,0,:].detach().bool()
+        real_mask=b['mask'][:,0,:n_eff].detach().bool()
+        if real_mask.shape[1] < n_eff:
+            pad=torch.zeros(real_mask.shape[0], n_eff-real_mask.shape[1], device=real_mask.device, dtype=torch.bool)
+            real_mask=torch.cat([real_mask,pad],dim=1)
         super_score=super_score.masked_fill(~real_mask,-1)
         event_score=super_score.max(dim=1).values.detach().cpu()
         for local_i in range(e-s):
@@ -238,10 +264,11 @@ def main():
             class_correct[pred]=class_correct.get(pred,0)+(1 if pred==true else 0)
             class_score_sum[pred]=class_score_sum.get(pred,0.0)+float(event_score[local_i])
             class_score_vals.setdefault(pred,[]).append(float(event_score[local_i]))
-            real_n=int(real_mask[local_i].sum().detach().cpu())
+            real_n=max(1,int(real_mask[local_i].sum().detach().cpu()))
             pe=super_score[local_i]
-            idx=torch.topk(pe,min(args.top_particles,real_n)).indices.detach().cpu().tolist()
-            event_rows_all.append({'event_idx':global_i,'true':true,'true_label':LABELS[true],'pred':pred,'pred_label':lbl,'conf':float(prob_cpu[global_i,pred]),'pred_logit':float(base_cpu[global_i,pred]),'super_max_particle_score':float(event_score[local_i]),'real_particles':real_n,'top_particle_indices':json.dumps(idx)})
+            k=min(args.top_particles, real_n, int(pe.numel()))
+            idx=torch.topk(pe,k).indices.detach().cpu().tolist()
+            event_rows_all.append({'event_idx':global_i,'true':true,'true_label':LABELS[true],'pred':pred,'pred_label':lbl,'conf':float(prob_cpu[global_i,pred]),'pred_logit':float(base_cpu[global_i,pred]),'super_max_particle_score':float(event_score[local_i]),'real_particles':real_n,'effective_particles':n_eff,'top_particle_indices':json.dumps(idx)})
             for rank,pi in enumerate(idx,1):
                 pr=particle_row(b,args.mode,local_i,pi)
                 row={'event_idx':global_i,'rank':rank,'particle_idx':pi,'super_score':float(super_score[local_i,pi].detach().cpu()),'true_label':LABELS[true],'pred_label':lbl,'conf':float(prob_cpu[global_i,pred])}
@@ -270,13 +297,13 @@ def main():
     wjson(out/'all_head_supertrace_summary.json',summary)
     md=['# ParticleNet All-Head Differentiable Supertrace v1\n\n',
         f"n_events={summary['n_events']} micro_batch={mb} baseline_acc={fmt(summary['baseline_acc'])} objective_pred_logit_mean={fmt(summary['objective_pred_logit_mean'])}\n\n",
-        'This treats all EdgeConv pseudo-head groups as differentiable gates and backpropagates the predicted-class logit through them. It is the all-head analogue of token/particle tracing. This version uses micro-batches to avoid CUDA OOM.\n\n',
+        'This treats all EdgeConv pseudo-head groups as differentiable gates and backpropagates the predicted-class logit through them. It is the all-head analogue of token/particle tracing. This version uses micro-batches and the effective trimmed particle length to avoid CUDA OOM / shape mismatch.\n\n',
         '## Top differentiable head gates\n',
         table(['rank','head','grad','abs_grad','channels'],[[i+1,r['head_id'],fmt(r['grad']),fmt(r['abs_grad']),r['channels']] for i,r in enumerate(grads_sorted[:30])]),
         '\n## Class summary by predicted class\n',
         table(['pred_label','n_pred','super_mean','super_p90','acc_within_pred'],[[r['pred_label'],r['n_pred'],fmt(r['super_score_mean']),fmt(r['super_score_p90']),fmt(r['acc_within_pred'])] for r in class_rows]),
         '\n## Top events by all-head super-score\n',
-        table(['event','true','pred','conf','super_max','real_particles','top_particle_indices'],[[r['event_idx'],r['true_label'],r['pred_label'],fmt(r['conf']),fmt(r['super_max_particle_score']),r['real_particles'],r['top_particle_indices']] for r in event_rows[:80]]),
+        table(['event','true','pred','conf','super_max','real_particles','effective_particles','top_particle_indices'],[[r['event_idx'],r['true_label'],r['pred_label'],fmt(r['conf']),fmt(r['super_max_particle_score']),r['real_particles'],r.get('effective_particles',''),r['top_particle_indices']] for r in event_rows[:80]]),
         '\n## Top particles inside top events\n',
         table(['event','rank','particle','super_score','pt','energy','deta','dphi','deltaR','charge','pred'],[[r['event_idx'],r['rank'],r['particle_idx'],fmt(r['super_score']),fmt(r.get('pt')),fmt(r.get('energy')),fmt(r.get('deta')),fmt(r.get('dphi')),fmt(r.get('deltaR_from_axis')),fmt(r.get('part_charge','')),r['pred_label']] for r in particle_rows[:200]]),
         '\nFull CSV tables:\n- `reports/latest/tables/all_head_gate_gradients.csv`\n- `reports/latest/tables/all_head_supertrace_events.csv`\n- `reports/latest/tables/all_head_supertrace_particles.csv`\n- `reports/latest/tables/all_head_supertrace_class_summary.csv`\n']
