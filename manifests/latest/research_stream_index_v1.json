@@ -1,0 +1,1446 @@
+{
+  "schema": "research_stream_index.v1",
+  "generated_at_utc": "2026-06-16T04:19:43.516468+00:00",
+  "n_snapshots": 3,
+  "n_stream_events": 1303,
+  "latest_run_index": 2,
+  "main_cards": [
+    {
+      "card_id": "stream_state",
+      "title": "Stream state",
+      "value": "3 snapshots, 1303 events",
+      "priority": "P0",
+      "drilldown": "manifests/latest/research_stream_index_v1.json"
+    },
+    {
+      "card_id": "top_head",
+      "title": "Top current all-head gate",
+      "value": "L1_ch112:128 rank 1 gate_abs=0.8644",
+      "priority": "P0",
+      "drilldown": "python tools/query_research_stream_v1.py --event-type HEAD_GATE --top 10"
+    },
+    {
+      "card_id": "top_particle",
+      "title": "Top current particle evidence",
+      "value": "event 321 particle 0 label_Tbl score=5.0656",
+      "priority": "P0",
+      "drilldown": "python tools/query_research_stream_v1.py --event-type PARTICLE_TOP --top 20"
+    },
+    {
+      "card_id": "alert:particle0/core dominance",
+      "title": "particle0/core dominance in top particle stream",
+      "value": "run particle0 removal / top-k controls",
+      "priority": "P0",
+      "drilldown": "reports/latest/tables/research_stream_alerts.csv"
+    },
+    {
+      "card_id": "alert:negative/suppressive hea",
+      "title": "negative/suppressive head gates exist",
+      "value": "compare positive vs negative gates; add suppressive-head analysis",
+      "priority": "P1",
+      "drilldown": "reports/latest/tables/research_stream_alerts.csv"
+    }
+  ],
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "title": "particle0/core dominance in top particle stream",
+      "score": 1.0,
+      "next_action": "run particle0 removal / top-k controls",
+      "tags": [
+        "AH1",
+        "particle0",
+        "control"
+      ]
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "negative/suppressive head gates exist",
+      "score": 5,
+      "next_action": "compare positive vs negative gates; add suppressive-head analysis",
+      "tags": [
+        "head",
+        "negative_gate"
+      ]
+    }
+  ],
+  "top_heads": [
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L1_ch112:128 rank 1 gate_abs=0.8644",
+      "score": 0.864366486668587,
+      "tags": [
+        "head",
+        "gate",
+        "1",
+        "L1_ch112:128",
+        "top5_head"
+      ],
+      "summary": "Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer?",
+      "payload": {
+        "head_id": "L1_ch112:128",
+        "layer": "1",
+        "group_id": "7",
+        "channels": "ch112:128",
+        "gate_grad": 0.864366486668587,
+        "gate_abs_grad": 0.864366486668587,
+        "gate_positive_grad": 0.864366486668587,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.641796886920929,
+        "patch_delta_pred_logit": 3.263317108154297,
+        "role": "middle learned-neighborhood / route-composition head",
+        "question": "Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_H4q, label_Hgg",
+        "confidence": "MEDIUM causal, LOW/MEDIUM semantic",
+        "next_test": "Test route-width/leading-particle composite: compact/wide/top-pT routes -> L1 ch112:128 -> class contrast.",
+        "head_rank": 1
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L2_ch224:256 rank 2 gate_abs=0.7841",
+      "score": 0.7840506955981257,
+      "tags": [
+        "head",
+        "gate",
+        "2",
+        "L2_ch224:256",
+        "top5_head"
+      ],
+      "summary": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+      "payload": {
+        "head_id": "L2_ch224:256",
+        "layer": "2",
+        "group_id": "7",
+        "channels": "ch224:256",
+        "gate_grad": 0.7840506955981257,
+        "gate_abs_grad": 0.7840506955981257,
+        "gate_positive_grad": 0.7840506955981257,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.694531261920929,
+        "patch_delta_pred_logit": 4.763679027557373,
+        "role": "late aggregation / class-evidence head",
+        "question": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_Wqq, label_Zqq",
+        "confidence": "LOW causal, exploratory semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 2
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L1_ch16:32 rank 3 gate_abs=0.7805",
+      "score": 0.7804598432034254,
+      "tags": [
+        "head",
+        "gate",
+        "1",
+        "L1_ch16:32",
+        "top5_head"
+      ],
+      "summary": "Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer?",
+      "payload": {
+        "head_id": "L1_ch16:32",
+        "layer": "1",
+        "group_id": "1",
+        "channels": "ch16:32",
+        "gate_grad": 0.7804598432034254,
+        "gate_abs_grad": 0.7804598432034254,
+        "gate_positive_grad": 0.7804598432034254,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.49335938692092896,
+        "patch_delta_pred_logit": 9.114623069763184,
+        "role": "middle learned-neighborhood / route-composition head",
+        "question": "Does this pseudo-head combine previous learned features into a class-separating particle-neighborhood answer?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Hbb, label_Hcc, label_Zqq",
+        "confidence": "HIGH causal, MEDIUM semantic",
+        "next_test": "Test route-width/leading-particle composite: compact/wide/top-pT routes -> L1 ch16:32 -> class contrast.",
+        "head_rank": 3
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L0_ch40:48 rank 4 gate_abs=0.7150",
+      "score": 0.7149652346968652,
+      "tags": [
+        "head",
+        "gate",
+        "0",
+        "L0_ch40:48",
+        "top5_head"
+      ],
+      "summary": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+      "payload": {
+        "head_id": "L0_ch40:48",
+        "layer": "0",
+        "group_id": "5",
+        "channels": "ch40:48",
+        "gate_grad": 0.7149652346968652,
+        "gate_abs_grad": 0.7149652346968652,
+        "gate_positive_grad": 0.7149652346968652,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.620312511920929,
+        "patch_delta_pred_logit": 3.815220832824707,
+        "role": "early feature/geometry/PID reader",
+        "question": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Hqql, label_Zqq, label_Wqq",
+        "confidence": "MEDIUM causal, LOW/MEDIUM semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 4
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L0_ch8:16 rank 5 gate_abs=0.4293",
+      "score": 0.42930935658514496,
+      "tags": [
+        "head",
+        "gate",
+        "0",
+        "L0_ch8:16",
+        "top5_head"
+      ],
+      "summary": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+      "payload": {
+        "head_id": "L0_ch8:16",
+        "layer": "0",
+        "group_id": "1",
+        "channels": "ch8:16",
+        "gate_grad": 0.42930935658514496,
+        "gate_abs_grad": 0.42930935658514496,
+        "gate_positive_grad": 0.42930935658514496,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.6226562857627869,
+        "patch_delta_pred_logit": 1.6804306507110596,
+        "role": "early feature/geometry/PID reader",
+        "question": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Wqq, label_Hcc, label_Hbb",
+        "confidence": "MEDIUM causal, LOW/MEDIUM semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 5
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L0_ch48:56 rank 6 gate_abs=0.3819",
+      "score": 0.38185383211821317,
+      "tags": [
+        "head",
+        "gate",
+        "0",
+        "L0_ch48:56"
+      ],
+      "summary": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+      "payload": {
+        "head_id": "L0_ch48:56",
+        "layer": "0",
+        "group_id": "6",
+        "channels": "ch48:56",
+        "gate_grad": 0.38185383211821317,
+        "gate_abs_grad": 0.38185383211821317,
+        "gate_positive_grad": 0.38185383211821317,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.6214843988418579,
+        "patch_delta_pred_logit": 1.3934763669967651,
+        "role": "early feature/geometry/PID reader",
+        "question": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+        "semantic_hint": "kinematic/energy, class-specific: label_H4q, label_Hcc, label_Hbb",
+        "confidence": "MEDIUM causal, LOW/MEDIUM semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 6
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L2_ch64:96 rank 7 gate_abs=0.3301",
+      "score": 0.3300687320530415,
+      "tags": [
+        "head",
+        "gate",
+        "2",
+        "L2_ch64:96"
+      ],
+      "summary": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+      "payload": {
+        "head_id": "L2_ch64:96",
+        "layer": "2",
+        "group_id": "2",
+        "channels": "ch64:96",
+        "gate_grad": 0.3300687320530415,
+        "gate_abs_grad": 0.3300687320530415,
+        "gate_positive_grad": 0.3300687320530415,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.7417969107627869,
+        "patch_delta_pred_logit": 1.593994140625,
+        "role": "late aggregation / class-evidence head",
+        "question": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+        "semantic_hint": "kinematic/energy, class-specific: label_QCD, label_Hbb, label_Hcc",
+        "confidence": "LOW causal, exploratory semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 7
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L2_ch128:160 rank 8 gate_abs=0.3290",
+      "score": 0.32902632616460326,
+      "tags": [
+        "head",
+        "gate",
+        "2",
+        "L2_ch128:160"
+      ],
+      "summary": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+      "payload": {
+        "head_id": "L2_ch128:160",
+        "layer": "2",
+        "group_id": "4",
+        "channels": "ch128:160",
+        "gate_grad": 0.32902632616460326,
+        "gate_abs_grad": 0.32902632616460326,
+        "gate_positive_grad": 0.32902632616460326,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.745312511920929,
+        "patch_delta_pred_logit": 0.7800450921058655,
+        "role": "late aggregation / class-evidence head",
+        "question": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Hqql, label_Tbl, label_Tbqq",
+        "confidence": "LOW causal, exploratory semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 8
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L2_ch0:32 rank 9 gate_abs=0.2666",
+      "score": 0.2666051718872041,
+      "tags": [
+        "head",
+        "gate",
+        "2",
+        "L2_ch0:32"
+      ],
+      "summary": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+      "payload": {
+        "head_id": "L2_ch0:32",
+        "layer": "2",
+        "group_id": "0",
+        "channels": "ch0:32",
+        "gate_grad": 0.2666051718872041,
+        "gate_abs_grad": 0.2666051718872041,
+        "gate_positive_grad": 0.2666051718872041,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.677734375,
+        "patch_delta_pred_logit": 0.8878049254417419,
+        "role": "late aggregation / class-evidence head",
+        "question": "Does this pseudo-head aggregate higher-level particle-neighborhood evidence before the classifier?",
+        "semantic_hint": "kinematic/energy, class-specific: label_H4q, label_Hgg, label_Tbl",
+        "confidence": "LOW causal, exploratory semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 9
+      }
+    },
+    {
+      "event_type": "HEAD_GATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "L0_ch0:8 rank 10 gate_abs=0.2581",
+      "score": 0.25814127661287783,
+      "tags": [
+        "head",
+        "gate",
+        "0",
+        "L0_ch0:8",
+        "negative_gate"
+      ],
+      "summary": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+      "payload": {
+        "head_id": "L0_ch0:8",
+        "layer": "0",
+        "group_id": "0",
+        "channels": "ch0:8",
+        "gate_grad": -0.25814127661287783,
+        "gate_abs_grad": 0.25814127661287783,
+        "gate_positive_grad": 0.0,
+        "patch_acc_drop": 0.0,
+        "patch_acc": 0.5972656607627869,
+        "patch_delta_pred_logit": 0.8533021211624146,
+        "role": "early feature/geometry/PID reader",
+        "question": "Does this pseudo-head convert raw particle features and local geometry into first-stage message evidence?",
+        "semantic_hint": "kinematic/energy, class-specific: label_Tbl, label_Hcc, label_Hbb",
+        "confidence": "MEDIUM causal, LOW/MEDIUM semantic",
+        "next_test": "Activation-cluster this head and compare against random channel groups; then project its activation into class contrast directions.",
+        "head_rank": 10
+      }
+    }
+  ],
+  "top_particles": [
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 321 particle 0 label_Tbl score=5.0656",
+      "score": 5.065639019012451,
+      "tags": [
+        "particle",
+        "label_Tbl",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=498.7116 dR=0.1038 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:321:0",
+        "event_idx": "321",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Tbl",
+        "pred_label": "label_Tbl",
+        "conf": 0.9999911785125732,
+        "super_score": 5.065639019012451,
+        "pt": 498.7115827755219,
+        "energy": 532.9188842773438,
+        "deltaR_from_axis": 0.10383665437944611,
+        "deta": 0.10368603467941284,
+        "dphi": 0.00559079647064209,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 221 particle 0 label_Hqql score=4.9950",
+      "score": 4.994983673095703,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=423.7215 dR=0.0287 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:221:0",
+        "event_idx": "221",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9999512434005737,
+        "super_score": 4.994983673095703,
+        "pt": 423.72146530459173,
+        "energy": 423.8704833984375,
+        "deltaR_from_axis": 0.02868935396274646,
+        "deta": 0.021809302270412445,
+        "dphi": 0.018639564514160156,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 217 particle 0 label_Hqql score=4.9811",
+      "score": 4.981095314025879,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=372.7248 dR=0.0116 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:217:0",
+        "event_idx": "217",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9995713829994202,
+        "super_score": 4.981095314025879,
+        "pt": 372.72481123138226,
+        "energy": 507.9313049316406,
+        "deltaR_from_axis": 0.01155972263180379,
+        "deta": -0.0113983154296875,
+        "dphi": 0.0019249916076660156,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 219 particle 0 label_Hqql score=4.9777",
+      "score": 4.977695941925049,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=378.6483 dR=0.0171 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:219:0",
+        "event_idx": "219",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9999996423721313,
+        "super_score": 4.977695941925049,
+        "pt": 378.64829226926105,
+        "energy": 566.5582275390625,
+        "deltaR_from_axis": 0.017136534664508634,
+        "deta": -0.01451796293258667,
+        "dphi": -0.009104371070861816,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 208 particle 0 label_Hqql score=4.9504",
+      "score": 4.950427055358887,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=526.1700 dR=0.0220 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:208:0",
+        "event_idx": "208",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9504872560501099,
+        "super_score": 4.950427055358887,
+        "pt": 526.1699810500572,
+        "energy": 1872.2833251953125,
+        "deltaR_from_axis": 0.02196009632355459,
+        "deta": -0.021276235580444336,
+        "dphi": -0.005437612533569336,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 198 particle 0 label_Hqql score=4.9108",
+      "score": 4.910810947418213,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=445.1894 dR=0.0349 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:198:0",
+        "event_idx": "198",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9999284744262695,
+        "super_score": 4.910810947418213,
+        "pt": 445.1894392171144,
+        "energy": 853.07666015625,
+        "deltaR_from_axis": 0.03486495218939353,
+        "deta": -0.03284657001495361,
+        "dphi": 0.011690497398376465,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 331 particle 0 label_Tbl score=4.9094",
+      "score": 4.90944766998291,
+      "tags": [
+        "particle",
+        "label_Tbl",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=564.8672 dR=0.1102 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:331:0",
+        "event_idx": "331",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Tbl",
+        "pred_label": "label_Tbl",
+        "conf": 0.9998583793640137,
+        "super_score": 4.90944766998291,
+        "pt": 564.8671839111229,
+        "energy": 575.5001831054688,
+        "deltaR_from_axis": 0.11021263110173347,
+        "deta": -0.1006259173154831,
+        "dphi": -0.04495830088853836,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 364 particle 0 label_Tbl score=4.8889",
+      "score": 4.888889312744141,
+      "tags": [
+        "particle",
+        "label_Tbl",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=422.0057 dR=0.1213 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:364:0",
+        "event_idx": "364",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Tbl",
+        "pred_label": "label_Tbl",
+        "conf": 0.9999998807907104,
+        "super_score": 4.888889312744141,
+        "pt": 422.00567695385223,
+        "energy": 441.718994140625,
+        "deltaR_from_axis": 0.1213357539414693,
+        "deta": -0.025589674711227417,
+        "dphi": -0.11860663443803787,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 242 particle 0 label_Hqql score=4.8622",
+      "score": 4.86223840713501,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=468.0427 dR=0.0323 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:242:0",
+        "event_idx": "242",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9729625582695007,
+        "super_score": 4.86223840713501,
+        "pt": 468.04266382259755,
+        "energy": 1210.3162841796875,
+        "deltaR_from_axis": 0.032302421800601444,
+        "deta": 0.005240440368652344,
+        "dphi": 0.031874507665634155,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 233 particle 0 label_Hqql score=4.8617",
+      "score": 4.861680030822754,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=345.6596 dR=0.0425 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:233:0",
+        "event_idx": "233",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9980555772781372,
+        "super_score": 4.861680030822754,
+        "pt": 345.65957358883014,
+        "energy": 1136.392822265625,
+        "deltaR_from_axis": 0.04250629744621171,
+        "deta": -0.04234135150909424,
+        "dphi": -0.003741025924682617,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 214 particle 0 label_Hqql score=4.8590",
+      "score": 4.8589887619018555,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=524.3685 dR=0.0461 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:214:0",
+        "event_idx": "214",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9992827773094177,
+        "super_score": 4.8589887619018555,
+        "pt": 524.3685361337548,
+        "energy": 1252.911376953125,
+        "deltaR_from_axis": 0.04611404723023995,
+        "deta": -0.017714500427246094,
+        "dphi": 0.042575836181640625,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 234 particle 0 label_Hqql score=4.8586",
+      "score": 4.858597278594971,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=382.8791 dR=0.0572 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:234:0",
+        "event_idx": "234",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9612222909927368,
+        "super_score": 4.858597278594971,
+        "pt": 382.879130574527,
+        "energy": 486.12457275390625,
+        "deltaR_from_axis": 0.057230213953337467,
+        "deta": 0.03655010461807251,
+        "dphi": -0.044038474559783936,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 213 particle 0 label_Hqql score=4.8546",
+      "score": 4.854565620422363,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=326.9661 dR=0.0638 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:213:0",
+        "event_idx": "213",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9942646622657776,
+        "super_score": 4.854565620422363,
+        "pt": 326.96611593848206,
+        "energy": 384.20196533203125,
+        "deltaR_from_axis": 0.06375763135275768,
+        "deta": 0.045454323291778564,
+        "dphi": -0.04470950737595558,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 334 particle 0 label_Tbl score=4.7818",
+      "score": 4.781801700592041,
+      "tags": [
+        "particle",
+        "label_Tbl",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=482.8271 dR=0.1353 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:334:0",
+        "event_idx": "334",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Tbl",
+        "pred_label": "label_Tbl",
+        "conf": 0.999996542930603,
+        "super_score": 4.781801700592041,
+        "pt": 482.82705671538554,
+        "energy": 668.1268920898438,
+        "deltaR_from_axis": 0.135326269084027,
+        "deta": -0.1123310923576355,
+        "dphi": -0.07546472549438477,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 244 particle 0 label_Hqql score=4.7671",
+      "score": 4.767056465148926,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=467.6960 dR=0.0313 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:244:0",
+        "event_idx": "244",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.8620741963386536,
+        "super_score": 4.767056465148926,
+        "pt": 467.6959590048113,
+        "energy": 500.5047912597656,
+        "deltaR_from_axis": 0.03128384313769415,
+        "deta": 0.02982446551322937,
+        "dphi": -0.009443521499633789,
+        "charge": 1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 327 particle 0 label_Tbl score=4.7311",
+      "score": 4.731050968170166,
+      "tags": [
+        "particle",
+        "label_Tbl",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=330.2944 dR=0.1773 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:327:0",
+        "event_idx": "327",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Tbl",
+        "pred_label": "label_Tbl",
+        "conf": 1.0,
+        "super_score": 4.731050968170166,
+        "pt": 330.2943624763361,
+        "energy": 508.5384216308594,
+        "deltaR_from_axis": 0.17726562105682794,
+        "deta": 0.17368155717849731,
+        "dphi": -0.03546571731567383,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 220 particle 0 label_Hqql score=4.7148",
+      "score": 4.714821815490723,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=316.2993 dR=0.0326 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:220:0",
+        "event_idx": "220",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9999499320983887,
+        "super_score": 4.714821815490723,
+        "pt": 316.2992517603744,
+        "energy": 628.1609497070312,
+        "deltaR_from_axis": 0.03260354619871505,
+        "deta": 0.032585859298706055,
+        "dphi": 0.0010737776756286621,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 356 particle 0 label_Tbl score=4.7073",
+      "score": 4.707311630249023,
+      "tags": [
+        "particle",
+        "label_Tbl",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=424.4109 dR=0.1780 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:356:0",
+        "event_idx": "356",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Tbl",
+        "pred_label": "label_Tbl",
+        "conf": 1.0,
+        "super_score": 4.707311630249023,
+        "pt": 424.41094271746556,
+        "energy": 426.25384521484375,
+        "deltaR_from_axis": 0.1779567884228034,
+        "deta": -0.030065476894378662,
+        "dphi": -0.17539864778518677,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 1.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 480 particle 0 label_Wqq score=4.6876",
+      "score": 4.687591075897217,
+      "tags": [
+        "particle",
+        "label_Wqq",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=422.8997 dR=0.0363 charge=1.0000",
+      "payload": {
+        "particle_node": "particle:480:0",
+        "event_idx": "480",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Wqq",
+        "pred_label": "label_Wqq",
+        "conf": 0.7663268446922302,
+        "super_score": 4.687591075897217,
+        "pt": 422.8997063429817,
+        "energy": 593.1737060546875,
+        "deltaR_from_axis": 0.03631882964595953,
+        "deta": 0.036301493644714355,
+        "dphi": 0.0011220276355743408,
+        "charge": 1.0,
+        "is_charged_hadron": 1.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 0.0
+      }
+    },
+    {
+      "event_type": "PARTICLE_TOP",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "event 209 particle 0 label_Hqql score=4.6850",
+      "score": 4.685012340545654,
+      "tags": [
+        "particle",
+        "label_Hqql",
+        "particle_0",
+        "particle0",
+        "core_high_pt",
+        "charged"
+      ],
+      "summary": "pt=290.4164 dR=0.0505 charge=-1.0000",
+      "payload": {
+        "particle_node": "particle:209:0",
+        "event_idx": "209",
+        "rank": "1",
+        "particle_idx": "0",
+        "true_label": "label_Hqql",
+        "pred_label": "label_Hqql",
+        "conf": 0.9904475212097168,
+        "super_score": 4.685012340545654,
+        "pt": 290.4163900224745,
+        "energy": 298.0957336425781,
+        "deltaR_from_axis": 0.05053651080902003,
+        "deta": 0.04968932271003723,
+        "dphi": 0.009214669466018677,
+        "charge": -1.0,
+        "is_charged_hadron": 0.0,
+        "is_neutral_hadron": 0.0,
+        "is_photon": 0.0,
+        "is_electron": 0.0,
+        "is_muon": 1.0
+      }
+    }
+  ],
+  "top_hypotheses": [
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H2: EdgeConv pseudo-head specialization",
+      "score": 78.0,
+      "tags": [
+        "hypothesis",
+        "H2",
+        "CAUSAL_PATCHED"
+      ],
+      "summary": "status=CAUSAL_PATCHED next=Add activation-cluster pseudo-heads and random channel-group controls.",
+      "payload": {
+        "id": "hypothesis:H2",
+        "type": "hypothesis",
+        "hypothesis_id": "H2",
+        "title": "EdgeConv pseudo-head specialization",
+        "priority": "P0",
+        "status": "CAUSAL_PATCHED",
+        "score": 78.0,
+        "evidence": "Strong internal pseudo-head groups: L1:ch16:32, L2:ch224:256, L0:ch40:48, L1:ch112:128, L0:ch24:32.",
+        "risk": "Equal channel slicing may hide or split real functional groups.",
+        "next_test": "Add activation-cluster pseudo-heads and random channel-group controls."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H4: Leading-particle core hypothesis",
+      "score": 72.0,
+      "tags": [
+        "hypothesis",
+        "H4",
+        "CAUSAL_PATCHED"
+      ],
+      "summary": "status=CAUSAL_PATCHED next=Run k sweep k=1,2,4,8,16 and per-class particle ablation.",
+      "payload": {
+        "id": "hypothesis:H4",
+        "type": "hypothesis",
+        "hypothesis_id": "H4",
+        "title": "Leading-particle core hypothesis",
+        "priority": "P0",
+        "status": "CAUSAL_PATCHED",
+        "score": 72.0,
+        "evidence": "top_pt ablation acc=0.4488 vs random=0.7250; gap=0.2762.",
+        "risk": "top_pt and top_energy highly overlap; need top-k sweep.",
+        "next_test": "Run k sweep k=1,2,4,8,16 and per-class particle ablation."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H1: EdgeConv learned-neighborhood separator",
+      "score": 34.0,
+      "tags": [
+        "hypothesis",
+        "H1",
+        "CAUSAL_PATCHED"
+      ],
+      "summary": "status=CAUSAL_PATCHED next=Cluster EdgeConv activations and patch learned clusters; run heldout stability.",
+      "payload": {
+        "id": "hypothesis:H1",
+        "type": "hypothesis",
+        "hypothesis_id": "H1",
+        "title": "EdgeConv learned-neighborhood separator",
+        "priority": "P0",
+        "status": "CAUSAL_PATCHED",
+        "score": 34.0,
+        "evidence": "Best EdgeConv pseudo-head 1:ch16:32 drops acc 0.7574->0.4934; full EdgeConv layers also previously dropped accuracy near random.",
+        "risk": "Channel-head groups are fixed slices, not learned clusters yet.",
+        "next_test": "Cluster EdgeConv activations and patch learned clusters; run heldout stability."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H5: Explicit feature-channel class codes",
+      "score": 74.0,
+      "tags": [
+        "hypothesis",
+        "H5",
+        "CAUSAL_PATCHED"
+      ],
+      "summary": "status=CAUSAL_PATCHED next=Permutation/noise controls and class contrast reports.",
+      "payload": {
+        "id": "hypothesis:H5",
+        "type": "hypothesis",
+        "hypothesis_id": "H5",
+        "title": "Explicit feature-channel class codes",
+        "priority": "P1",
+        "status": "CAUSAL_PATCHED",
+        "score": 74.0,
+        "evidence": "label_H4q->part_pt_log, label_Hbb->part_logerel, label_Hcc->part_logerel, label_Hgg->part_deta, label_Hqql->part_pt_log, label_QCD->part_deta, label_Tbl->part_deta, label_Tbqq->part_deltaR",
+        "risk": "Zeroing feature channels may be out-of-distribution.",
+        "next_test": "Permutation/noise controls and class contrast reports."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H6: Known-observable alignment",
+      "score": 66.0,
+      "tags": [
+        "hypothesis",
+        "H6",
+        "OBSERVED"
+      ],
+      "summary": "status=OBSERVED next=Residual analysis after controlling for sdmass/nparticles/tau variables.",
+      "payload": {
+        "id": "hypothesis:H6",
+        "type": "hypothesis",
+        "hypothesis_id": "H6",
+        "title": "Known-observable alignment",
+        "priority": "P1",
+        "status": "OBSERVED",
+        "score": 66.0,
+        "evidence": "Tbqq-vs-Tbl: route ΔR gap L1=0.0539, sdmass gap=54.6329, nparticles gap=22.1602.",
+        "risk": "May be explained by known mass/multiplicity only.",
+        "next_test": "Residual analysis after controlling for sdmass/nparticles/tau variables."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H3: Wqq compact route vs Tbqq wide route",
+      "score": 63.0,
+      "tags": [
+        "hypothesis",
+        "H3",
+        "OBSERVED"
+      ],
+      "summary": "status=OBSERVED next=Causal route-group patch: compact vs wide edges; regress against jet mass and nparticles.",
+      "payload": {
+        "id": "hypothesis:H3",
+        "type": "hypothesis",
+        "hypothesis_id": "H3",
+        "title": "Wqq compact route vs Tbqq wide route",
+        "priority": "P1",
+        "status": "OBSERVED",
+        "score": 63.0,
+        "evidence": "Mean neighbor ΔR gap Tbqq-Wqq ≈ 0.1242 across route layers.",
+        "risk": "Route stats are descriptive; may be explained by mass/multiplicity.",
+        "next_test": "Causal route-group patch: compact vs wide edges; regress against jet mass and nparticles."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H7: Error-route hypothesis",
+      "score": 35.0,
+      "tags": [
+        "hypothesis",
+        "H7",
+        "TODO"
+      ],
+      "summary": "status=TODO next=Build error atlas true->pred pairs with route stats and signed competing logits.",
+      "payload": {
+        "id": "hypothesis:H7",
+        "type": "hypothesis",
+        "hypothesis_id": "H7",
+        "title": "Error-route hypothesis",
+        "priority": "P2",
+        "status": "TODO",
+        "score": 35.0,
+        "evidence": "Not tested yet: wrong predictions may share route/feature pattern with predicted class.",
+        "risk": "Needs confusion-pair analysis.",
+        "next_test": "Build error atlas true->pred pairs with route stats and signed competing logits."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "H8: Transformer attention route hypothesis",
+      "score": 20.0,
+      "tags": [
+        "hypothesis",
+        "H8",
+        "PAUSED"
+      ],
+      "summary": "status=PAUSED next=Find/train valid ParT checkpoint, then extract attention heads / pair bias.",
+      "payload": {
+        "id": "hypothesis:H8",
+        "type": "hypothesis",
+        "hypothesis_id": "H8",
+        "title": "Transformer attention route hypothesis",
+        "priority": "P2",
+        "status": "PAUSED",
+        "score": 20.0,
+        "evidence": "ParT attention cannot be claimed until ParT accuracy is fixed.",
+        "risk": "Current ParT checkpoint invocation is invalid for claims.",
+        "next_test": "Find/train valid ParT checkpoint, then extract attention heads / pair bias."
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "AH1: Distributed core-anchor + secondary-context mechanism",
+      "score": 0.0,
+      "tags": [
+        "hypothesis",
+        "AH1",
+        "OBSERVED_NEEDS_CONTROL"
+      ],
+      "summary": "status=OBSERVED_NEEDS_CONTROL next=particle0_removal_topk_controls",
+      "payload": {
+        "id": "hypothesis:AH1",
+        "type": "hypothesis",
+        "hypothesis_id": "AH1",
+        "title": "Distributed core-anchor + secondary-context mechanism",
+        "status": "OBSERVED_NEEDS_CONTROL",
+        "next_test": "particle0_removal_topk_controls",
+        "source": "ALL_HEAD_SUPERTRACE_FINDINGS_v1"
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "AH2: Hqql/Tbl high-confidence head-system signature",
+      "score": 0.0,
+      "tags": [
+        "hypothesis",
+        "AH2",
+        "OBSERVED"
+      ],
+      "summary": "status=OBSERVED next=class_specific_all_head_gradients",
+      "payload": {
+        "id": "hypothesis:AH2",
+        "type": "hypothesis",
+        "hypothesis_id": "AH2",
+        "title": "Hqql/Tbl high-confidence head-system signature",
+        "status": "OBSERVED",
+        "next_test": "class_specific_all_head_gradients",
+        "source": "ALL_HEAD_SUPERTRACE_FINDINGS_v1"
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "AH3: Single-head and all-head evidence differ",
+      "score": 0.0,
+      "tags": [
+        "hypothesis",
+        "AH3",
+        "METHOD_FINDING"
+      ],
+      "summary": "status=METHOD_FINDING next=patch_rank_vs_gate_rank",
+      "payload": {
+        "id": "hypothesis:AH3",
+        "type": "hypothesis",
+        "hypothesis_id": "AH3",
+        "title": "Single-head and all-head evidence differ",
+        "status": "METHOD_FINDING",
+        "next_test": "patch_rank_vs_gate_rank",
+        "source": "ALL_HEAD_SUPERTRACE_FINDINGS_v1"
+      }
+    },
+    {
+      "event_type": "HYPOTHESIS_UPDATE",
+      "run_index": 2,
+      "source_path": "manifests/history/research_evidence_graph_20260616_041240.json",
+      "title": "AH4: Head-system mixture across L0/L1/L2",
+      "score": 0.0,
+      "tags": [
+        "hypothesis",
+        "AH4",
+        "OBSERVED"
+      ],
+      "summary": "status=OBSERVED next=multi_head_patch_and_class_contrast",
+      "payload": {
+        "id": "hypothesis:AH4",
+        "type": "hypothesis",
+        "hypothesis_id": "AH4",
+        "title": "Head-system mixture across L0/L1/L2",
+        "status": "OBSERVED",
+        "next_test": "multi_head_patch_and_class_contrast",
+        "source": "ALL_HEAD_SUPERTRACE_FINDINGS_v1"
+      }
+    }
+  ],
+  "next_actions": [
+    "Run particle0/top-k controls and rebuild stream index.",
+    "Run class-specific all-head gradients for Hqql/Tbl/Tbqq/Wqq/Zqq.",
+    "Run route-neighbor trace for top all-head particles.",
+    "Create more distinct snapshots with HISTORY_COPY=1 for real dynamics.",
+    "Move large stream history to SQLite/DuckDB when Git files get too large."
+  ],
+  "available_drilldowns": {
+    "head": "python tools/query_research_stream_v1.py --head L1_ch112:128",
+    "class": "python tools/query_research_stream_v1.py --class-label label_Hqql",
+    "hypothesis": "python tools/query_research_stream_v1.py --hypothesis AH1",
+    "particle0": "python tools/query_research_stream_v1.py --query particle0",
+    "event_type": "python tools/query_research_stream_v1.py --event-type HEAD_GATE --top 20"
+  },
+  "source_files": [
+    "manifests/history/research_evidence_graph_20260616_040530.json",
+    "manifests/history/research_evidence_graph_20260616_041017.json",
+    "manifests/history/research_evidence_graph_20260616_041240.json"
+  ]
+}
