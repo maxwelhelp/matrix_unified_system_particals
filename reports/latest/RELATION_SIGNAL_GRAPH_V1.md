@@ -2,38 +2,38 @@
 
 Automatic relationship mining over the stream/evidence graph. Signals are prioritization, not causal proof.
 
-- Latest run index: **10**
-- Nodes: **48**
+- Latest run index: **11**
+- Nodes: **47**
 - Edges: **89**
 
 ## Top relation signals
 | signal | support | src | relation | dst | strength | lift | confidence | next_control |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1.0000 | 153 | pattern:core_high_pt | pattern_supports_hypothesis | hypothesis:AH1 | 0.1738 | 1.9608 | MEDIUM | remove particle0 / keep only particle0 / top-k controls |
-| 0.9869 | 120 | pattern:particle0 | pattern_supports_hypothesis | hypothesis:AH1 | 0.2295 | 2.5000 | HIGH | remove particle0 / keep only particle0 / top-k controls |
-| 0.8581 | 84 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Hqql | 0.0554 | 1.0244 | MEDIUM | particle0/top-k/random controls |
-| 0.8492 | 113 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Hqql | 0.0376 | 1.0808 | MEDIUM | particle0/top-k/random controls |
-| 0.8390 | 126 | pattern:charged | particle_pattern_associated_with_class | class:label_Hqql | 0.0324 | 1.0418 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.7974 | 31 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Tbl | 0.1475 | 1.2302 | HIGH | particle0/top-k/random controls |
-| 0.7739 | 34 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Tbl | 0.1302 | 1.0582 | MEDIUM | particle0/top-k/random controls |
-| 0.7660 | 40 | pattern:charged | particle_pattern_associated_with_class | class:label_Tbl | 0.1047 | 1.0761 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.7261 | 30 | pattern:wide | pattern_supports_hypothesis | hypothesis:T6_WIDE_SECONDARY_CONTEXT | 0.2879 | 2.5000 | MEDIUM | route-neighbor trace |
-| 0.6643 | 13 | pattern:wide | particle_pattern_associated_with_class | class:label_Tbl | 0.2258 | 2.0635 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.6629 | 1 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Wqq | 4.5594 | 2.5000 | LOW | particle0/top-k/random controls |
-| 0.6590 | 1 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Wqq | 4.5594 | 1.9608 | LOW | particle0/top-k/random controls |
-| 0.6548 | 52 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Hqql | 0.0552 | 0.9512 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.6159 | 7 | pattern:other_particle | particle_pattern_associated_with_class | class:label_QCD | 0.4098 | 2.3864 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.6141 | 2 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Zqq | 2.2542 | 1.2500 | LOW | particle0/top-k/random controls |
-| 0.5871 | 2 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Zqq | 2.2542 | 0.9804 | LOW | particle0/top-k/random controls |
-| 0.5848 | 7 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Hgg | 0.4175 | 1.6406 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.5586 | 16 | pattern:wide | particle_pattern_associated_with_class | class:label_Hqql | 0.1845 | 0.7805 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.5338 | 13 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Tbl | 0.2191 | 0.7738 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.5174 | 8 | pattern:charged | particle_pattern_associated_with_class | class:label_Hgg | 0.3694 | 0.8475 | MEDIUM | route-neighbor trace and heldout stability |
-| 0.4999 | 1 | pattern:wide | particle_pattern_associated_with_class | class:label_Zqq | 2.7486 | 2.5000 | LOW | route-neighbor trace and heldout stability |
-| 0.4985 | 1 | pattern:particle0 | particle_pattern_associated_with_class | class:label_QCD | 4.7018 | 0.2273 | LOW | particle0/top-k/random controls |
-| 0.4936 | 1 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_QCD | 4.7018 | 0.1783 | LOW | particle0/top-k/random controls |
-| 0.4809 | 2 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Hgg | 2.0729 | 0.2451 | LOW | particle0/top-k/random controls |
-| 0.4771 | 1 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Hgg | 4.5432 | 0.1562 | LOW | particle0/top-k/random controls |
+| 0.9474 | 151 | pattern:core_high_pt | pattern_supports_hypothesis | hypothesis:AH1 | 0.1545 | 1.1643 | MEDIUM | remove particle0 / keep only particle0 / top-k controls |
+| 0.9288 | 120 | pattern:particle0 | pattern_supports_hypothesis | hypothesis:AH1 | 0.2032 | 1.1512 | MEDIUM | remove particle0 / keep only particle0 / top-k controls |
+| 0.9038 | 99 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Hqql | 0.0493 | 1.1512 | MEDIUM | particle0/top-k/random controls |
+| 0.8884 | 126 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Hqql | 0.0357 | 1.1643 | MEDIUM | particle0/top-k/random controls |
+| 0.8708 | 139 | pattern:charged | particle_pattern_associated_with_class | class:label_Hqql | 0.0312 | 1.0541 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.7623 | 17 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Tbl | 0.2837 | 1.0897 | MEDIUM | particle0/top-k/random controls |
+| 0.7525 | 20 | pattern:wide | pattern_supports_hypothesis | hypothesis:T6_WIDE_SECONDARY_CONTEXT | 0.6261 | 5.0000 | MEDIUM | route-neighbor trace |
+| 0.7406 | 20 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Tbl | 0.2266 | 1.0188 | MEDIUM | particle0/top-k/random controls |
+| 0.7262 | 23 | pattern:charged | particle_pattern_associated_with_class | class:label_Tbl | 0.1879 | 0.9615 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.6640 | 56 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Hqql | 0.0527 | 0.9193 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.6272 | 7 | pattern:wide | particle_pattern_associated_with_class | class:label_Tbl | 0.4277 | 2.6923 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.6248 | 7 | pattern:other_particle | particle_pattern_associated_with_class | class:label_QCD | 0.4240 | 2.0588 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.6101 | 12 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Zqq | 0.2583 | 1.3662 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.5975 | 17 | pattern:charged | particle_pattern_associated_with_class | class:label_Zqq | 0.1888 | 0.8941 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.5859 | 1 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Wqq | 5.0278 | 0.8333 | LOW | particle0/top-k/random controls |
+| 0.5688 | 1 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Wqq | 5.0278 | 0.6623 | LOW | particle0/top-k/random controls |
+| 0.5357 | 11 | pattern:wide | particle_pattern_associated_with_class | class:label_Hqql | 0.2732 | 0.7674 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.5338 | 2 | pattern:particle0 | particle_pattern_associated_with_class | class:label_Zqq | 2.4129 | 0.1613 | LOW | particle0/top-k/random controls |
+| 0.5242 | 3 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_Zqq | 1.4809 | 0.1923 | LOW | particle0/top-k/random controls |
+| 0.5222 | 9 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Tbl | 0.3285 | 0.8145 | MEDIUM | route-neighbor trace and heldout stability |
+| 0.5180 | 1 | pattern:wide | particle_pattern_associated_with_class | class:label_Wqq | 2.9497 | 5.0000 | LOW | route-neighbor trace and heldout stability |
+| 0.5079 | 1 | pattern:particle0 | particle_pattern_associated_with_class | class:label_QCD | 4.8282 | 0.2083 | LOW | particle0/top-k/random controls |
+| 0.5037 | 1 | pattern:core_high_pt | particle_pattern_associated_with_class | class:label_QCD | 4.8282 | 0.1656 | LOW | particle0/top-k/random controls |
+| 0.4464 | 4 | pattern:charged | particle_pattern_associated_with_class | class:label_QCD | 0.7499 | 0.5435 | LOW | route-neighbor trace and heldout stability |
+| 0.4438 | 1 | pattern:other_particle | particle_pattern_associated_with_class | class:label_Wqq | 3.0395 | 1.1765 | LOW | route-neighbor trace and heldout stability |
 
 ## Alerts / controls
 | severity | relation | score | next_control | reason |
@@ -41,10 +41,8 @@ Automatic relationship mining over the stream/evidence graph. Signals are priori
 | HIGH | task:T1_PARTICLE0_SHORTCUT_OR_CORE_ANCHOR->hypothesis:AH1 | 1.0000 | Run particle0 removal / keep-only particle0 / top-k removal / same-count random controls. | Is the all-head system over-dominated by particle0 / leading-core evidence? |
 | MEDIUM | task:T3_NEGATIVE_SUPPRESSIVE_GATES->hypothesis:NEGATIVE_GATES | 1.0000 | Add suppressive-head analysis and class-specific negative gate gradients. | Are there heads that suppress the current class logit? |
 | MEDIUM | task:T5_PATCH_VS_GRADIENT_DIVERGENCE->hypothesis:AH3 | 1.0000 | Build patch-rank vs gate-rank report and run multi-head patch combinations. | Which heads are patch-important but not gradient-important, or gradient-important but not patch-important? |
-| HIGH | pattern:particle0->hypothesis:AH1 | 0.9869 | remove particle0 / keep only particle0 / top-k controls | may be leading-particle shortcut |
-| HIGH | task:T4_HQQL_TBL_SIGNATURE->hypothesis:AH2 | 0.9750 | Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq. | Is the current stream dominated by Hqql/Tbl high-confidence events? |
-| HIGH | task:T2_HEAD_RANK_STABILITY->hypothesis:AH4 | 0.9400 | Keep tracking; if unstable, split by class/sample size and run heldout stability. | Do the same heads stay important across snapshots? |
-| HIGH | pattern:particle0->class:label_Tbl | 0.7974 | particle0/top-k/random controls | co-occurrence only; can reflect sorting or class imbalance |
+| HIGH | task:T4_HQQL_TBL_SIGNATURE->hypothesis:AH2 | 0.9625 | Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq. | Is the current stream dominated by Hqql/Tbl high-confidence events? |
+| HIGH | task:T2_HEAD_RANK_STABILITY->hypothesis:AH4 | 0.9455 | Keep tracking; if unstable, split by class/sample size and run heldout stability. | Do the same heads stay important across snapshots? |
 | HIGH | task:T1_PARTICLE0_SHORTCUT_OR_CORE_ANCHOR->hypothesis:AH1 | 0.2426 | Run particle0 removal / keep-only particle0 / top-k removal / same-count random controls. | task score is deterministic weak signal |
 | HIGH | task:T3_NEGATIVE_SUPPRESSIVE_GATES->hypothesis:NEGATIVE_GATES | 0.2426 | Add suppressive-head analysis and class-specific negative gate gradients. | task score is deterministic weak signal |
 | HIGH | task:T5_PATCH_VS_GRADIENT_DIVERGENCE->hypothesis:AH3 | 0.2426 | Build patch-rank vs gate-rank report and run multi-head patch combinations. | task score is deterministic weak signal |
