@@ -2,7 +2,7 @@
 
 This report compares evidence graph snapshots across runs.
 
-- Graph snapshots: **9**
+- Graph snapshots: **10**
 - Real dynamics available: **True**
 
 ## Runs
@@ -17,6 +17,7 @@ This report compares evidence graph snapshots across runs.
 | 6 | 2026-06-16T04:26:01.675182+00:00 | 0.7574 | 2560 | 1080 | 1255 | 24 | 959 |
 | 7 | 2026-06-16T04:29:01.473693+00:00 | 0.7574 | 2560 | 1080 | 1255 | 24 | 959 |
 | 8 | 2026-06-16T04:30:31.493657+00:00 | 0.7574 | 2560 | 1080 | 1255 | 24 | 959 |
+| 9 | 2026-06-16T05:06:52.665592+00:00 | 0.7574 | 2560 | 2027 | 2241 | 24 | 1865 |
 
 ## Latest top heads
 | rank | head | gate_abs | delta_gate | delta_rank | patch_drop | role |
@@ -35,10 +36,11 @@ This report compares evidence graph snapshots across runs.
 ## Latest class particle patterns
 | class | n | mean_score | mean_pt | mean_deltaR | particle0_fraction | charged_fraction |
 | --- | --- | --- | --- | --- | --- | --- |
-| label_Zqq | 12 | 2.6365 | 36.6327 | 0.1157 | 0.0833 | 0.6667 |
-| label_Tbl | 336 | 2.5180 | 45.0249 | 0.3224 | 0.0833 | 0.3750 |
-| label_Hqql | 599 | 2.5072 | 45.7495 | 0.1935 | 0.0835 | 0.4524 |
-| label_Wqq | 12 | 2.2187 | 55.8135 | 0.2310 | 0.0833 | 0.3333 |
+| label_Zqq | 29 | 2.5199 | 34.9848 | 0.2194 | 0.0690 | 0.5172 |
+| label_Tbl | 765 | 2.4363 | 34.6515 | 0.3272 | 0.0641 | 0.4026 |
+| label_Hqql | 972 | 2.3994 | 36.4722 | 0.1991 | 0.0638 | 0.4465 |
+| label_QCD | 19 | 2.3756 | 70.2321 | 0.1566 | 0.1053 | 0.3684 |
+| label_Wqq | 80 | 2.3566 | 37.5050 | 0.1724 | 0.0625 | 0.4875 |
 
 ## Output files
 
