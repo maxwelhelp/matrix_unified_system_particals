@@ -1,7 +1,7 @@
 {
   "schema": "research_dynamics.v1",
-  "generated_at_utc": "2026-06-16T04:29:03.374433+00:00",
-  "n_graph_snapshots": 8,
+  "generated_at_utc": "2026-06-16T04:30:33.430907+00:00",
+  "n_graph_snapshots": 9,
   "run_rows": [
     {
       "run_index": 0,
@@ -90,13 +90,24 @@
       "n_particle_vectors": 959,
       "baseline_acc": 0.7574218511581421,
       "n_events": 2560
+    },
+    {
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
+      "n_nodes": 1080,
+      "n_edges": 1255,
+      "n_head_vectors": 24,
+      "n_particle_vectors": 959,
+      "baseline_acc": 0.7574218511581421,
+      "n_events": 2560
     }
   ],
   "latest_top_heads": [
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 1,
       "head_id": "L1_ch112:128",
@@ -111,9 +122,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 2,
       "head_id": "L0_ch40:48",
@@ -128,9 +139,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 3,
       "head_id": "L2_ch224:256",
@@ -145,9 +156,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 4,
       "head_id": "L1_ch16:32",
@@ -162,9 +173,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 5,
       "head_id": "L0_ch48:56",
@@ -179,9 +190,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 6,
       "head_id": "L2_ch128:160",
@@ -196,9 +207,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 7,
       "head_id": "L0_ch8:16",
@@ -213,9 +224,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 8,
       "head_id": "L2_ch64:96",
@@ -230,9 +241,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 9,
       "head_id": "L2_ch0:32",
@@ -247,9 +258,9 @@
       "delta_rank": 0
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "run_id": "run:all_head_supertrace:v1:latest",
       "head_rank": 10,
       "head_id": "L0_ch0:8",
@@ -266,9 +277,9 @@
   ],
   "latest_class_particle_patterns": [
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "pred_label": "label_Zqq",
       "n_particles": 12,
       "mean_super_score": 2.6364502708117166,
@@ -279,9 +290,9 @@
       "charged_fraction": 0.6666666666666666
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "pred_label": "label_Tbl",
       "n_particles": 336,
       "mean_super_score": 2.518002119447504,
@@ -292,9 +303,9 @@
       "charged_fraction": 0.375
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "pred_label": "label_Hqql",
       "n_particles": 599,
       "mean_super_score": 2.5072382391991717,
@@ -305,9 +316,9 @@
       "charged_fraction": 0.4524207011686144
     },
     {
-      "run_index": 7,
-      "source_path": "manifests/history/research_evidence_graph_20260616_042901.json",
-      "generated_at_utc": "2026-06-16T04:29:01.473693+00:00",
+      "run_index": 8,
+      "source_path": "manifests/history/research_evidence_graph_20260616_043031.json",
+      "generated_at_utc": "2026-06-16T04:30:31.493657+00:00",
       "pred_label": "label_Wqq",
       "n_particles": 12,
       "mean_super_score": 2.2187444965044656,
@@ -328,6 +339,7 @@
     "manifests/history/research_evidence_graph_20260616_042447.json",
     "manifests/history/research_evidence_graph_20260616_042512.json",
     "manifests/history/research_evidence_graph_20260616_042601.json",
-    "manifests/history/research_evidence_graph_20260616_042901.json"
+    "manifests/history/research_evidence_graph_20260616_042901.json",
+    "manifests/history/research_evidence_graph_20260616_043031.json"
   ]
 }
