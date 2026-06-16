@@ -1,6 +1,6 @@
 {
   "schema": "stream_feature_embeddings.v1",
-  "generated_at_utc": "2026-06-16T08:21:03.706030+00:00",
+  "generated_at_utc": "2026-06-16T08:38:21.155312+00:00",
   "counts": {
     "events": 6795,
     "relations": 89,
