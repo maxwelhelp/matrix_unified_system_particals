@@ -3,11 +3,10 @@ HIGH,task:T1_PARTICLE0_SHORTCUT_OR_CORE_ANCHOR->hypothesis:AH1,1.0,Run particle0
 MEDIUM,task:T3_NEGATIVE_SUPPRESSIVE_GATES->hypothesis:NEGATIVE_GATES,1.0,Add suppressive-head analysis and class-specific negative gate gradients.,Are there heads that suppress the current class logit?
 MEDIUM,task:T5_PATCH_VS_GRADIENT_DIVERGENCE->hypothesis:AH3,1.0,Build patch-rank vs gate-rank report and run multi-head patch combinations.,"Which heads are patch-important but not gradient-important, or gradient-important but not patch-important?"
 HIGH,task:T4_HQQL_TBL_SIGNATURE->hypothesis:AH2,0.975,"Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.",Is the current stream dominated by Hqql/Tbl high-confidence events?
-HIGH,task:T2_HEAD_RANK_STABILITY->hypothesis:AH4,0.945,"Keep tracking; if unstable, split by class/sample size and run heldout stability.",Do the same heads stay important across snapshots?
-HIGH,pattern:wide->hypothesis:T6_WIDE_SECONDARY_CONTEXT,0.6967013601350704,route-neighbor trace,needs KNN neighbor and causal route controls
-HIGH,pattern:wide->class:label_Tbl,0.6574217613953016,route-neighbor trace and heldout stability,co-occurrence only; can reflect sorting or class imbalance
+HIGH,task:T2_HEAD_RANK_STABILITY->hypothesis:AH4,0.9511111111111111,"Keep tracking; if unstable, split by class/sample size and run heldout stability.",Do the same heads stay important across snapshots?
+HIGH,pattern:wide->hypothesis:T6_WIDE_SECONDARY_CONTEXT,0.6788334175765307,route-neighbor trace,needs KNN neighbor and causal route controls
+HIGH,pattern:wide->class:label_Tbl,0.630403598236061,route-neighbor trace and heldout stability,co-occurrence only; can reflect sorting or class imbalance
 HIGH,task:T1_PARTICLE0_SHORTCUT_OR_CORE_ANCHOR->hypothesis:AH1,0.2425666691282908,Run particle0 removal / keep-only particle0 / top-k removal / same-count random controls.,task score is deterministic weak signal
 HIGH,task:T3_NEGATIVE_SUPPRESSIVE_GATES->hypothesis:NEGATIVE_GATES,0.2425666691282908,Add suppressive-head analysis and class-specific negative gate gradients.,task score is deterministic weak signal
 HIGH,task:T5_PATCH_VS_GRADIENT_DIVERGENCE->hypothesis:AH3,0.2425666691282908,Build patch-rank vs gate-rank report and run multi-head patch combinations.,task score is deterministic weak signal
 HIGH,task:T4_HQQL_TBL_SIGNATURE->hypothesis:AH2,0.24031666912829078,"Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.",task score is deterministic weak signal
-HIGH,task:T2_HEAD_RANK_STABILITY->hypothesis:AH4,0.2376166691282908,"Keep tracking; if unstable, split by class/sample size and run heldout stability.",task score is deterministic weak signal
