@@ -2,7 +2,7 @@
 
 This report compares evidence graph snapshots across runs.
 
-- Graph snapshots: **4**
+- Graph snapshots: **5**
 - Real dynamics available: **True**
 
 ## Runs
@@ -12,6 +12,7 @@ This report compares evidence graph snapshots across runs.
 | 1 | 2026-06-16T04:10:17.558878+00:00 | 0.7574 | 2560 | 1080 | 1255 | 24 | 959 |
 | 2 | 2026-06-16T04:12:40.863052+00:00 | 0.7719 | 640 | 814 | 966 | 24 | 710 |
 | 3 | 2026-06-16T04:24:36.833330+00:00 | 0.7719 | 640 | 814 | 966 | 24 | 710 |
+| 4 | 2026-06-16T04:24:47.422420+00:00 | 0.7719 | 640 | 814 | 966 | 24 | 710 |
 
 ## Latest top heads
 | rank | head | gate_abs | delta_gate | delta_rank | patch_drop | role |
