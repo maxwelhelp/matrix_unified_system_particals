@@ -9,6 +9,7 @@ PYTHONUNBUFFERED=1 python tools/particlenet_all_head_supertrace_v1.py \
   --samples-per-file "${SAMPLES_PER_FILE:-64}" \
   --max-files "${MAX_FILES:-20}" \
   --head-groups "${HEAD_GROUPS:-8}" \
+  --micro-batch "${MICRO_BATCH:-64}" \
   --top-events "${TOP_EVENTS:-30}" \
   --top-particles "${TOP_PARTICLES:-10}" \
   --device "${DEVICE:-cuda}" \
