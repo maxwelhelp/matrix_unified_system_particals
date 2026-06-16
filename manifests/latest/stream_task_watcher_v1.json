@@ -1,8 +1,8 @@
 {
   "schema": "stream_task_watcher.v1",
-  "generated_at_utc": "2026-06-16T05:11:31.751882+00:00",
-  "latest_run_index": 10,
-  "n_stream_events": 4871,
+  "generated_at_utc": "2026-06-16T05:25:03.883297+00:00",
+  "latest_run_index": 11,
+  "n_stream_events": 5352,
   "n_latest_events": 481,
   "task_scores": [
     {
@@ -18,19 +18,19 @@
       "task_id": "T4_HQQL_TBL_SIGNATURE",
       "priority": "P0",
       "state": "HIGH",
-      "score": 0.975,
+      "score": 0.9625,
       "question": "Is the current stream dominated by Hqql/Tbl high-confidence events?",
       "next_action": "Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.",
-      "features_json": "{\"top_particles\": 80, \"hqql_fraction\": 0.8125, \"tbl_fraction\": 0.1625, \"hqql_tbl_fraction\": 0.975}"
+      "features_json": "{\"top_particles\": 80, \"hqql_fraction\": 0.875, \"tbl_fraction\": 0.0875, \"hqql_tbl_fraction\": 0.9625}"
     },
     {
       "task_id": "T2_HEAD_RANK_STABILITY",
       "priority": "P0",
       "state": "HIGH",
-      "score": 0.94,
+      "score": 0.9454545454545454,
       "question": "Do the same heads stay important across snapshots?",
       "next_action": "Keep tracking; if unstable, split by class/sample size and run heldout stability.",
-      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L1_ch16:32\", \"L0_ch40:48\", \"L2_ch224:256\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.3}"
+      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L1_ch16:32\", \"L0_ch40:48\", \"L2_ch224:256\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.2727272727272727}"
     },
     {
       "task_id": "T3_NEGATIVE_SUPPRESSIVE_GATES",
@@ -39,7 +39,7 @@
       "score": 1.0,
       "question": "Are there heads that suppress the current class logit?",
       "next_action": "Add suppressive-head analysis and class-specific negative gate gradients.",
-      "features_json": "{\"negative_gate_count\": 8, \"negative_heads\": [\"L0_ch0:8\", \"L1_ch64:80\", \"L1_ch80:96\", \"L2_ch32:64\", \"L2_ch96:128\", \"L2_ch160:192\", \"L1_ch0:16\", \"L0_ch56:64\"]}"
+      "features_json": "{\"negative_gate_count\": 8, \"negative_heads\": [\"L0_ch0:8\", \"L1_ch64:80\", \"L1_ch80:96\", \"L2_ch32:64\", \"L2_ch96:128\", \"L2_ch160:192\", \"L0_ch56:64\", \"L1_ch0:16\"]}"
     },
     {
       "task_id": "T5_PATCH_VS_GRADIENT_DIVERGENCE",
@@ -48,16 +48,16 @@
       "score": 1.0,
       "question": "Which heads are patch-important but not gradient-important, or gradient-important but not patch-important?",
       "next_action": "Build patch-rank vs gate-rank report and run multi-head patch combinations.",
-      "features_json": "{\"divergent_heads\": [{\"head_id\": \"L1_ch112:128\", \"gate_abs_grad\": 0.842360487754923, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L1_ch16:32\", \"gate_abs_grad\": 0.7222795635927468, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch40:48\", \"gate_abs_grad\": 0.7015100818593057, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch224:256\", \"gate_abs_grad\": 0.7008995685493572, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch48:56\", \"gate_abs_grad\": 0.3678499299974644, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch8:16\", \"gate_abs_grad\": 0.3510980424529408, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch128:160\", \"gate_abs_grad\": 0.33572994011483376, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch64:96\", \"gate_abs_grad\": 0.30327312572626386, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch0:32\", \"gate_abs_grad\": 0.26459686089656287, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch0:8\", \"gate_abs_grad\": 0.23233211163897055, \"patch_acc_drop\": 0.0}]}"
+      "features_json": "{\"divergent_heads\": [{\"head_id\": \"L1_ch112:128\", \"gate_abs_grad\": 0.8689268512214768, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L1_ch16:32\", \"gate_abs_grad\": 0.748019616522652, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch40:48\", \"gate_abs_grad\": 0.715566657370073, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch224:256\", \"gate_abs_grad\": 0.7083240525222217, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch48:56\", \"gate_abs_grad\": 0.3768698421619773, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch8:16\", \"gate_abs_grad\": 0.3576639466715291, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch128:160\", \"gate_abs_grad\": 0.3421113716471157, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch64:96\", \"gate_abs_grad\": 0.3056455652433215, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch0:32\", \"gate_abs_grad\": 0.2610779497063049, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch24:32\", \"gate_abs_grad\": 0.22714711990847689, \"patch_acc_drop\": 0.0}]}"
     },
     {
       "task_id": "T6_WIDE_SECONDARY_CONTEXT",
       "priority": "P1",
       "state": "LOW",
-      "score": 0.0975,
+      "score": 0.06,
       "question": "Besides particle0/core, is there stable wide/secondary particle context?",
       "next_action": "Run route-neighbor trace for top all-head particles and wide secondary particles.",
-      "features_json": "{\"top_particles\": 200, \"wide_fraction\": 0.065, \"non_particle0_wide_fraction\": 0.065}"
+      "features_json": "{\"top_particles\": 200, \"wide_fraction\": 0.04, \"non_particle0_wide_fraction\": 0.04}"
     }
   ],
   "top_recommendations": [
@@ -74,19 +74,19 @@
       "task_id": "T4_HQQL_TBL_SIGNATURE",
       "priority": "P0",
       "state": "HIGH",
-      "score": 0.975,
+      "score": 0.9625,
       "question": "Is the current stream dominated by Hqql/Tbl high-confidence events?",
       "next_action": "Run class-specific all-head gradients: Hqql, Tbl, Tbqq, Wqq, Zqq.",
-      "features_json": "{\"top_particles\": 80, \"hqql_fraction\": 0.8125, \"tbl_fraction\": 0.1625, \"hqql_tbl_fraction\": 0.975}"
+      "features_json": "{\"top_particles\": 80, \"hqql_fraction\": 0.875, \"tbl_fraction\": 0.0875, \"hqql_tbl_fraction\": 0.9625}"
     },
     {
       "task_id": "T2_HEAD_RANK_STABILITY",
       "priority": "P0",
       "state": "HIGH",
-      "score": 0.94,
+      "score": 0.9454545454545454,
       "question": "Do the same heads stay important across snapshots?",
       "next_action": "Keep tracking; if unstable, split by class/sample size and run heldout stability.",
-      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L1_ch16:32\", \"L0_ch40:48\", \"L2_ch224:256\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.3}"
+      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L1_ch16:32\", \"L0_ch40:48\", \"L2_ch224:256\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.2727272727272727}"
     },
     {
       "task_id": "T3_NEGATIVE_SUPPRESSIVE_GATES",
@@ -95,7 +95,7 @@
       "score": 1.0,
       "question": "Are there heads that suppress the current class logit?",
       "next_action": "Add suppressive-head analysis and class-specific negative gate gradients.",
-      "features_json": "{\"negative_gate_count\": 8, \"negative_heads\": [\"L0_ch0:8\", \"L1_ch64:80\", \"L1_ch80:96\", \"L2_ch32:64\", \"L2_ch96:128\", \"L2_ch160:192\", \"L1_ch0:16\", \"L0_ch56:64\"]}"
+      "features_json": "{\"negative_gate_count\": 8, \"negative_heads\": [\"L0_ch0:8\", \"L1_ch64:80\", \"L1_ch80:96\", \"L2_ch32:64\", \"L2_ch96:128\", \"L2_ch160:192\", \"L0_ch56:64\", \"L1_ch0:16\"]}"
     },
     {
       "task_id": "T5_PATCH_VS_GRADIENT_DIVERGENCE",
@@ -104,7 +104,7 @@
       "score": 1.0,
       "question": "Which heads are patch-important but not gradient-important, or gradient-important but not patch-important?",
       "next_action": "Build patch-rank vs gate-rank report and run multi-head patch combinations.",
-      "features_json": "{\"divergent_heads\": [{\"head_id\": \"L1_ch112:128\", \"gate_abs_grad\": 0.842360487754923, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L1_ch16:32\", \"gate_abs_grad\": 0.7222795635927468, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch40:48\", \"gate_abs_grad\": 0.7015100818593057, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch224:256\", \"gate_abs_grad\": 0.7008995685493572, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch48:56\", \"gate_abs_grad\": 0.3678499299974644, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch8:16\", \"gate_abs_grad\": 0.3510980424529408, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch128:160\", \"gate_abs_grad\": 0.33572994011483376, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch64:96\", \"gate_abs_grad\": 0.30327312572626386, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch0:32\", \"gate_abs_grad\": 0.26459686089656287, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch0:8\", \"gate_abs_grad\": 0.23233211163897055, \"patch_acc_drop\": 0.0}]}"
+      "features_json": "{\"divergent_heads\": [{\"head_id\": \"L1_ch112:128\", \"gate_abs_grad\": 0.8689268512214768, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L1_ch16:32\", \"gate_abs_grad\": 0.748019616522652, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch40:48\", \"gate_abs_grad\": 0.715566657370073, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch224:256\", \"gate_abs_grad\": 0.7083240525222217, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch48:56\", \"gate_abs_grad\": 0.3768698421619773, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch8:16\", \"gate_abs_grad\": 0.3576639466715291, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch128:160\", \"gate_abs_grad\": 0.3421113716471157, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch64:96\", \"gate_abs_grad\": 0.3056455652433215, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L2_ch0:32\", \"gate_abs_grad\": 0.2610779497063049, \"patch_acc_drop\": 0.0}, {\"head_id\": \"L0_ch24:32\", \"gate_abs_grad\": 0.22714711990847689, \"patch_acc_drop\": 0.0}]}"
     }
   ],
   "note": "v1 uses deterministic task features and weak labels. Later this becomes MLP/attention training data after enough snapshots/controls."
