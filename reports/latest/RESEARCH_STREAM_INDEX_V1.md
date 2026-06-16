@@ -2,14 +2,14 @@
 
 This is the first thing to read before deep logs. It converts evidence graphs into queryable stream events.
 
-- Snapshots: **3**
-- Stream events: **1303**
-- Latest run index: **2**
+- Snapshots: **4**
+- Stream events: **1724**
+- Latest run index: **3**
 
 ## Main cards
 | priority | title | value | drilldown |
 | --- | --- | --- | --- |
-| P0 | Stream state | 3 snapshots, 1303 events | manifests/latest/research_stream_index_v1.json |
+| P0 | Stream state | 4 snapshots, 1724 events | manifests/latest/research_stream_index_v1.json |
 | P0 | Top current all-head gate | L1_ch112:128 rank 1 gate_abs=0.8644 | python tools/query_research_stream_v1.py --event-type HEAD_GATE --top 10 |
 | P0 | Top current particle evidence | event 321 particle 0 label_Tbl score=5.0656 | python tools/query_research_stream_v1.py --event-type PARTICLE_TOP --top 20 |
 | P0 | particle0/core dominance in top particle stream | run particle0 removal / top-k controls | reports/latest/tables/research_stream_alerts.csv |
