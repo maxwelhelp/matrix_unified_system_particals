@@ -1,9 +1,9 @@
 {
   "schema": "stream_task_watcher.v1",
-  "generated_at_utc": "2026-06-16T04:40:30.592237+00:00",
-  "latest_run_index": 8,
-  "n_stream_events": 3909,
-  "n_latest_events": 441,
+  "generated_at_utc": "2026-06-16T05:06:58.519523+00:00",
+  "latest_run_index": 9,
+  "n_stream_events": 4390,
+  "n_latest_events": 481,
   "task_scores": [
     {
       "task_id": "T1_PARTICLE0_SHORTCUT_OR_CORE_ANCHOR",
@@ -27,10 +27,10 @@
       "task_id": "T2_HEAD_RANK_STABILITY",
       "priority": "P0",
       "state": "HIGH",
-      "score": 0.945,
+      "score": 0.9511111111111111,
       "question": "Do the same heads stay important across snapshots?",
       "next_action": "Keep tracking; if unstable, split by class/sample size and run heldout stability.",
-      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L0_ch40:48\", \"L2_ch224:256\", \"L1_ch16:32\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.275}"
+      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L0_ch40:48\", \"L2_ch224:256\", \"L1_ch16:32\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.24444444444444444}"
     },
     {
       "task_id": "T3_NEGATIVE_SUPPRESSIVE_GATES",
@@ -54,10 +54,10 @@
       "task_id": "T6_WIDE_SECONDARY_CONTEXT",
       "priority": "P1",
       "state": "LOW",
-      "score": 0.195,
+      "score": 0.15000000000000002,
       "question": "Besides particle0/core, is there stable wide/secondary particle context?",
       "next_action": "Run route-neighbor trace for top all-head particles and wide secondary particles.",
-      "features_json": "{\"top_particles\": 200, \"wide_fraction\": 0.13, \"non_particle0_wide_fraction\": 0.13}"
+      "features_json": "{\"top_particles\": 200, \"wide_fraction\": 0.1, \"non_particle0_wide_fraction\": 0.1}"
     }
   ],
   "top_recommendations": [
@@ -83,10 +83,10 @@
       "task_id": "T2_HEAD_RANK_STABILITY",
       "priority": "P0",
       "state": "HIGH",
-      "score": 0.945,
+      "score": 0.9511111111111111,
       "question": "Do the same heads stay important across snapshots?",
       "next_action": "Keep tracking; if unstable, split by class/sample size and run heldout stability.",
-      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L0_ch40:48\", \"L2_ch224:256\", \"L1_ch16:32\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.275}"
+      "features_json": "{\"top_heads\": [\"L1_ch112:128\", \"L0_ch40:48\", \"L2_ch224:256\", \"L1_ch16:32\", \"L0_ch48:56\"], \"mean_abs_delta_rank\": 0.24444444444444444}"
     },
     {
       "task_id": "T3_NEGATIVE_SUPPRESSIVE_GATES",
