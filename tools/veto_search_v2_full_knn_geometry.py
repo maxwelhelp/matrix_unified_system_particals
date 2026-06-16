@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+import argparse,csv,json,math,sys
+from pathlib import Path
+from collections import Counter
+import torch
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
+from tools.particlenet_real_patch_controls_v1 import load_balanced
+from tools.particle0_topk_controls_v2 import pt_values, real_mask
+
+def readcsv(p):
+    p=Path(p)
+    if not p.exists(): return []
+    with p.open('r',encoding='utf-8') as f: return list(csv.DictReader(f))
+def wcsv(p,rows):
+    p=Path(p); p.parent.mkdir(parents=True,exist_ok=True); keys=[]; seen=set()
+    for r in rows:
+        for k in r:
+            if k not in seen: keys.append(k); seen.add(k)
+    with p.open('w',encoding='utf-8',newline='') as f:
+        wr=csv.DictWriter(f,fieldnames=keys); wr.writeheader(); [wr.writerow({k:r.get(k,'') for k in keys}) for r in rows]
+def wjson(p,o): p=Path(p); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(o,indent=2,ensure_ascii=False),encoding='utf-8')
+def fnum(x,d=0.0):
+    try:
+        v=float(x)
+        return v if math.isfinite(v) else d
+    except Exception: return d
+def fmt(x):
+    try: return f'{float(x):.4f}'
+    except Exception: return 'n/a'
+def mdtab(h,rs):
+    if not rs: return '_No rows._\n'
+    return '\n'.join(['| '+' | '.join(h)+' |','| '+' | '.join(['---']*len(h))+' |']+['| '+' | '.join(str(x).replace('\n',' ') for x in r)+' |' for r in rs])+'\n'
+def is_lep(feat,ei,idx): return feat.shape[1]>=11 and bool((feat[ei,9,idx]>0.5) or (feat[ei,10,idx]>0.5))
+def is_had(feat,ei,idx): return feat.shape[1]>=8 and bool((feat[ei,6,idx]>0.5) or (feat[ei,7,idx]>0.5))
+def is_charged(feat,ei,idx): return feat.shape[1]>=7 and bool(feat[ei,6,idx]>0.5)
+def pid_name(feat,ei,idx):
+    if feat.shape[1]<11: return 'no_pid'
+    vals={'charged_hadron':float(feat[ei,6,idx]),'neutral_hadron':float(feat[ei,7,idx]),'photon':float(feat[ei,8,idx]),'electron':float(feat[ei,9,idx]),'muon':float(feat[ei,10,idx])}
+    return max(vals.items(),key=lambda kv:kv[1])[0]
+def pairwise(vals):
+    if len(vals)<2: return []
+    out=[]
+    for i in range(len(vals)):
+        for j in range(i+1,len(vals)):
+            out.append(float(torch.sqrt(((vals[i]-vals[j])**2).sum()+1e-9)))
+    return out
+def event_features(ei,group,phase_row,batch,knn_idx,patch_k,hard_pt_quantile=0.7):
+    feat=batch['features']; points=batch['points']; pt=pt_values(batch); mask=real_mask(batch)
+    p0=0
+    nb=[int(x) for x in knn_idx[ei,p0].tolist() if int(x)!=p0][:patch_k]
+    nb_pt=[float(pt[ei,j]) for j in nb]
+    hard_thr=sorted(nb_pt)[int(len(nb_pt)*hard_pt_quantile)] if nb_pt else 0.0
+    coords=[points[ei,:,j].float().cpu() for j in nb]
+    p0c=points[ei,:,p0].float().cpu()
+    dr_p0=[float(torch.sqrt(((c-p0c)**2).sum()+1e-9)) for c in coords]
+    pdr=pairwise(coords)
+    had=[j for j in nb if is_had(feat,ei,j)]
+    ch=[j for j in nb if is_charged(feat,ei,j)]
+    hard=[j for j in nb if float(pt[ei,j])>=hard_thr]
+    hard_had=[j for j in hard if is_had(feat,ei,j)]
+    hard_ch=[j for j in hard if is_charged(feat,ei,j)]
+    leps=[j for j in range(pt.shape[1]) if bool(mask[ei,j]) and is_lep(feat,ei,j)]
+    leps_sorted=sorted(leps,key=lambda j:float(pt[ei,j]),reverse=True)
+    had_all=[j for j in range(pt.shape[1]) if bool(mask[ei,j]) and is_had(feat,ei,j)]
+    lep_idx=leps_sorted[0] if leps_sorted else p0
+    lep_c=points[ei,:,lep_idx].float().cpu()
+    had_drs=[]
+    for j in had_all:
+        hc=points[ei,:,j].float().cpu(); had_drs.append((float(torch.sqrt(((hc-lep_c)**2).sum()+1e-9)),j,float(pt[ei,j]))) )
+    had_drs=sorted(had_drs)
+    hard_had_drs=sorted(had_drs,key=lambda x:(-x[2],x[0]))
+    row={'event_index':ei,'group':group,'phase1_group':phase_row.get('group',''),'p0_pid':pid_name(feat,ei,p0),'p0_pt':float(pt[ei,p0]),'p0_iso':fnum(phase_row.get('particle0_iso_pt_ratio')),'knn_size':len(nb),'knn_sum_neighbor_pt':sum(nb_pt),'knn_mean_neighbor_pt':sum(nb_pt)/len(nb_pt) if nb_pt else 0.0,'knn_max_neighbor_pt':max(nb_pt) if nb_pt else 0.0,'knn_hard_neighbor_count':len(hard),'knn_hard_hadron_count':len(hard_had),'knn_hard_charged_count':len(hard_ch),'knn_hadron_count':len(had),'knn_charged_count':len(ch),'knn_hadron_frac':len(had)/len(nb) if nb else 0.0,'knn_charged_frac':len(ch)/len(nb) if nb else 0.0,'knn_deltaR_to_p0_mean':sum(dr_p0)/len(dr_p0) if dr_p0 else 0.0,'knn_deltaR_to_p0_min':min(dr_p0) if dr_p0 else 0.0,'knn_pairwise_deltaR_mean':sum(pdr)/len(pdr) if pdr else 0.0,'knn_pairwise_deltaR_min':min(pdr) if pdr else 0.0,'knn_pairwise_deltaR_max':max(pdr) if pdr else 0.0,'second_lepton_present':int(len(leps_sorted)>=2),'second_lepton_pt':float(pt[ei,leps_sorted[1]]) if len(leps_sorted)>=2 else 0.0,'lepton_nearest_hadron_deltaR':had_drs[0][0] if had_drs else 999.0,'lepton_hardest_hadron_deltaR':hard_had_drs[0][0] if hard_had_drs else 999.0,'lepton_hardest_hadron_pt':hard_had_drs[0][2] if hard_had_drs else 0.0}
+    return row
+def compare(rows,features):
+    prot=[r for r in rows if r['group']=='protected_highiso']; conf=[r for r in rows if r['group']=='actual_confused_highiso']
+    out=[]
+    for f in features:
+        a=[fnum(r.get(f)) for r in prot]; b=[fnum(r.get(f)) for r in conf]
+        if not a or not b: continue
+        ma=sum(a)/len(a); mb=sum(b)/len(b)
+        sa=math.sqrt(sum((x-ma)**2 for x in a)/max(1,len(a)-1)); sb=math.sqrt(sum((x-mb)**2 for x in b)/max(1,len(b)-1))
+        pooled=math.sqrt((sa*sa+sb*sb)/2)+1e-9
+        out.append({'feature':f,'protected_mean':ma,'confused_mean':mb,'diff_protected_minus_confused':ma-mb,'ratio_protected_over_confused':(ma+1e-9)/(mb+1e-9) if abs(mb)>1e-9 else 999.0,'std_effect':(ma-mb)/pooled,'direction':'protected_higher_veto_candidate' if ma>mb else 'confused_higher_trigger_candidate'})
+    return sorted(out,key=lambda r:abs(r['std_effect']),reverse=True)
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--phase1-events',default='reports/latest/tables/hqql_tbl_confusion_physics_events.csv')
+    ap.add_argument('--data-dir',default=str(Path.home()/'Рабочий стол/jetclass_tiny_balanced'))
+    ap.add_argument('--mode',default='kinpid')
+    ap.add_argument('--samples-per-file',type=int,default=4096)
+    ap.add_argument('--max-files',type=int,default=1000)
+    ap.add_argument('--isolation-threshold',type=float,default=0.30)
+    ap.add_argument('--patch-k',type=int,default=16)
+    ap.add_argument('--device',default='cpu')
+    ap.add_argument('--out-md',default='reports/latest/VETO_SEARCH_V2_FULL_KNN_GEOMETRY.md')
+    ap.add_argument('--out-events',default='reports/latest/tables/veto_search_v2_full_knn_events.csv')
+    ap.add_argument('--out-contrasts',default='reports/latest/tables/veto_search_v2_full_knn_contrasts.csv')
+    ap.add_argument('--out-json',default='manifests/latest/veto_search_v2_full_knn_geometry.json')
+    a=ap.parse_args(); phase=readcsv(a.phase1_events)
+    protected=[r for r in phase if r.get('true_label')=='label_Hqql' and r.get('group')=='Hqql_correct' and fnum(r.get('particle0_iso_pt_ratio'))>=a.isolation_threshold]
+    confused=[r for r in phase if r.get('true_label')=='label_Hqql' and r.get('group')=='Hqql_to_Tbl' and fnum(r.get('particle0_iso_pt_ratio'))>=a.isolation_threshold]
+    wanted={int(fnum(r.get('event_index'),-1)):(r,'protected_highiso') for r in protected}
+    wanted.update({int(fnum(r.get('event_index'),-1)):(r,'actual_confused_highiso') for r in confused})
+    batch=load_balanced(a.data_dir,mode=a.mode,samples_per_file=a.samples_per_file,max_files=a.max_files,device=a.device)
+    from weaver.nn.model.ParticleNet import knn
+    pts=batch['points']; rows=[]
+    max_e=max(wanted) if wanted else -1
+    if max_e>=pts.shape[0]:
+        raise RuntimeError(f'Phase1 event_index max {max_e} exceeds loaded dataset B={pts.shape[0]}; use same/larger SAMPLES_PER_FILE/MAX_FILES as Phase1')
+    with torch.no_grad():
+        for ei,(phase_row,g) in wanted.items():
+            idx=knn(pts[ei:ei+1],a.patch_k).detach().cpu()
+            # make local knn index shape compatible by storing for one event as [1,N,K]
+            rows.append(event_features(ei,g,phase_row,batch,idx,a.patch_k))
+    features=[k for k in rows[0].keys() if k not in ('event_index','group','phase1_group','p0_pid')] if rows else []
+    contrasts=compare(rows,features); wcsv(a.out_events,rows); wcsv(a.out_contrasts,contrasts)
+    out={'ok':True,'protected_highiso_n':len(protected),'actual_confused_highiso_n':len(confused),'rows':len(rows),'top_contrasts':contrasts[:30]}; wjson(a.out_json,out)
+    veto=[r for r in contrasts if r['direction']=='protected_higher_veto_candidate'][:15]
+    trig=[r for r in contrasts if r['direction']=='confused_higher_trigger_candidate'][:15]
+    pidp=Counter(r['p0_pid'] for r in rows if r['group']=='protected_highiso'); pidc=Counter(r['p0_pid'] for r in rows if r['group']=='actual_confused_highiso')
+    md=['# VETO_SEARCH_V2_FULL_KNN_GEOMETRY\n\nFull KNN geometry contrast for high-isolation Hqql protected vs actual-confused events.\n\n','## Groups\n',mdtab(['group','n','p0_pid_modes'],[['protected_highiso',len(protected),', '.join(f'{k}:{v}' for k,v in pidp.most_common())],['actual_confused_highiso',len(confused),', '.join(f'{k}:{v}' for k,v in pidc.most_common())]]),'\n## Protected-higher candidates / possible veto\n',mdtab(['feature','protected_mean','confused_mean','diff','ratio','std_effect'],[[r['feature'],fmt(r['protected_mean']),fmt(r['confused_mean']),fmt(r['diff_protected_minus_confused']),fmt(r['ratio_protected_over_confused']),fmt(r['std_effect'])] for r in veto]),'\n## Confused-higher candidates / possible false-Tbl trigger\n',mdtab(['feature','protected_mean','confused_mean','diff','ratio','std_effect'],[[r['feature'],fmt(r['protected_mean']),fmt(r['confused_mean']),fmt(r['diff_protected_minus_confused']),fmt(r['ratio_protected_over_confused']),fmt(r['std_effect'])] for r in trig]),'\n## Interpretation\n\nIf protected-higher KNN geometry features are strong, they are candidate veto mechanisms that prevent high-isolation Hqql from becoming Tbl-like. If confused-higher features dominate, they are candidate triggers for false Tbl readout.\n']
+    Path(a.out_md).parent.mkdir(parents=True,exist_ok=True); Path(a.out_md).write_text(''.join(md),encoding='utf-8')
+    print(json.dumps({'ok':True,'rows':len(rows),'out_md':a.out_md},indent=2))
+if __name__=='__main__': main()
