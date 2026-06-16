@@ -1,17 +1,14 @@
 {
   "ok": true,
-  "status": "NEEDS_MORE_STATS",
+  "status": "PASS",
   "min_confused": 100,
-  "Hqql_to_Tbl": 35,
-  "Tbl_to_Hqql": 43,
+  "Hqql_to_Tbl": 154,
+  "Tbl_to_Hqql": 145,
   "groups": {
-    "Hqql_correct": 968,
-    "Hqql_to_Tbl": 35,
-    "Tbl_correct": 978,
-    "Tbl_to_Hqql": 43
+    "Hqql_correct": 3870,
+    "Hqql_to_Tbl": 154,
+    "Tbl_correct": 3929,
+    "Tbl_to_Hqql": 145
   },
-  "recommendations": [
-    "increase samples/files for Hqql_to_Tbl",
-    "increase samples/files for Tbl_to_Hqql"
-  ]
+  "recommendations": []
 }
