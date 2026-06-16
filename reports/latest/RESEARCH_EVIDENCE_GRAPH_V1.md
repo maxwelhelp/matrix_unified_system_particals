@@ -3,10 +3,10 @@
 This is the compact structured evidence graph for agent/neural analysis.
 
 - Nodes: **2056**
-- Edges: **2269**
+- Edges: **2270**
 - Head vectors: **24**
-- Particle vectors: **1893**
-- Baseline acc: **0.7601562738418579**
+- Particle vectors: **1894**
+- Baseline acc: **0.7662109136581421**
 
 ## Main updated hypotheses
 
