@@ -1,4 +1,73 @@
 head_id,layer,score,top_particle,top_is_particle0,top_is_leading,knn_contains_particle0,knn_contains_leading,route_role,route_code,event_index,rank,true_label,pred_label
+L0_ch40:48,0,8.461575508117676,24,0,0,0,0,context builder / relay away from direct core readout,"# L0_ch40:48: route-aware L0 local builder
+for particle i:
+    neighbors = knn(i, k=16)
+    edge = compare_raw_particle_features(i, neighbors)
+    local_pattern = detect_local_pid_pt_radial_edge(edge)
+    write_L0_local_pattern(local_patter",197,1,label_Hqql,label_Tbl
+L1_ch112:128,1,5.05611515045166,0,1,1,1,1,context builder / relay away from direct core readout,"# L1_ch112:128: route-aware L1 context relay
+for particle i:
+    neighbors = knn(i, k=16)
+    l0_context = read_L0_edge_features(i, neighbors)
+    route_context = mix_core_and_secondary(l0_context)
+    write_L1_context(route_context)
+    # ",197,2,label_Hqql,label_Tbl
+L1_ch0:16,1,4.506095886230469,0,1,1,1,1,context builder / relay away from direct core readout,"# L1_ch0:16: route-aware L1 context relay
+for particle i:
+    neighbors = knn(i, k=16)
+    l0_context = read_L0_edge_features(i, neighbors)
+    route_context = mix_core_and_secondary(l0_context)
+    write_L1_context(route_context)
+    # rol",197,3,label_Hqql,label_Tbl
+L2_ch224:256,2,0.49595963954925537,0,1,1,1,1,route-aware late core readout,"# L2_ch224:256: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",197,4,label_Hqql,label_Tbl
+L2_ch32:64,2,0.3257392644882202,0,1,1,1,1,route-aware late core readout,"# L2_ch32:64: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+   ",197,5,label_Hqql,label_Tbl
+L2_ch128:160,2,0.29862159490585327,0,1,1,1,1,route-aware late core readout,"# L2_ch128:160: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",197,6,label_Hqql,label_Tbl
+L2_ch160:192,2,0.232558473944664,0,1,1,1,1,route-aware late core readout,"# L2_ch160:192: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",197,7,label_Hqql,label_Tbl
+L2_ch0:32,2,0.15853485465049744,0,1,1,1,1,late readout moderately core-aligned,"# L2_ch0:32: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+    ",197,8,label_Hqql,label_Tbl
+L2_ch64:96,2,0.08121906220912933,0,1,1,1,1,route-aware late core readout,"# L2_ch64:96: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+   ",197,9,label_Hqql,label_Tbl
+L2_ch192:224,2,0.06276654452085495,2,0,0,0,0,late readout moderately core-aligned,"# L2_ch192:224: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",197,10,label_Hqql,label_Tbl
 L1_ch0:16,1,6.768133163452148,2,0,0,0,0,context builder / relay away from direct core readout,"# L1_ch0:16: route-aware L1 context relay
 for particle i:
     neighbors = knn(i, k=16)
@@ -68,75 +137,6 @@ for event:
     context = read_L1_context(top_particle, neighbors)
     evidence = aggregate_context(context)
  ",369,10,label_Tbl,label_Tbl
-L0_ch40:48,0,9.012757301330566,75,0,0,1,1,context builder / relay away from direct core readout,"# L0_ch40:48: route-aware L0 local builder
-for particle i:
-    neighbors = knn(i, k=16)
-    edge = compare_raw_particle_features(i, neighbors)
-    local_pattern = detect_local_pid_pt_radial_edge(edge)
-    write_L0_local_pattern(local_patter",332,1,label_Tbl,label_Tbl
-L1_ch0:16,1,6.488992214202881,4,0,0,0,0,context builder / relay away from direct core readout,"# L1_ch0:16: route-aware L1 context relay
-for particle i:
-    neighbors = knn(i, k=16)
-    l0_context = read_L0_edge_features(i, neighbors)
-    route_context = mix_core_and_secondary(l0_context)
-    write_L1_context(route_context)
-    # rol",332,2,label_Tbl,label_Tbl
-L1_ch112:128,1,4.670224189758301,12,0,0,0,0,context builder / relay away from direct core readout,"# L1_ch112:128: route-aware L1 context relay
-for particle i:
-    neighbors = knn(i, k=16)
-    l0_context = read_L0_edge_features(i, neighbors)
-    route_context = mix_core_and_secondary(l0_context)
-    write_L1_context(route_context)
-    # ",332,3,label_Tbl,label_Tbl
-L2_ch32:64,2,0.6586841344833374,0,1,1,0,0,route-aware late core readout,"# L2_ch32:64: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
-   ",332,4,label_Tbl,label_Tbl
-L2_ch160:192,2,0.5924606323242188,0,1,1,0,0,route-aware late core readout,"# L2_ch160:192: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",332,5,label_Tbl,label_Tbl
-L2_ch128:160,2,0.5905804634094238,0,1,1,0,0,route-aware late core readout,"# L2_ch128:160: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",332,6,label_Tbl,label_Tbl
-L2_ch224:256,2,0.5682569742202759,0,1,1,0,0,route-aware late core readout,"# L2_ch224:256: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",332,7,label_Tbl,label_Tbl
-L2_ch192:224,2,0.4874246418476105,0,1,1,0,0,late readout moderately core-aligned,"# L2_ch192:224: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",332,8,label_Tbl,label_Tbl
-L2_ch0:32,2,0.3954674005508423,0,1,1,0,0,late readout moderately core-aligned,"# L2_ch0:32: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
-    ",332,9,label_Tbl,label_Tbl
-L2_ch64:96,2,0.14195924997329712,0,1,1,0,0,route-aware late core readout,"# L2_ch64:96: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
-   ",332,10,label_Tbl,label_Tbl
 L1_ch112:128,1,5.846715927124023,0,1,1,1,1,context builder / relay away from direct core readout,"# L1_ch112:128: route-aware L1 context relay
 for particle i:
     neighbors = knn(i, k=16)
@@ -206,6 +206,75 @@ for event:
     context = read_L1_context(top_particle, neighbors)
     evidence = aggregate_context(context)
  ",355,10,label_Tbl,label_Tbl
+L0_ch40:48,0,9.012757301330566,75,0,0,1,1,context builder / relay away from direct core readout,"# L0_ch40:48: route-aware L0 local builder
+for particle i:
+    neighbors = knn(i, k=16)
+    edge = compare_raw_particle_features(i, neighbors)
+    local_pattern = detect_local_pid_pt_radial_edge(edge)
+    write_L0_local_pattern(local_patter",332,1,label_Tbl,label_Tbl
+L1_ch0:16,1,6.488992214202881,4,0,0,0,0,context builder / relay away from direct core readout,"# L1_ch0:16: route-aware L1 context relay
+for particle i:
+    neighbors = knn(i, k=16)
+    l0_context = read_L0_edge_features(i, neighbors)
+    route_context = mix_core_and_secondary(l0_context)
+    write_L1_context(route_context)
+    # rol",332,2,label_Tbl,label_Tbl
+L1_ch112:128,1,4.670224189758301,12,0,0,0,0,context builder / relay away from direct core readout,"# L1_ch112:128: route-aware L1 context relay
+for particle i:
+    neighbors = knn(i, k=16)
+    l0_context = read_L0_edge_features(i, neighbors)
+    route_context = mix_core_and_secondary(l0_context)
+    write_L1_context(route_context)
+    # ",332,3,label_Tbl,label_Tbl
+L2_ch32:64,2,0.6586841344833374,0,1,1,0,0,route-aware late core readout,"# L2_ch32:64: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+   ",332,4,label_Tbl,label_Tbl
+L2_ch160:192,2,0.5924606323242188,0,1,1,0,0,route-aware late core readout,"# L2_ch160:192: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",332,5,label_Tbl,label_Tbl
+L2_ch128:160,2,0.5905804634094238,0,1,1,0,0,route-aware late core readout,"# L2_ch128:160: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",332,6,label_Tbl,label_Tbl
+L2_ch224:256,2,0.5682569742202759,0,1,1,0,0,route-aware late core readout,"# L2_ch224:256: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",332,7,label_Tbl,label_Tbl
+L2_ch192:224,2,0.4874246418476105,0,1,1,0,0,late readout moderately core-aligned,"# L2_ch192:224: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+ ",332,8,label_Tbl,label_Tbl
+L2_ch0:32,2,0.3954674005508423,0,1,1,0,0,late readout moderately core-aligned,"# L2_ch0:32: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+    ",332,9,label_Tbl,label_Tbl
+L2_ch64:96,2,0.14195924997329712,0,1,1,0,0,route-aware late core readout,"# L2_ch64:96: route-aware L2 readout
+for event:
+    top_particle = select_particle_by_head_output()
+    neighbors = knn(top_particle, k=16)
+    context = read_L1_context(top_particle, neighbors)
+    evidence = aggregate_context(context)
+   ",332,10,label_Tbl,label_Tbl
 L0_ch40:48,0,5.658682823181152,1,0,0,0,0,context builder / relay away from direct core readout,"# L0_ch40:48: route-aware L0 local builder
 for particle i:
     neighbors = knn(i, k=16)
@@ -482,75 +551,6 @@ for event:
     context = read_L1_context(top_particle, neighbors)
     evidence = aggregate_context(context)
     ",337,10,label_Tbl,label_Tbl
-L0_ch40:48,0,8.461575508117676,24,0,0,0,0,context builder / relay away from direct core readout,"# L0_ch40:48: route-aware L0 local builder
-for particle i:
-    neighbors = knn(i, k=16)
-    edge = compare_raw_particle_features(i, neighbors)
-    local_pattern = detect_local_pid_pt_radial_edge(edge)
-    write_L0_local_pattern(local_patter",197,1,label_Hqql,label_Tbl
-L1_ch112:128,1,5.05611515045166,0,1,1,1,1,context builder / relay away from direct core readout,"# L1_ch112:128: route-aware L1 context relay
-for particle i:
-    neighbors = knn(i, k=16)
-    l0_context = read_L0_edge_features(i, neighbors)
-    route_context = mix_core_and_secondary(l0_context)
-    write_L1_context(route_context)
-    # ",197,2,label_Hqql,label_Tbl
-L1_ch0:16,1,4.506095886230469,0,1,1,1,1,context builder / relay away from direct core readout,"# L1_ch0:16: route-aware L1 context relay
-for particle i:
-    neighbors = knn(i, k=16)
-    l0_context = read_L0_edge_features(i, neighbors)
-    route_context = mix_core_and_secondary(l0_context)
-    write_L1_context(route_context)
-    # rol",197,3,label_Hqql,label_Tbl
-L2_ch224:256,2,0.49595963954925537,0,1,1,1,1,route-aware late core readout,"# L2_ch224:256: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",197,4,label_Hqql,label_Tbl
-L2_ch32:64,2,0.3257392644882202,0,1,1,1,1,route-aware late core readout,"# L2_ch32:64: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
-   ",197,5,label_Hqql,label_Tbl
-L2_ch128:160,2,0.29862159490585327,0,1,1,1,1,route-aware late core readout,"# L2_ch128:160: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",197,6,label_Hqql,label_Tbl
-L2_ch160:192,2,0.232558473944664,0,1,1,1,1,route-aware late core readout,"# L2_ch160:192: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",197,7,label_Hqql,label_Tbl
-L2_ch0:32,2,0.15853485465049744,0,1,1,1,1,late readout moderately core-aligned,"# L2_ch0:32: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
-    ",197,8,label_Hqql,label_Tbl
-L2_ch64:96,2,0.08121906220912933,0,1,1,1,1,route-aware late core readout,"# L2_ch64:96: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
-   ",197,9,label_Hqql,label_Tbl
-L2_ch192:224,2,0.06276654452085495,2,0,0,0,0,late readout moderately core-aligned,"# L2_ch192:224: route-aware L2 readout
-for event:
-    top_particle = select_particle_by_head_output()
-    neighbors = knn(top_particle, k=16)
-    context = read_L1_context(top_particle, neighbors)
-    evidence = aggregate_context(context)
- ",197,10,label_Hqql,label_Tbl
 L1_ch112:128,1,4.98876953125,3,0,0,0,0,context builder / relay away from direct core readout,"# L1_ch112:128: route-aware L1 context relay
 for particle i:
     neighbors = knn(i, k=16)
