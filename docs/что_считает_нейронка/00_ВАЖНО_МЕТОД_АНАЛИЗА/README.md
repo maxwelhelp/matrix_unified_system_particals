@@ -30,6 +30,13 @@
 и какие частицы включают эту программу.
 ```
 
+Четвёртая ошибка:
+
+```text
+анализировать по одной голове вручную,
+когда нужен полный граф particle_role -> head -> class по всем головам.
+```
+
 Правильный порядок:
 
 ```text
@@ -42,6 +49,7 @@
 7. если surrogate ошибается — искать veto/additional trigger
 8. когда гипотеза стала конкретной — проверить её напрямую во внутренних активациях
 9. каждую важную голову читать как матричную программу: read -> project -> route/write -> class direction -> particle roles
+10. строить полный граф путей particle_role -> head -> class и ранжировать triggers/loss/anomalies автоматически
 ```
 
 ## Главные документы
@@ -56,7 +64,10 @@ DIRECT_INTERNAL_ACTIVATION_PROBE_V1.md
   Новый важный разворот: после появления конкретной физической гипотезы идти внутрь сети и сравнивать activation space, а не только делать внешние patches.
 
 MATRIX_PROGRAM_HEAD_ANALYSIS_PRINCIPLE_V1.md
-  Главный принцип чтения голов: каждая pseudo-head = матричная программа. Надо анализировать read/source blocks, projection, route/write, class-direction и top-particle roles. Пример: L1_ch80:96 строит Tbl-like route, а L2_ch128:160 теряет Hqql evidence.
+  Главный принцип чтения голов: каждая pseudo-head = матричная программа. Надо анализировать read/source blocks, projection, route/write, class-direction и top-particle roles.
+
+MATRIX_PROGRAM_FULL_TRACE_V1.md
+  Полный автоматический trace: particle_role -> head -> class, ranked paths, triggers, source-evidence loss, anomalous third-topology mechanisms.
 
 CLASS_PAIR_PHYSICS_PLAYBOOK_V1.md
   Что делать, когда Confusion Monitor нашёл новую пару классов. Примеры: Zqq/Wqq, Hbb/Hcc, Hgg/H4q.
@@ -111,12 +122,20 @@ Hgg <-> H4q
 и где в цепочке возникает route / failure / readout.
 ```
 
+И четвёртое:
+
+```text
+После отдельных голов надо строить полный граф всех путей:
+particle_role -> pseudo-head -> class.
+Так видны сразу trigger paths, loss paths и anomalous third-topology paths.
+```
+
 ## Автоматизация
 
 Все будущие анализаторы отчётов должны следовать этому framework:
 
 ```text
-confusion -> contrastive groups -> bins/monotonicity -> patch -> surrogate -> residual inversion -> direct activation contrast -> matrix-program head analysis
+confusion -> contrastive groups -> bins/monotonicity -> patch -> surrogate -> residual inversion -> direct activation contrast -> matrix-program head analysis -> full path trace
 ```
 
 Новая практическая схема:
@@ -133,6 +152,9 @@ DIRECT_INTERNAL_ACTIVATION_PROBE
 
 MATRIX_PROGRAM_HEAD_ANALYSIS
   -> read/source blocks -> projection -> class-direction -> particle roles
+
+MATRIX_PROGRAM_FULL_TRACE
+  -> particle_role -> head -> class ranked mechanisms
 
 DEEP_PROBE
   -> patch/control/surrogate only for top candidates or after activation evidence
