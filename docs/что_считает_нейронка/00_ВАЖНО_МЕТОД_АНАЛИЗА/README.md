@@ -21,6 +21,15 @@
 хотя у нас есть доступ к внутренним активациям.
 ```
 
+Третья ключевая ошибка, которую теперь запрещаем:
+
+```text
+смотреть на голову как на “важный канал”,
+но не читать её как матричную программу:
+что она читает, куда пишет, какую class-direction двигает,
+и какие частицы включают эту программу.
+```
+
 Правильный порядок:
 
 ```text
@@ -32,6 +41,7 @@
 6. построить surrogate
 7. если surrogate ошибается — искать veto/additional trigger
 8. когда гипотеза стала конкретной — проверить её напрямую во внутренних активациях
+9. каждую важную голову читать как матричную программу: read -> project -> route/write -> class direction -> particle roles
 ```
 
 ## Главные документы
@@ -44,6 +54,9 @@ REASONING_FRAMEWORK_V1.md
 
 DIRECT_INTERNAL_ACTIVATION_PROBE_V1.md
   Новый важный разворот: после появления конкретной физической гипотезы идти внутрь сети и сравнивать activation space, а не только делать внешние patches.
+
+MATRIX_PROGRAM_HEAD_ANALYSIS_PRINCIPLE_V1.md
+  Главный принцип чтения голов: каждая pseudo-head = матричная программа. Надо анализировать read/source blocks, projection, route/write, class-direction и top-particle roles. Пример: L1_ch80:96 строит Tbl-like route, а L2_ch128:160 теряет Hqql evidence.
 
 CLASS_PAIR_PHYSICS_PLAYBOOK_V1.md
   Что делать, когда Confusion Monitor нашёл новую пару классов. Примеры: Zqq/Wqq, Hbb/Hcc, Hgg/H4q.
@@ -87,12 +100,23 @@ Hgg <-> H4q
 Надо смотреть, где он живёт во внутренних активациях.
 ```
 
+И третье:
+
+```text
+Когда найдена важная голова — не останавливаться на importance.
+Надо восстановить её матричную программу:
+какие source blocks она читает,
+какие частицы активируют её,
+какую class-direction она двигает,
+и где в цепочке возникает route / failure / readout.
+```
+
 ## Автоматизация
 
 Все будущие анализаторы отчётов должны следовать этому framework:
 
 ```text
-confusion -> contrastive groups -> bins/monotonicity -> patch -> surrogate -> residual inversion -> direct activation contrast
+confusion -> contrastive groups -> bins/monotonicity -> patch -> surrogate -> residual inversion -> direct activation contrast -> matrix-program head analysis
 ```
 
 Новая практическая схема:
@@ -106,6 +130,9 @@ FEATURE_RANKER_V1
 
 DIRECT_INTERNAL_ACTIVATION_PROBE
   -> A/B/C activation contrast when hypothesis is concrete
+
+MATRIX_PROGRAM_HEAD_ANALYSIS
+  -> read/source blocks -> projection -> class-direction -> particle roles
 
 DEEP_PROBE
   -> patch/control/surrogate only for top candidates or after activation evidence
