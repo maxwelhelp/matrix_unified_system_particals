@@ -10,8 +10,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.00287
+      "n": 500000,
+      "accuracy": 0.000378
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToCC.root",
@@ -21,8 +21,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.00869
+      "n": 500000,
+      "accuracy": 0.037204
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToGG.root",
@@ -32,8 +32,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 6e-05
+      "n": 500000,
+      "accuracy": 0.0
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root",
@@ -43,8 +43,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.00441
+      "n": 500000,
+      "accuracy": 0.255976
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root",
@@ -54,8 +54,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.04035
+      "n": 500000,
+      "accuracy": 0.000174
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_TTBar.root",
@@ -65,7 +65,7 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
+      "n": 500000,
       "accuracy": 0.0
     },
     {
@@ -76,8 +76,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.03339
+      "n": 500000,
+      "accuracy": 0.145936
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_WToQQ.root",
@@ -87,8 +87,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.00467
+      "n": 500000,
+      "accuracy": 0.0001
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_ZJetsToNuNu.root",
@@ -98,8 +98,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.3756
+      "n": 500000,
+      "accuracy": 0.71229
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_ZToQQ.root",
@@ -109,8 +109,8 @@
       "label_branches_found": 10,
       "score_branches_found": 10,
       "score_prefix": "score_",
-      "n": 100000,
-      "accuracy": 0.55071
+      "n": 500000,
+      "accuracy": 0.078674
     }
   ]
 }
