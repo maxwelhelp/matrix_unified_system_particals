@@ -4,8 +4,8 @@ Fast official ParT/Weaver predict smoke test.
 
 - split: /home/maxwelhelp/Рабочий стол/JetClassOfficial/val_5M
 - files: 1 per class
-- mode: kin
-- checkpoint: external/particle_transformer/models/ParT_kin.pt
+- mode: full
+- checkpoint: external/particle_transformer/models/ParT_full.pt
 - output prefix: reports/latest/part_weaver_predict_smoke_v3.root
 - log: runs/part_weaver_predict_smoke_v3.log
 
