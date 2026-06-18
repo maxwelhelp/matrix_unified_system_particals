@@ -11,7 +11,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.00039
+      "accuracy": 0.00287
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToCC.root",
@@ -22,7 +22,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.03708
+      "accuracy": 0.00869
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToGG.root",
@@ -33,7 +33,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.0
+      "accuracy": 6e-05
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root",
@@ -44,7 +44,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.25694
+      "accuracy": 0.00441
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root",
@@ -55,7 +55,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.00012
+      "accuracy": 0.04035
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_TTBar.root",
@@ -77,7 +77,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.14533
+      "accuracy": 0.03339
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_WToQQ.root",
@@ -88,7 +88,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.00011
+      "accuracy": 0.00467
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_ZJetsToNuNu.root",
@@ -99,7 +99,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.71085
+      "accuracy": 0.3756
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_ZToQQ.root",
@@ -110,7 +110,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.07936
+      "accuracy": 0.55071
     }
   ]
 }
