@@ -6,77 +6,77 @@
 ## Summary
 | file | n | accuracy | labels | scores | prefix | error |
 | --- | --- | --- | --- | --- | --- | --- |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | 100000 | 0.92714 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | 100000 | 0.84526 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | 100000 | 0.79843 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | 100000 | 0.98004 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | 100000 | 0.84481 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | 100000 | 0.95315 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | 100000 | 0.9852 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_WToQQ.root | 100000 | 0.79911 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_ZJetsToNuNu.root | 100000 | 0.77626 | 10 | 10 | score_ |  |
-| reports/latest/part_weaver_predict_smoke_v3_ZToQQ.root | 100000 | 0.69457 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | 100000 | 0.00039 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | 100000 | 0.03708 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | 100000 | 0.0 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | 100000 | 0.25694 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | 100000 | 0.00012 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | 100000 | 0.0 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | 100000 | 0.14533 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_WToQQ.root | 100000 | 0.00011 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_ZJetsToNuNu.root | 100000 | 0.71085 | 10 | 10 | score_ |  |
+| reports/latest/part_weaver_predict_smoke_v3_ZToQQ.root | 100000 | 0.07936 | 10 | 10 | score_ |  |
 
 ## Top confusion pairs
 | file | true | pred | n |
 | --- | --- | --- | --- |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hbb | 92714 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Zqq | 3020 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hcc | 1437 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hgg | 1119 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Tbqq | 928 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_QCD | 407 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_H4q | 187 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Wqq | 103 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Tbl | 59 |
-| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hqql | 26 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hcc | 84526 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_H4q | 4195 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hgg | 3843 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Zqq | 3166 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Wqq | 1309 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_QCD | 1190 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hbb | 888 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Tbqq | 712 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hqql | 149 |
-| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Tbl | 22 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hgg | 79843 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_H4q | 7387 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_QCD | 4506 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hcc | 3144 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hbb | 1951 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Zqq | 1939 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Wqq | 741 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Tbqq | 454 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hqql | 22 |
-| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Tbl | 13 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hqql | 98004 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Tbl | 924 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Wqq | 483 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Zqq | 176 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hcc | 151 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_H4q | 92 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_QCD | 89 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Tbqq | 54 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hgg | 14 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hbb | 13 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_H4q | 84481 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hgg | 7874 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hcc | 2982 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Zqq | 1392 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Wqq | 1213 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_QCD | 983 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Tbqq | 788 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hbb | 178 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hqql | 108 |
-| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Tbl | 1 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Tbqq | 95315 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_H4q | 1015 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hbb | 893 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_QCD | 783 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hcc | 715 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Wqq | 541 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hgg | 413 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Zqq | 249 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hqql | 44 |
-| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Tbl | 32 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Zqq | 49394 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_QCD | 36929 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hcc | 5413 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hqql | 4400 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Tbl | 3788 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hbb | 39 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Wqq | 14 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_H4q | 13 |
+| reports/latest/part_weaver_predict_smoke_v3_HToBB.root | label_Hbb | label_Hgg | 10 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Zqq | 45779 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hqql | 18860 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_QCD | 17033 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Tbl | 14345 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hcc | 3708 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hbb | 170 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_H4q | 96 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Wqq | 8 |
+| reports/latest/part_weaver_predict_smoke_v3_HToCC.root | label_Hcc | label_Hgg | 1 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Zqq | 60725 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_QCD | 28441 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hqql | 6077 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Tbl | 2415 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hcc | 2251 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Hbb | 74 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_H4q | 14 |
+| reports/latest/part_weaver_predict_smoke_v3_HToGG.root | label_Hgg | label_Wqq | 3 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_QCD | 37564 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hqql | 25694 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hcc | 22311 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Zqq | 9195 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Tbl | 4577 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_H4q | 641 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Wqq | 12 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hgg | 3 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root | label_Hqql | label_Hbb | 3 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Zqq | 59219 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_QCD | 22298 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hqql | 13149 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hcc | 3396 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Tbl | 1902 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hbb | 21 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_H4q | 12 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Wqq | 2 |
+| reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root | label_H4q | label_Hgg | 1 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Zqq | 88894 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_QCD | 4421 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Tbl | 3460 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hqql | 3027 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hcc | 103 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Hbb | 64 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBar.root | label_Tbqq | label_Wqq | 31 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_QCD | 35511 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Zqq | 22264 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Hcc | 20825 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Tbl | 14533 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Hqql | 6443 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_H4q | 235 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Hgg | 108 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Wqq | 41 |
+| reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root | label_Tbl | label_Hbb | 39 |

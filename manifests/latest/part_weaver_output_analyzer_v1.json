@@ -11,7 +11,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.92714
+      "accuracy": 0.00039
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToCC.root",
@@ -22,7 +22,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.84526
+      "accuracy": 0.03708
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToGG.root",
@@ -33,7 +33,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.79843
+      "accuracy": 0.0
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToWW2Q1L.root",
@@ -44,7 +44,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.98004
+      "accuracy": 0.25694
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_HToWW4Q.root",
@@ -55,7 +55,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.84481
+      "accuracy": 0.00012
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_TTBar.root",
@@ -66,7 +66,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.95315
+      "accuracy": 0.0
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_TTBarLep.root",
@@ -77,7 +77,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.9852
+      "accuracy": 0.14533
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_WToQQ.root",
@@ -88,7 +88,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.79911
+      "accuracy": 0.00011
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_ZJetsToNuNu.root",
@@ -99,7 +99,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.77626
+      "accuracy": 0.71085
     },
     {
       "file": "reports/latest/part_weaver_predict_smoke_v3_ZToQQ.root",
@@ -110,7 +110,7 @@
       "score_branches_found": 10,
       "score_prefix": "score_",
       "n": 100000,
-      "accuracy": 0.69457
+      "accuracy": 0.07936
     }
   ]
 }
